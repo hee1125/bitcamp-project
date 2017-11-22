@@ -56,7 +56,7 @@ const searchNewAddress = (type, searchWord, callback) => {
           for (var addr of addrList) {
               message += '['+ addr.zipNo[0] + ']\n'
               message += addr.rnAdres[0] + '\n'
-              message += addr.addr.lnmAdres[0] + '\n'
+              message += addr.lnmAdres[0] + '\n'
               message += '\n';
           }
 
