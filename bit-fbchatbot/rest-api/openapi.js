@@ -37,7 +37,7 @@ const searchNewAddress = (type, searchWord) => {
   });
 }
 
-searchNewAddress('road', '올림픽로33길 17');
+
 
 module.exports = {
     searchNewAddress
