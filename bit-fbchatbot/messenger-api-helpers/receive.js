@@ -24,7 +24,7 @@ const handleReceiveMessage = (event) => {
             console.log(err);
           }
 
-    else{
+    } else {
     sendAPI.sendTextMessage(senderID, messageText);
     }
 
