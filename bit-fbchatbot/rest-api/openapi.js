@@ -2,6 +2,8 @@ const request = require('request');
 
 const searchNewAddress = (type, searchWord) => {
     var uri = 'http://openapi.epost.go.kr/postal/retrieveNewAdressAreaCdService/retrieveNewAdressAreaCdService/getNewAddressListAreaCd';
+
+    require('dotenv').config({path:'/home/ec2-user/vars/.env'})
     /* Service Key*/
     var queryString = '?ServiceKey=' + process.env.OPENAPI_KEY;
 
