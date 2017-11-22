@@ -1,18 +1,18 @@
 const request = require('request');
 
-const searchNewAddress = (searchWord) => {
+const searchNewAddress = (type, searchWord) => {
     var uri = 'http://openapi.epost.go.kr/postal/retrieveNewAdressAreaCdService/retrieveNewAdressAreaCdService/getNewAddressListAreaCd';
     /* Service Key*/
     var queryString = '?ServiceKey=' + '88i10DuxPHVkWtgO54BBDR3wzp7T0axT8GPdlN72s9ooJgRxT6TGjtwpUF5hRCb9F4wwuJd5xrDF8%2FvY8Ryr7Q%3D%3D';
 
     /* dong : 동(읍/면)명 road :도로명[default] post : 우편번호 */
-    queryString += '&searchSe=road';
+    queryString += '&searchSed=' + type;
 
     /* 검색어 */
     queryString += '&srchwrd=' + encodeURIComponent(searchWord);
 
     /* 페이지당 출력될 개수를 지정 */
-    queryString += '&currentPerPage=10';
+    queryString += '&countPerPage=10';
 
     /* 출력될 페이지 번호 */
     queryString += '&currentPage=1';
@@ -36,8 +36,9 @@ const searchNewAddress = (searchWord) => {
   });
 }
 
-searchwordNewAddress('신천동');
-
+searchNewAddress('road', '올림픽로33길 17');
+/*
 module.exports = {
     searchNewAddress
 };
+*/
