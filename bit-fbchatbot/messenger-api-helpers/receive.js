@@ -15,8 +15,9 @@ const handleReceiveMessage = (event) => {
 
     if (messageText == 'led') {
         sendAPI.sendLedMessage(senderID);
-    }
+    }else{
     sendAPI.sendTextMessage(senderID, messageText);
+    }
 };
 
 const handleReceivePostback = (event) => {
