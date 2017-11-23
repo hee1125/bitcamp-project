@@ -20,5 +20,5 @@ parseString(xml, (err, result) => {
         console.log(addr.lnmAdres[0]);
         console.log('-------------------------')
     }
-    
+      
 });
