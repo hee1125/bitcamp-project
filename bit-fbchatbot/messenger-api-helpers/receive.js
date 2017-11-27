@@ -53,13 +53,15 @@ const handleReceivePostback = (event) => {
 
     var menu = global[senderID].menu;
     if(menu == 'help') {
-      menuHelp(senderID, payload);
+        menuHelp(senderID, payload);
     } else if (menu == 'led') {
-      menuLed(senderID, payload);
+        menuLed(senderID, payload);
     } else if (menu == 'calc') {
-      menuCalc(senderID, payload);
+        menuCalc(senderID, payload);
     } else if (menu == 'addr') {
-      menuAddr(senderID, payload);
+        menuAddr(senderID, payload);
+    } else {
+        sendAPI.sendTextMessage(senderID, "메뉴를 다시 요청하세요!")
     }
 
 /*
