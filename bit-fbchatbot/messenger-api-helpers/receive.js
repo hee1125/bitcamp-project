@@ -40,8 +40,6 @@ const handleReceiveMessage = (event) => {
         sendAPI.sendTextMessage(senderID, messageText);
     }
 
-
-
 };
 
 const handleReceivePostback = (event) => {
@@ -74,7 +72,9 @@ const menuHelp = (senderID, payload) => {
         global[senderID].menu = 'led'; // 이 사용자의 현재 메뉴는 'LED' 스위치 이다.
 
     } else if (payload == 'menu_calc') {
-        console.log('계산기 메뉴를 눌렀네요!');
+        sendAPI.sendLedMessage(senderID, '식을 입력하세요. \n 예) 2 + 3');
+        global[senderID].menu = 'calc';
+
     } else if (payload == 'menu_addr') {
         console.log('주소 메뉴를 눌렀네요!');
     }
@@ -109,8 +109,8 @@ const menuCalc = (senderID, messageText) => {
               sendAPI.sendTextMessage(senderID, '+, -, *, % 연산자만 사용할 수 있습니다.')
               return;
         }
-        console.log("--------------------------------------------");
-        sendAPI.sendTextMessage(senderID, '계산 결과는 ' + result ' 입니다.')
+
+        sendAPI.sendTextMessage(senderID, '계산 결과는 ' + result + ' 입니다.')
 
     } catch (exception) {
       sendAPI.sendTextMessage(senderID, '계산식 형식이 옳지 않습니다. \n 예) 값1 연산자 값2')
