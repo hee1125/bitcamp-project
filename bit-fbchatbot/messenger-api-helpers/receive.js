@@ -24,7 +24,7 @@ const handleReceiveMessage = (event) => {
             var arr = messageText.split(':')[1].split('=');
             openAPI.searchNewAddress(arr[0], arr[1],(msg)=>{
                 sendAPI.sendTextMessage(senderID, msg);
-            });
+            )};
         } catch (err) {
             console.log(err);
           }
