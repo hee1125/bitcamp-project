@@ -129,13 +129,13 @@ const menuCalc = (senderID, messageText) => {
 
 const menuAddr = (senderID, payload) => {
   if (payload == 'addr_dong') {
-      sendAPI.sendTextMessage(senderID, '동 이름을 입력해주세요~ 예) 신천동');
+      sendAPI.searchNewAddress(senderID, '동 이름을 입력해주세요~ 예) 신천동');
       global[senderID].menu = 'addr_dong';
   } else if (payload == 'addr_road') {
-      sendAPI.sendTextMessage(senderID, '도로명을 입력해주세요~ 예) 올림픽로33길 17');
+      sendAPI.searchNewAddress(senderID, '도로명을 입력해주세요~ 예) 올림픽로33길 17');
       global[senderID].menu = 'addr_road';
   } else if (payload == 'addr_post') {
-      sendAPI.sendTextMessage(senderID, '우편번호를 입력해주세요~ 예) 05509');
+      sendAPI.searchNewAddress(senderID, '우편번호를 입력해주세요~ 예) 05509');
       global[senderID].menu = 'addr_post';
   }
 };
