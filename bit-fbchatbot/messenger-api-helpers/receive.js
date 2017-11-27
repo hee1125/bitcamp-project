@@ -23,7 +23,7 @@ const handleReceiveMessage = (event) => {
 
     } else if (menu == 'calc') {
         menuCalc(senderID, messageText);
-    } else if (menu.startsWith == 'addr_') { // 동, 도로명, 우편번호를 검색한다면,
+    } else if (menu.startsWith('addr_')) { // 동, 도로명, 우편번호를 검색한다면,
         try {
             var type = menu.substring(5);
             var searchWord = messageText;
@@ -79,7 +79,7 @@ const menuHelp = (senderID, payload) => {
         global[senderID].menu = 'led'; // 이 사용자의 현재 메뉴는 'LED' 스위치 이다.
 
     } else if (payload == 'menu_calc') {
-        sendAPI.sendLedMessage(senderID, '식을 입력하세요. \n 예) 2 + 3');
+        sendAPI.sendTextMessage(senderID, '식을 입력하세요. \n 예) 2 + 3');
         global[senderID].menu = 'calc';
 
     } else if (payload == 'menu_addr') {

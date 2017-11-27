@@ -75,7 +75,7 @@ const sendAddressSearchMessage = (recipientId, messageText) => {
             },
             {
               "type":"postback",
-              "title":"주소검색",
+              "title":"우편번호",
               "payload":"addr_post"
             },
 
