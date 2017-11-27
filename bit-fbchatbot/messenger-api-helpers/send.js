@@ -148,12 +148,12 @@ const sendLedMessage = (recipientId, messageText) => {
           "buttons":[
             {
               "type":"postback",
-              "title":"Led ON",
+              "title":"ON",
               "payload":"led_on"
             },
             {
               "type":"postback",
-              "title":"Led OFF",
+              "title":"OFF",
               "payload":"led_off"
             },
 

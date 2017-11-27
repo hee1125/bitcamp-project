@@ -49,6 +49,8 @@ const handleReceivePostback = (event) => {
     var menu = global[senderID].menu;
     if(menu == 'help') {
       menuHelp(senderID, payload);
+    } else if (menu == 'led') {
+      menuLed(senderID, payload);
     }
 /*
     if (payload == 'led_on') {
@@ -61,7 +63,9 @@ const handleReceivePostback = (event) => {
 
 const menuHelp = (senderID, payload) => {
     if (payload == 'menu_led') {
-        console.log('LED 메뉴를 눌렀네요!');
+        sendAPI.sendLedMessage(senderID);
+        global[senderID].menu = 'led'; // 이 사용자의 현재 메뉴는 'LED' 스위치 이다.
+
     } else if (payload == 'menu_calc') {
         console.log('계산기 메뉴를 눌렀네요!');
     } else if (payload == 'menu_addr') {
@@ -69,6 +73,14 @@ const menuHelp = (senderID, payload) => {
     }
 };
 
+const menuLed = (senderID, payload) => {
+    if (payload == 'led_on') {
+      sendAPI.sendTextMessage(senderID, "전구를 켜겠습니다.");
+      // 나중에 스프링 부트에 LED 켜는 명령을 보낼 것이다.
+    }  else if (payload == 'led_off') {
+      sendAPI.sendTextMessage(senderID, "전구를 끄겠습니다.");
+      // 나중에 스프링 부트에 LED 끄는 명령을 보낼 것이다.
+    }
 
 module.exports = {
     handleReceiveMessage,
