@@ -109,7 +109,9 @@ const menuCalc = (senderID, messageText) => {
               sendAPI.sendTextMessage(senderID, '+, -, *, % 연산자만 사용할 수 있습니다.')
               return;
         }
+        console.log("--------------------------------------------");
         sendAPI.sendTextMessage(senderID, '계산 결과는 ' + result ' 입니다.')
+
     } catch (exception) {
       sendAPI.sendTextMessage(senderID, '계산식 형식이 옳지 않습니다. \n 예) 값1 연산자 값2')
     }
