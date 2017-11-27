@@ -22,14 +22,14 @@ const handleReceiveMessage = (event) => {
         global[senderID].menu = 'help';
 
     } else if (menu == 'calc') {
-      // 현재 계산기 메뉴일 때는 사용자가 입력한 값이
-      // 계산식이라고 가정하고 메시지를 분석한다.
-      menuCalc(senderID, messageText);
-
-    } else if (messageText.startsWith("searchAddress:")) {
+        menuCalc(senderID, messageText);
+    } else if (menu.startsWith == 'addr_') { // 동, 도로명, 우편번호를 검색한다면,
         try {
-            var arr = messageText.split(':')[1].split('=');
-            openAPI.searchNewAddress(arr[0], arr[1],(msg)=>{
+            var type = menu.substring(5);
+            var searchWord = messageText;
+            // var arr = messageText.split(':')[1].split('=');
+            openAPI.sendNewAddress(type, searchWord, (msg) => {
+            //openAPI.searchNewAddress(arr[0], arr[1],(msg)=>{
                 sendAPI.sendTextMessage(senderID, msg);
             });
         } catch (err) {
@@ -56,7 +56,12 @@ const handleReceivePostback = (event) => {
       menuHelp(senderID, payload);
     } else if (menu == 'led') {
       menuLed(senderID, payload);
+    } else if (menu == 'calc') {
+      menuCalc(senderID, payload);
+    } else if (menu == 'addr') {
+      menuAddr(senderID, payload);
     }
+
 /*
     if (payload == 'led_on') {
       sendAPI.sendTextMessage(senderID, "전구를 켜겠습니다.");
@@ -76,7 +81,8 @@ const menuHelp = (senderID, payload) => {
         global[senderID].menu = 'calc';
 
     } else if (payload == 'menu_addr') {
-        console.log('주소 메뉴를 눌렀네요!');
+        sendAPI.sendAddressSearchMessage(senderID);
+        global[senderID].menu = 'addr';
     }
 };
 
@@ -91,6 +97,8 @@ const menuLed = (senderID, payload) => {
 };
 
 const menuCalc = (senderID, messageText) => {
+    // 현재 계산기 메뉴일 때는 사용자가 입력한 값이
+    // 계산식이라고 가정하고 메시지를 분석한다.
     try{
         var tokens = messageText.split(' ');
         if(tokens.length != 3)
@@ -116,6 +124,22 @@ const menuCalc = (senderID, messageText) => {
       sendAPI.sendTextMessage(senderID, '계산식 형식이 옳지 않습니다. \n 예) 값1 연산자 값2')
     }
 };
+
+const menuAddr = (senderID, payload) => {
+  if (payload == 'addr_dong') {
+      sendAPI.sendTextMessage(senderID, '동 이름을 입력해주세요~ 예) 신천동');
+      global[senderID].menu = 'addr_dong';
+  } else if (payload == 'addr_road') {
+      sendAPI.sendTextMessage(senderID, '도로명을 입력해주세요~ 예) 올림픽로33길 17');
+      global[senderID].menu = 'addr_road';
+  } else if (payload == 'addr_post') {
+      sendAPI.sendTextMessage(senderID, '우편번호를 입력해주세요~ 예) 05509');
+      global[senderID].menu = 'addr_post';
+  }
+};
+
+
+
 module.exports = {
     handleReceiveMessage,
     handleReceivePostback

@@ -51,6 +51,43 @@ const sendMenuMessage = (recipientId, messageText) => {
   api.callMessagesAPI(messageData);
 };
 
+const sendAddressSearchMessage = (recipientId, messageText) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"button",
+          "text":"메뉴",
+          "buttons":[
+            {
+              "type":"postback",
+              "title":"동이름",
+              "payload":"addr_dong"
+            },
+            {
+              "type":"postback",
+              "title":"도로명",
+              "payload":"addr_road"
+            },
+            {
+              "type":"postback",
+              "title":"주소검색",
+              "payload":"addr_post"
+            },
+
+          ]
+        }
+      }
+    }
+  };
+
+  api.callMessagesAPI(messageData);
+};
+
 
 const sendImageMessage = (recipientId, messageText) => {
   var messageData = {
@@ -217,6 +254,7 @@ const sendGenericMessage = (recipientId) => {
 module.exports = {
     sendTextMessage,
     sendMenuMessage,
+    sendAddressSearchMessage,
     sendImageMessage,
     sendButton1Message,
     sendButton2Message,
