@@ -14,7 +14,7 @@ const sendTextMessage = (recipientId, messageText) => {
     api.callMessagesAPI(messageData);
 };
 
-const sendMenuMessage = (recipientId, messageText) => {
+const sendMenuMessage = (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -51,7 +51,7 @@ const sendMenuMessage = (recipientId, messageText) => {
   api.callMessagesAPI(messageData);
 };
 
-const sendAddressSearchMessage = (recipientId, messageText) => {
+const sendAddressSearchMessage = (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -61,7 +61,7 @@ const sendAddressSearchMessage = (recipientId, messageText) => {
         "type":"template",
         "payload":{
           "template_type":"button",
-          "text":"메뉴",
+          "text":"검색항목",
           "buttons":[
             {
               "type":"postback",
@@ -89,7 +89,7 @@ const sendAddressSearchMessage = (recipientId, messageText) => {
 };
 
 
-const sendImageMessage = (recipientId, messageText) => {
+const sendImageMessage = (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -108,7 +108,7 @@ const sendImageMessage = (recipientId, messageText) => {
   api.callMessagesAPI(messageData);
 };
 
-const sendButton1Message = (recipientId, messageText) => {
+const sendButton1Message = (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -144,7 +144,7 @@ const sendButton1Message = (recipientId, messageText) => {
   api.callMessagesAPI(messageData);
 };
 
-const sendButton2Message = (recipientId, messageText) => {
+const sendButton2Message = (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -171,7 +171,7 @@ const sendButton2Message = (recipientId, messageText) => {
 };
 
 
-const sendLedMessage = (recipientId, messageText) => {
+const sendLedMessage = (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId

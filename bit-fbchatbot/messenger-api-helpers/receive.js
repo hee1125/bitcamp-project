@@ -28,7 +28,7 @@ const handleReceiveMessage = (event) => {
             var type = menu.substring(5);
             var searchWord = messageText;
             // var arr = messageText.split(':')[1].split('=');
-            openAPI.sendNewAddress(type, searchWord, (msg) => {
+            openAPI.searchNewAddress(type, searchWord, (msg) => {
             //openAPI.searchNewAddress(arr[0], arr[1],(msg)=>{
                 sendAPI.sendTextMessage(senderID, msg);
             });
