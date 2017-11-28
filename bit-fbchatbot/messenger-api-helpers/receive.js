@@ -33,7 +33,8 @@ const handleReceiveMessage = (event) => {
                 sendAPI.sendTextMessage(senderID, msg);
             });
         } catch (err) {
-            console.log(err);
+            sendAPI.sendTextMessage("주소검색을 할 수 없습니다.")
+            console.log(err)
           }
 
     } else {
