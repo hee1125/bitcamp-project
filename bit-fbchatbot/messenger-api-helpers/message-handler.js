@@ -11,7 +11,7 @@ const addMessage = (message, handler) => {
     messageHandler[message] = handler;
 }
 
-// 등록된 메시지를 핸들러를 찾아서 리턴한다
+// 등록된 메시지를 핸들러를 찾아서 리턴한다.
 const getHandler = (message) => {
     return messageHandler[message];
 };
@@ -33,17 +33,17 @@ addMessage('help', (recipientID) => {
               {
                 "type":"postback",
                 "title":"LED",
-                "payload":"menu_led"
+                "payload":"/led"
               },
               {
                 "type":"postback",
                 "title":"계산기",
-                "payload":"menu_calc"
+                "payload":"/calc"
               },
               {
                 "type":"postback",
                 "title":"주소검색",
-                "payload":"menu_addr"
+                "payload":"/addr"
               },
 
             ]

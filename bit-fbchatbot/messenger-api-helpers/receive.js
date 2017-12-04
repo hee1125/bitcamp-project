@@ -1,6 +1,7 @@
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi')
 const messageHandler = require('./message-handler')
+const postbackHandler = require('./postback-handler')
 
 const handleReceiveMessage = (event) => {
     var senderID = event.sender.id;
@@ -15,12 +16,13 @@ const handleReceiveMessage = (event) => {
     var messageText = message.text;
     var messageAttachments = message.attachments;
 
+
     var menu = global[senderID].menu; // 사용자의 현재메뉴
 
-    // 사용자가 입력한 메시지를 처리할 함수를 꺼낸다.
+    // 사용자가 클릭한 버튼을 처리할 함수를 꺼낸다.
     var handler = messageHandler.getHandler(messageText);
 
-    if (handler) { //
+    if (handler) { // 메시지를 처리할 함수가 있다면,
         handler(senderID); // 그 함수를 호출한다.
     } else {
       sendAPI.sendTextMessage(senderID, '유효한 명령이 아닙니다.');
@@ -61,26 +63,16 @@ const handleReceivePostback = (event) => {
     console.log("Received postback for user %d and page %d with payload '%s' " +
       "at %d", senderID, recipientID, payload, timeOfPostback);
 
-    var menu = global[senderID].menu;
-    if(menu == 'help') {
-        menuHelp(senderID, payload);
-    } else if (menu == 'led') {
-        menuLed(senderID, payload);
-    } else if (menu == 'calc') {
-        menuCalc(senderID, payload);
-    } else if (menu == 'addr') {
-        menuAddr(senderID, payload);
+    // 사용자가 클릭한 버튼의 postback을 처리할 함수를 꺼낸다.
+    var handler = postbackHandler.getHandler(payload);
+
+    if (handler) { // postback을 처리할 함수가 있다면,
+        global[senderID].menu = payload;
+        handler(senderID); // 그 함수를 호출한다.
     } else {
-        sendAPI.sendTextMessage(senderID, "메뉴를 다시 요청하세요!")
+        sendAPI.sendTextMessage(senderID, '유효한 명령이 아닙니다.');
     }
 
-/*
-    if (payload == 'led_on') {
-      sendAPI.sendTextMessage(senderID, "전구를 켜겠습니다.");
-    }  else if (payload == 'led_off') {
-      sendAPI.sendTextMessage(senderID, "전구를 끄겠습니다.");
-    }
-*/
 };
 
 const menuHelp = (senderID, payload) => {
@@ -98,15 +90,6 @@ const menuHelp = (senderID, payload) => {
     }
 };
 
-const menuLed = (senderID, payload) => {
-    if (payload == 'led_on') {
-      sendAPI.sendTextMessage(senderID, "전구를 켜겠습니다.");
-      // 나중에 스프링 부트에 LED 켜는 명령을 보낼 것이다.
-    }  else if (payload == 'led_off') {
-      sendAPI.sendTextMessage(senderID, "전구를 끄겠습니다.");
-      // 나중에 스프링 부트에 LED 끄는 명령을 보낼 것이다.
-    }
-};
 
 const menuCalc = (senderID, messageText) => {
     // 현재 계산기 메뉴일 때는 사용자가 입력한 값이
@@ -136,20 +119,6 @@ const menuCalc = (senderID, messageText) => {
       sendAPI.sendTextMessage(senderID, '계산식 형식이 옳지 않습니다. \n 예) 값1 연산자 값2')
     }
 };
-
-const menuAddr = (senderID, payload) => {
-  if (payload == 'addr_dong') {
-      sendAPI.sendTextMessage(senderID, '동 이름을 입력해주세요~ 예) 신천동');
-      global[senderID].menu = 'addr_dong';
-  } else if (payload == 'addr_road') {
-      sendAPI.sendTextMessage(senderID, '도로명을 입력해주세요~ 예) 올림픽로33길 17');
-      global[senderID].menu = 'addr_road';
-  } else if (payload == 'addr_post') {
-      sendAPI.sendTextMessage(senderID, '우편번호를 입력해주세요~ 예) 05509');
-      global[senderID].menu = 'addr_post';
-  }
-};
-
 
 
 module.exports = {
