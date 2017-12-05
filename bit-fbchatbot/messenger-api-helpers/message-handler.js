@@ -81,7 +81,7 @@ addMessage('/calc', (recipientId, messageText) => {
     } catch (exception) {
       sendAPI.sendTextMessage(recipientId, '계산식 형식이 옳지 않습니다. \n 예) 2 + 3')
     }
-};
+});
 
 addMessage('/addr/dong', (recipientId, messageText) => {
     try {
