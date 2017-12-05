@@ -3,7 +3,7 @@ const api = require('./api')
 const sendAPI = require('./send');
 
 // postback을 받았을 때 그 메시지를 처리할 함수를 보관하는 객체
-const postbackHandler = {}
+const postbackHandler = {};
 
 // postback을 처리할 함수를 등록한다.
 const addPostback = (postback, handler) => {
@@ -17,36 +17,35 @@ const getHandler = (postback) => {
 
 // '/led' 메시지를 처리할 함수 등록
 addPostback('/led', (recipientId) => {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      "attachment":{
-        "type":"template",
-        "payload":{
-          "template_type":"button",
-          "text":"LED 스위치",
-          "buttons":[
-            {
-              "type":"postback",
-              "title":"ON",
-              "payload":"/led/on"
-            },
-            {
-              "type":"postback",
-              "title":"OFF",
-              "payload":"/led/off"
-            },
-
-          ]
+    var messageData = {
+      recipient: {
+        id: recipientId
+      },
+      message: {
+        "attachment":{
+          "type":"template",
+          "payload":{
+            "template_type":"button",
+            "text":"LED 스위치",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"ON",
+                "payload":"/led/on"
+              },
+              {
+                "type":"postback",
+                "title":"OFF",
+                "payload":"/led/off"
+              }
+            ]
+          }
         }
       }
-    }
-  };
+    };
 
-  api.callMessagesAPI(messageData);
-});
+      api.callMessagesAPI(messageData);
+    });
 
 addPostback('/led/on', (recipientId) => {
     sendAPI.sendTextMessage(recipientId, "LED를 켜겠습니다.");
@@ -58,48 +57,43 @@ addPostback('/led/off', (recipientId) => {
     // 나중에 스프링 부트에 LED 끄는 명령을 보낼 것이다.
 });
 
-
-
 addPostback('/addr', (recipientId) => {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      "attachment":{
-        "type":"template",
-        "payload":{
-          "template_type":"button",
-          "text":"검색항목",
-          "buttons":[
-            {
-              "type":"postback",
-              "title":"동이름",
-              "payload":"/addr/dong"
-            },
-            {
-              "type":"postback",
-              "title":"도로명",
-              "payload":"/addr/road"
-            },
-            {
-              "type":"postback",
-              "title":"우편번호",
-              "payload":"/addr/post"
-            },
-
-          ]
+    var messageData = {
+      recipient: {
+        id: recipientId
+      },
+      message: {
+        "attachment":{
+          "type":"template",
+          "payload":{
+            "template_type":"button",
+            "text":"검색항목",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"동이름",
+                "payload":"/addr/dong"
+              },
+              {
+                "type":"postback",
+                "title":"도로명",
+                "payload":"/addr/road"
+              },
+              {
+                "type":"postback",
+                "title":"우편번호",
+                "payload":"/addr/post"
+              }
+            ]
+          }
         }
       }
-    }
-  };
+    };
 
   api.callMessagesAPI(messageData);
 });
 
-
-
-addPostback('/addr/dong', (recipientId) => {
+addPostback('/addr/road', (recipientId) => {
     sendAPI.sendTextMessage(recipientId, '동 이름을 입력해주세요~ 예) 신천동');
 });
 
@@ -112,6 +106,9 @@ addPostback('/addr/post', (recipientId) => {
 });
 
 
+addPostback('/calc', (recipientId) => {
+    sendAPI.sendTextMessage(recipientId, '식을 입력하세요. \n 예) 2 + 3')
+}
 
 module.exports = {
     getHandler
