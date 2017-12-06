@@ -60,6 +60,7 @@ dependencies { // 다운로드 받을 의존 라이브러리 목록
 compileJava { // 자바 컴파일러에게 전달하는 정보.
   options.encoding = 'UTF-8'  // 자바 소스 파일의 인코딩 정보
   sourceCompatibility = '1.8' // 소스 코드의 자바 버전
+  targetCompatibility = '1.8' // 소스 코드의 자바 버전
 }
 
 // "gradle bootRun" 명령을 실행할 때 사용할 메인 클래스를 지정한다.
