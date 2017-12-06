@@ -56,10 +56,12 @@
     delete from iot_device 
     where sno=#{value}
   </delete>
+  
+-->
 
 </mapper>
 
--->
+
 
 
 
