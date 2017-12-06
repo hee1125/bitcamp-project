@@ -64,8 +64,8 @@ compileJava { // 자바 컴파일러에게 전달하는 정보.
 }
 
 // "gradle bootRun" 명령을 실행할 때 사용할 메인 클래스를 지정한다.
-/*
+
 bootRun {
   mainClassName = 'bigdata3.Application' // main >>> mainClassName 으로 변경
 }
-*/
+
