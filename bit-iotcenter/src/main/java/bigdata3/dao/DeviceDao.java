@@ -1,4 +1,4 @@
-package src.main.java.bigdata3.dao;
+package bigdata3.dao;
 
 import java.util.List;
 import java.util.Map;

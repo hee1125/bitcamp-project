@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import src.main.java.bigdata3.service.DeviceService;
-import src.main.java.bigdata3.util.FcmAgent;
+import bigdata3.service.DeviceService;
+import bigdata3.util.FcmAgent;
 
 @RestController("json.AlarmControl")
 @RequestMapping("/alarm/json")
