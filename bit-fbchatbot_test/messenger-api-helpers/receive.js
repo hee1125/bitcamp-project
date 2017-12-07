@@ -1,4 +1,4 @@
-import UserStore from '../stores/user_store';
+
 
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi')
@@ -56,7 +56,7 @@ const handleReceiveMessage = (event) => {
     } else if (menu) { // 메뉴의 메시지를 처리할 함수를 꺼낸다.
         handler = messageHandler.getHandler(menu);
         handler(senderID, messageText);
-        
+
     } else if (message.text) {
         sendApi.sendWelcomeMessage(senderId);
 
