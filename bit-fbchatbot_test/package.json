@@ -11,7 +11,7 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-      "eslint-plugin-lodash-fp": "^2.0.1",
+     
   },
   "scripts": {
     "start": "node app.js",

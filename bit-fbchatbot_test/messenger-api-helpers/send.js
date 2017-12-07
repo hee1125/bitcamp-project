@@ -1,5 +1,3 @@
-import castArray from 'lodash/castArray';
-import isEmpty from 'lodash/isEmpty';
 
 import messages from './messages';
 import UserStore from '../stores/user_store';
