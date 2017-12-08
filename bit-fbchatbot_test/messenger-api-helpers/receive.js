@@ -1,9 +1,8 @@
-
-
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi')
 const messageHandler = require('./message-handler')
 const postbackHandler = require('./postback-handler')
+
 
 const handleReceiveAccountLink = (event) => {
   const senderId = event.sender.id;
@@ -30,6 +29,8 @@ const handleReceiveAccountLink = (event) => {
   }
 };
 
+
+
 const handleReceiveMessage = (event) => {
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
@@ -49,17 +50,11 @@ const handleReceiveMessage = (event) => {
     // 사용자가 클릭한 버튼을 처리할 함수를 꺼낸다.
     var handler = messageHandler.getHandler(messageText);
 
-
-
     if (handler) { // 메시지를 처리할 함수가 있다면,
         handler(senderID); // 그 함수를 호출한다.
     } else if (menu) { // 메뉴의 메시지를 처리할 함수를 꺼낸다.
         handler = messageHandler.getHandler(menu);
         handler(senderID, messageText);
-
-    } else if (message.text) {
-        sendApi.sendWelcomeMessage(senderId);
-
     } else {
         sendAPI.sendTextMessage(senderID, '유효한 명령이 아닙니다.')
     }
@@ -101,27 +96,6 @@ const handleReceivePostback = (event) => {
 
     // 사용자가 클릭한 버튼의 postback을 처리할 함수를 꺼낸다.
     var handler = postbackHandler.getHandler(payload);
-
-    /**
- * The 'payload' param is a developer-defined field which is
- * set in a postbackbutton for Structured Messages.
- *
- * In this case we've defined our payload in our postback
- * actions to be a string that represents a JSON object
- * containing `type` and `data` properties. EG:
- */
-    const {type} = JSON.parse(event.postback.payload);
-
-    // Perform an action based on the type of payload received.
-    switch (type) {
-    case 'GET_STARTED':
-        sendApi.sendWelcomeMessage(senderId);
-        break;
-    default:
-        console.error(`Unknown Postback called: ${type}`);
-        break;
-    }
-
 
     if (handler) { // postback을 처리할 함수가 있다면,
         global[senderID].menu = payload;
