@@ -39,6 +39,13 @@
     where email=#{email} and pwd=password(#{password})
   </select>
   
+  <select id="selectOneByEmailTel" resultMap="teacherMap" parameterType="map">
+    select  m.mno, m.name, m.tel, m.email, t.hmpg, t.fcbk, t.twit, tp.path
+    from tcher t inner join memb m on t.tno=m.mno
+                 left outer join tch_phot tp on t.tno=tp.tno
+    where email=#{email} and tel=tel(#{tel})
+  </select>
+  
   <insert id="insert" parameterType="teacher">
     insert into tcher(tno, hmpg, fcbk, twit) 
     values(#{no}, #{homepage}, #{facebook}, #{twitter})

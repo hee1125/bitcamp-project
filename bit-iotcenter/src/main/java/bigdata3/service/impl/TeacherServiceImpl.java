@@ -39,6 +39,14 @@ public class TeacherServiceImpl implements TeacherService {
     return teacherDao.selectOneByEmailPassword(valueMap);
   }
   
+  public Teacher getByEmailTel(String email, String tel) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("email", email);
+    valueMap.put("tel", tel);
+    
+    return teacherDao.selectOneByEmailTel(valueMap);
+  }
+  
   public void add(Teacher teacher) throws Exception {
     memberDao.insert(teacher);
     teacherDao.insert(teacher);

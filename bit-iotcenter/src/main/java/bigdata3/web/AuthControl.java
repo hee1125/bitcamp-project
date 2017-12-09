@@ -53,6 +53,38 @@ public class AuthControl {
     }
   }
   
+  @RequestMapping("facebooklogin")
+  public String facebooklogin(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    String userType = req.getParameter("teacher");
+    String email = req.getParameter("email");
+    String tel = req.getParameter("tel");
+    
+    Member member = null;
+    if (userType.equals("teacher")) {
+      member = teacherService.getByEmailTel(email, tel);
+    }
+    
+    if (member != null) { 
+      HttpSession session = req.getSession();
+      session.setAttribute("loginMember", member);
+      String saveEmail = req.getParameter("saveEmail");
+      if (saveEmail != null) {
+        Cookie cookie2 = new Cookie("email", email);
+        cookie2.setMaxAge(60 * 60 * 24 * 7); 
+        resp.addCookie(cookie2);
+      } else {
+        Cookie cookie2 = new Cookie("email", "");
+        cookie2.setMaxAge(0);
+        resp.addCookie(cookie2);
+      }
+      
+      return "redirect:../teacher/list.do";
+      
+    } else {
+      return "auth/fail";
+    }
+  }
+  
   @RequestMapping("logout")
   public String logout(HttpServletRequest req, HttpServletResponse res) throws Exception {
     req.getSession().invalidate();  

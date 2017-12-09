@@ -24,6 +24,7 @@
   <td>${item.tel}</td>
   <td>${item.email}</td>
   <td>${item.homepage}</td>
+  <td>${item.facebook}</td>
 </tr>
 </c:forEach>
 </tbody>
