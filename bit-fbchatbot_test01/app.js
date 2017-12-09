@@ -5,6 +5,12 @@ const fs = require('fs')
 const bodyParser = require('body-parser');
 const request = require('request')
 
+// ===== MODULES ===============================================================
+import cookieParser from 'cookie-parser';
+
+// ===== ROUTES ================================================================
+import users from './routes/users';
+
 // .env 파일의 내용을 로딩한다.
 require('dotenv').config({path:'/home/ec2-user/vars/.env'})
 
@@ -23,6 +29,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 // => 실행하지 않고 그대로 읽어서 클라이언트에게 보내는 파일
 // => .html, .gif, .jpg, .css, .js 등
 app.use(express.static('public'))
+
+/* ----------  Parsers  ---------- */
+app.use(cookieParser());
+
 
 // 클라이언트 요청을 처리할 모듈을 가져온다.
 // import root from './routes/root.js';

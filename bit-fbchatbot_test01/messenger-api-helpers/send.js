@@ -1,3 +1,7 @@
+// ===== STORES ================================================================
+import UserStore from '../stores/user_store';
+
+
 // 메신저 서버에게 메시지를 전달해주는 도구 가져오기
 const api = require('./api')
 
@@ -144,7 +148,109 @@ const sendGenericMessage = (recipientId) => {
   api.callMessagesAPI(messageData);
 };
 
+const sendButton1Message = (recipientId) => {
+    var messageData = {
+      recipient: {
+        id: recipientId
+      },
+      message: {
+        "attachment":{
+          "type":"template",
+          "payload":{
+            "template_type":"button",
+            "text":"검색 사이트를 선택해주세요!",
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://www.google.com",
+                "title":"구글"
+              },
+              {
+                "type":"web_url",
+                "url":"https://www.naver.com",
+                "title":"네이버"
+              },
+              {
+                "type":"web_url",
+                "url":"https://www.yahoo.com",
+                "title":"야후"
+              },
+            ]
+          }
+        }
+      }
+    };
+
+    api.callMessagesAPI(messageData);
+};
+
+// Send a welcome message for a non signed-in user.
+const sendLoggedOutWelcomeMessage = (recipientId) => {
+  sendMessage(
+    recipientId, [
+      {
+        text: 'Hi! Welcome to Jasper’s Market!'
+          + ' (Messenger Platform Account Linking demo)',
+      },
+      messages.createAccountMessage,
+    ]
+  );
+};
+
+// Send a welcome message for a signed in user.
+const sendLoggedInWelcomeMessage = (recipientId, username) => {
+  sendMessage(
+    recipientId,
+    [
+      messages.napMessage,
+      messages.loggedInMessage(username),
+    ]);
+};
+
+
+// Send a different Welcome message based on if the user is logged in.
+const sendWelcomeMessage = (recipientId) => {
+  const userProfile = UserStore.getByMessengerId(recipientId);
+  if (!isEmpty(userProfile)) {
+    sendLoggedInWelcomeMessage(recipientId, userProfile.username);
+  } else {
+    sendLoggedOutWelcomeMessage(recipientId);
+  }
+};
+
+// Send a successfully signed in message.
+const sendSignOutSuccessMessage = (recipientId) =>
+  sendMessage(recipientId, messages.signOutSuccessMessage);
+
+// Send a successfully signed out message.
+const sendSignInSuccessMessage = (recipientId, username) => {
+  sendMessage(
+    recipientId,
+    [
+      messages.signInGreetingMessage(username),
+      messages.signInSuccessMessage,
+    ]);
+};
+
+// Send a read receipt to indicate the message has been read
+const sendReadReceipt = (recipientId) => {
+  const messageData = {
+    recipient: {
+      id: recipientId,
+    },
+    sender_action: 'mark_seen', // eslint-disable-line camelcase
+  };
+
+  api.callMessagesAPI(messageData);
+};
+
+
 
 module.exports = {
-    sendTextMessage
+    sendTextMessage,
+    sendMessage,
+    sendWelcomeMessage,
+    sendSignOutSuccessMessage,
+    sendSignInSuccessMessage,
+    sendReadReceipt
 };

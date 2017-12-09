@@ -1,7 +1,44 @@
+// ===== STORES ================================================================
+import UserStore from '../stores/user_store';
+
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi')
 const messageHandler = require('./message-handler')
 const postbackHandler = require('./postback-handler')
+
+
+/*
+ * Account Link Event - This event is called when the Link Account
+ * or Unlink Account action has been tapped. Read More at:
+ * https://developers.facebook.com/docs/messenger-platform/
+ * webhook-reference/account-linking
+ */
+const handleReceiveAccountLink = (event) => {
+  const senderId = event.sender.id;
+
+  /* eslint-disable camelcase */
+  const status = event.account_linking.status;
+  const authCode = event.account_linking.authorization_code;
+  /* eslint-enable camelcase */
+
+  console.log('Received account link event with for user %d with status %s ' +
+    'and auth code %s ', senderId, status, authCode);
+
+  switch (status) {
+  case 'linked':
+    const linkedUser = UserStore.replaceAuthToken(authCode, senderId);
+    sendApi.sendSignInSuccessMessage(senderId, linkedUser.username);
+    break;
+  case 'unlinked':
+    UserStore.unlinkMessengerAccount(senderId);
+    sendApi.sendSignOutSuccessMessage(senderId);
+    break;
+  default:
+    break;
+  }
+};
+
+
 
 const handleReceiveMessage = (event) => {
     var senderID = event.sender.id;
@@ -79,6 +116,7 @@ const handleReceivePostback = (event) => {
 };
 
 module.exports = {
+    handleReceiveAccountLink,
     handleReceiveMessage,
     handleReceivePostback
 };
