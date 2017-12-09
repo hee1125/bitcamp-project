@@ -1,5 +1,5 @@
 // ===== STORES ================================================================
-import UserStore from '../stores/user_store';
+const UserStore = require('../stores/user_store');
 
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi')

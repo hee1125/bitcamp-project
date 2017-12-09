@@ -7,10 +7,12 @@
 
 
 // ===== STORES ================================================================
-import Store from './store';
+
+const Store = require('Store');
+
 
 // ===== MODELS ================================================================
-import User from '../models/user';
+const User = require('../models/user');
 
 /**
  * Stores User data

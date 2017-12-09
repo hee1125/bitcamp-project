@@ -6,11 +6,12 @@
  */
 
 // ===== MODULES ===============================================================
-import express from 'express';
-import uuid from 'uuid';
+const express = require('express');
+const uuid = require('uuid');
+
 
 // ===== STORES ================================================================
-import UserStore from '../stores/user_store';
+const UserStore = require('../stores/user_store');
 
 const router = express.Router();
 
