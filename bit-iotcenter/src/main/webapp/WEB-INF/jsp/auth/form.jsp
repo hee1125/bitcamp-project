@@ -21,12 +21,9 @@
 <p>암호: <input type='password' name='password'></p>
 <input type='checkbox' name='saveEmail'> 이메일 저장
 <p><button>로그인</button></p>
-<p><button>페이스북 로그인</button></p>
 </form>
 
 <form action='facebooklogin.do' method='POST'>
-<input name='email' value='${cookie.email.value}'>
-<input type='tel' name='tel'>
 <p><button>페이스북 로그인</button></p>
 </form>
 
