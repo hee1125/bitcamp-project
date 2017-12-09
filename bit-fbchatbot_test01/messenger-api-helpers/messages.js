@@ -122,12 +122,12 @@ const getStarted = {
   ],
 };
 
-export default {
-  createAccountMessage,
-  signInGreetingMessage,
-  signInSuccessMessage,
-  signOutSuccessMessage,
-  loggedInMessage,
-  napMessage,
-  getStarted,
+module.exports = {
+    createAccountMessage,
+    signInGreetingMessage,
+    signInSuccessMessage,
+    signOutSuccessMessage,
+    loggedInMessage,
+    napMessage,
+    getStarted
 };

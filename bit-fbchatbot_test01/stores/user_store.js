@@ -107,5 +107,5 @@ const USER_STORE = new UserStore();
 // add demo account
 USER_STORE.insert('dave', '12345678');
 
-// export an instantiated user store.
-export default USER_STORE;
+module.exports = router,
+                 USER_STORE;

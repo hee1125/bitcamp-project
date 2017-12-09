@@ -117,3 +117,4 @@ router.post('/login', function(req, res) {
     linkAccountToMessenger(res, userLogin.username, redirectURI);
   }
 });
+module.exports = router;
