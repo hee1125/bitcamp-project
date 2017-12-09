@@ -21,6 +21,7 @@
 <p>암호: <input type='password' name='password'></p>
 <input type='checkbox' name='saveEmail'> 이메일 저장
 <p><button>로그인</button></p>
+<p><button>페이스북 로그인</button></p>
 </form>
 <jsp:include page="../footer.jsp"></jsp:include>
 </body>
