@@ -6,10 +6,9 @@ const bodyParser = require('body-parser');
 const request = require('request')
 
 // ===== MODULES ===============================================================
-import cookieParser from 'cookie-parser';
+const cookieParser = require('cookie-parser');
 
-// ===== ROUTES ================================================================
-import users from './routes/users';
+const users = require('./routes/users');
 
 // .env 파일의 내용을 로딩한다.
 require('dotenv').config({path:'/home/ec2-user/vars/.env'})
