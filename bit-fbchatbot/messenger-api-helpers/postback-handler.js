@@ -59,6 +59,9 @@ addPostback('/led/on', (recipientId) => {
 addPostback('/led/off', (recipientId) => {
     sendAPI.sendTextMessage(recipientId, "LED를 끄겠습니다.");
     // 나중에 스프링 부트에 LED 끄는 명령을 보낼 것이다.
+    awsIoT.publish('dev01', 'topic_1', {
+        message: 'led off'
+        led: 'off'});
 });
 
 addPostback('/addr', (recipientId) => {
