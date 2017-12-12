@@ -52,7 +52,7 @@ addPostback('/led/on', (recipientId) => {
     sendAPI.sendTextMessage(recipientId, "LED를 켜겠습니다.");
     // 나중에 스프링 부트에 LED 켜는 명령을 보낼 것이다.
     awsIoT.publish('dev01', 'topic_1', {
-        message: 'led on'
+        message: 'led on',
         led: 'on'});
 });
 
@@ -60,7 +60,7 @@ addPostback('/led/off', (recipientId) => {
     sendAPI.sendTextMessage(recipientId, "LED를 끄겠습니다.");
     // 나중에 스프링 부트에 LED 끄는 명령을 보낼 것이다.
     awsIoT.publish('dev01', 'topic_1', {
-        message: 'led off'
+        message: 'led off',
         led: 'off'});
 });
 
