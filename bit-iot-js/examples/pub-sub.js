@@ -1,11 +1,11 @@
 // AWS IoT의 Gateway에 메시지를 보내는 예제
 // => 메시지를 보내는 것을 "발행(publish)"이라고 표현한다.
-  
+
 // AWS에서 제공하는 nodeJS 모듈을 로딩한다.
 var awsIot = require('aws-iot-device-sdk');
 
 // AWS IoT 서버에 등록된 Thing 정보를 바탕으로 장비를 준비시킨다.
-var device = awsIot.device({
+var device = awsIoT.device({
     /* AWS 서버에 Thing을 생성한 후 만든 인증서의 개인키 파일*/
     keyPath: "dev01.private.key",
 
