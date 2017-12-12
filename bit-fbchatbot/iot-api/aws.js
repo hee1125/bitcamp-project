@@ -2,13 +2,13 @@
 // => 메시지를 보내는 것을 "발행(publish)"이라고 표현한다.
 
 // AWS에서 제공하는 nodeJS 모듈을 로딩한다.
-const awsIoT = require('aws-iot-device-sdk');
+const awsIot = require('aws-iot-device-sdk');
 
 // 장비 목록
 const devices = {};
 
 // AWS IoT 서버에 등록된 Thing 정보를 바탕으로 장비를 준비시킨다.
-const dev01 = awsIoT.device({
+const dev01 = awsIot.device({
     /* AWS 서버에 Thing을 생성한 후 만든 인증서의 개인키 파일*/
     keyPath: "/home/ec2-user/vars/aws-iot/dev01/dev01.private.key",
 
@@ -25,7 +25,7 @@ const dev01 = awsIoT.device({
     /* AWS에 등록한 Thing을 가리키는 URL.
        AWS IoT 사물 관리 페이지에서 "상호작용" 메뉴에서
        HTTPS의 RestAPI를 요청할 때 사용할 Thing의 URL이다.*/
-    host: "a3ag6xqca3ze3x.iot.ap-northeast-2.amazonaws.com"
+    host: process.env.DEV01_HOST
  });
 
 // 이 프로그램이 AWS IoT에 등록한 Thing과 연결되었을 때 호출될 메서드 추가
