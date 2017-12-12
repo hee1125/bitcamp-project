@@ -55,7 +55,7 @@ public class AuthControl {
   
   @RequestMapping("facebooklogin")
   public String facebooklogin(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-    String userType = req.getParameter("teacher");
+    String userType = req.getParameter("userType");
     String email = req.getParameter("email");
     String tel = req.getParameter("tel");
     
