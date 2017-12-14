@@ -9,4 +9,4 @@ print("실행 완료!")
 
 
 def onLed(state):
-    ser.output(pinMode(2, state))
+    ser.output(state)
