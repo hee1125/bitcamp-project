@@ -1,6 +1,5 @@
 import serial
 import time
-import iot
 
 # 아두이노 시리얼 포트 연결 & 데이터 보내기!
 serialNo = "192.168.10.125"
