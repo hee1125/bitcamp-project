@@ -10,6 +10,7 @@ print("실행 완료!")
 
 def onLed(state):
     if state == "True":
-        ser.write('1')
+        ser.write(ch = '1')
+        print("우선 ch = 1 들어감!")
     else :
-        ser.write('0')
+        ser.write(ch = '1')
