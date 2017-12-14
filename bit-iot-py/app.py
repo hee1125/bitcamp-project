@@ -9,4 +9,4 @@ print("실행 완료!")
 
 
 def onLed(state):
-    ser.write(state)
+    ser.write(bytes(str.encode()))
