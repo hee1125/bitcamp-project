@@ -9,4 +9,7 @@ print("실행 완료!")
 
 
 def onLed(state):
-    ser.write(bytes(state.encode()))
+    if state == "True":
+    ser.write([1])
+    else state == "False":
+    ser.write([0])
