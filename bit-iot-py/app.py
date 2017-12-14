@@ -11,5 +11,5 @@ print("실행 완료!")
 def onLed(state):
     if state == "True":
         ser.write(1)
-    else state == "False":
+    else :
         ser.write(0)
