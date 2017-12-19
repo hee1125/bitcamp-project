@@ -2,7 +2,7 @@
 const api = require('./api')
 const sendAPI = require('./send');
 // const awsIoT = require('../iot-api/aws');
-const awsIoT = require('../iot-api/shadow');
+const awsIoTShadow = require('../iot-api/shadow');
 
 // postback을 받았을 때 그 메시지를 처리할 함수를 보관하는 객체
 const postbackHandler = {};
