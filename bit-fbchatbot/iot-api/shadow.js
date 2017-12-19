@@ -55,6 +55,8 @@ thingShadows.on('timeout',
                     ' with token: '+ clientToken);
  });
 
+
+
 function update(desiredState) {
     thingShadows.update(thingName, {state: {desired: desiredState}});
 }
