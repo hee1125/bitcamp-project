@@ -1,7 +1,7 @@
 // 메신저 서버에게 메시지를 전달해주는 도구 가져오기
 const api = require('./api')
 const sendAPI = require('./send');
-const awsIoT = require('../iot-api/aws');
+// const awsIoT = require('../iot-api/aws');
 const awsIoT = require('../iot-api/shadow');
 
 // postback을 받았을 때 그 메시지를 처리할 함수를 보관하는 객체

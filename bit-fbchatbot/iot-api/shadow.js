@@ -30,7 +30,7 @@ var thingShadows = awsIot.thingShadow({
  });
 
  // Thing의 섀도우 제어 장비가 준비되었을 때 호출될 함수 등록
- thingShadows.on('connect', function() {
+thingShadows.on('connect', function() {
      // 이 함수를 호출되었다는 것은 AWS IoT의 Thing과 연결되었다는 의미다.
      console.log('섀도우 장비가 준비되었다.');
 
@@ -41,8 +41,15 @@ var thingShadows = awsIot.thingShadow({
      });
  });
 
+ // Thing의 Shadow에 대해 명령을 지시하고 그 명령을 수행한 후에 호출될 함수 등록
+thingShadows.on('status',
+     function(thingName, stat, clientToken, stateObject) {
+         console.log('received '+stat+' on '+thingName+': '+
+                 JSON.stringify(stateObject));
+ });
+
  // 지정된 타임아웃 시간이 경과했을 떄 호출될 함수 등록
- thingShadows.on('timeout',
+thingShadows.on('timeout',
      function(thingName, clientToken) {
         console.log('received timeout on '+thingName+
                     ' with token: '+ clientToken);
