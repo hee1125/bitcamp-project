@@ -35,12 +35,12 @@ thingShadows.on('connect', function() {
 
     // 지정된 Thing에 대해 섀도우 연결을 요청한다.
     // => Shadow 생성에 성공한다면 설정된 함수가 호출될 것이다.
-    thingShadows.register(thingName, {}, function() {
+    thingShadows.register('thingName', {}, function() {
         console.log('섀도우에 연결하였음!');
 
         // 장비가 준비되면 일단 섀도우에서 값을 가져온다.
         console.log('섀도우에 설정된 값 조회를 요청한다.');
-        thingShadows.get('dev01');
+        thingShadows.get('thingName');
 
         /*
         // 썌도우가 생성되면 섀도우에 값을 저장할 수 있다.
@@ -56,7 +56,7 @@ thingShadows.on('status',
         if ((stat === "rejected") && (stateObject.code == 404)) {
             // 섀도우에 값이 없다면 기본 값을 설정한다.
             console.log("섀도우에 기본 값을 설정하였음!");
-            thingShadows.update(thingName, {
+            thingShadows.update('thingName', {
                 state: {
                     desired: {
                         led: "off"
