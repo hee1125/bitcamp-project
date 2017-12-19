@@ -21,12 +21,12 @@ var thingShadows = awsIot.thingShadow({
     caPath: "/home/ec2-user/vars/aws-iot/root-CA.crt",
 
     /* 다른 클라이언트와 구분하기 위한 임의의 ID */
-    clientId: "client2",
+    clientId: "fbchatbot",
 
     /* AWS에 등록한 Thing을 가리키는 URL.
        AWS IoT 사물 관리 페이지에서 "상호작용" 메뉴에서
        HTTPS의 RestAPI를 요청할 때 사용할 Thing의 URL이다.*/
-    host: "a3ag6xqca3ze3x.iot.ap-northeast-2.amazonaws.com"
+    host: process.env.DEV01_HOST
  });
 
  // Thing의 섀도우 제어 장비가 준비되었을 때 호출될 함수 등록
@@ -54,7 +54,6 @@ thingShadows.on('timeout',
         console.log('received timeout on '+thingName+
                     ' with token: '+ clientToken);
  });
-
 
 
 function update(desiredState) {

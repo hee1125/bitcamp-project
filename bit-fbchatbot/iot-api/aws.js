@@ -32,6 +32,8 @@ const dev01 = awsIot.device({
 dev01.on('connect', function() {
     // 이 함수를 호출되었다는 것은 AWS IoT의 Thing과 연결되었다는 의미다.
     console.log('AWS IoT의 dev01 장비와 연결 되었음!');
+    // 연결에 성공하면 연결된 장비를 목록에 추가한다.
+    devices['dev01'] = dev01;
 
     // 연결되면 'topic_1'이라는 사서함을 구독하겠다고 선언한다.
     // => 즉 지금부터 연결된 Thing의 'topic_1'이라는 사서함에
@@ -53,14 +55,8 @@ device.on('message', function(topic, payload) {
 });
 */
 
-dev01.on('connect', function() {
-    console.log('AWS IoT의 dev01 장비와 연결 되었음!');
-    // 연결에 성공하면 연결된 장비를 목록에 추가한다.
-    devices['dev01'] = dev01;
-});
-
 function publish(deviceName, topic, dataObj) {
-    devices[deviceName].publish('topic_1', JSON.stringify(dataObj));
+    devices[deviceName].publish(topic, JSON.stringify(dataObj));
 };
 
 module.exports = {

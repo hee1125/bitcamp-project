@@ -4,7 +4,7 @@ import logging
 import time
 import argparse
 import json
-import app
+import led_api as led
 
 # AWS IoT 서버에서 메시지를 받았을 때 호출될 함수 정의
 def customCallback(client, userdata, message):
