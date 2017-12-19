@@ -56,7 +56,7 @@ thingShadows.on('timeout',
  });
 
 function update(desiredState) {
-    thingShadows.update(thingName, {state: {desired:led: "off"}});
+    thingShadows.update(thingName, {state: {desired:{led: "off"}}});
 }
 
 
