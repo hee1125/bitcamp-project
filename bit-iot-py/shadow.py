@@ -8,6 +8,14 @@ import led_api as led
 
 # shadow 명령을 실행한 후 호출될 함수 정의
 def updateCallback(payload, responseStatus, token):
+    print("update 명령 수행 결과!-------------")
+    print(payload)
+    print(responseStatus)
+    print(token)
+    print("--------------")
+
+def getCallback(payload, responseStatus, token):
+    print("get 명령 수행 결과!-------------")
     print(payload)
     print(responseStatus)
     print(token)
@@ -63,6 +71,9 @@ print("shadow connect\n")
 # thing shadow 객체 생성
 myDeviceShadow = myShadowClient.createShadowHandlerWithName("dev01", True)
 
+# 현재 shadow 값 가져오기
+myDeviceShadow.shadowGet(getCallback, 5)
+
 # shadow 값 변경하기
-myJSONPayload = '{"state":{"desired":{"led":"on"}}}'
-myDeviceShadow.shadowUpdate(myJSONPayload, updateCallback, 5)
+# myJSONPayload = '{"state":{"desired":{"led":"on"}}}'
+# myDeviceShadow.shadowUpdate(myJSONPayload, updateCallback, 5)
