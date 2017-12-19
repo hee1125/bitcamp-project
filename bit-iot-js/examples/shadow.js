@@ -40,7 +40,7 @@ thingShadows.on('connect', function() {
 
         // 장비가 준비되면 일단 섀도우에서 값을 가져온다.
         console.log('섀도우에 설정된 값 조회를 요청한다.');
-        thingShadows.get();
+        thingShadows.get(thingName);
 
         /*
         // 썌도우가 생성되면 섀도우에 값을 저장할 수 있다.
