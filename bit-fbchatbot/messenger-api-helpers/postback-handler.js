@@ -1,8 +1,8 @@
 // 메신저 서버에게 메시지를 전달해주는 도구 가져오기
 const api = require('./api')
 const sendAPI = require('./send');
-const awsIoT = require('../iot-api/aws');
-//const awsIoTShadow = require('../iot-api/shadow');
+//const awsIoT = require('../iot-api/aws');
+const awsIoTShadow = require('../iot-api/shadow');
 
 // postback을 받았을 때 그 메시지를 처리할 함수를 보관하는 객체
 const postbackHandler = {};
@@ -52,23 +52,23 @@ addPostback('/led', (recipientId) => {
 addPostback('/led/on', (recipientId) => {
     sendAPI.sendTextMessage(recipientId, "LED를 켜겠습니다.");
     // 나중에 스프링 부트에 LED 켜는 명령을 보낼 것이다.
-
+/*
     awsIoT.publish('dev01', 'topic_1', {
         message: 'led on',
         led: 'on'});
-
-    // awsIoTShadow.update({led: "on"});
+*/
+    awsIoTShadow.update({led: "on"});
 });
 
 addPostback('/led/off', (recipientId) => {
     sendAPI.sendTextMessage(recipientId, "LED를 끄겠습니다.");
     // 나중에 스프링 부트에 LED 끄는 명령을 보낼 것이다.
-
+/*
     awsIoT.publish('dev01', 'topic_1', {
         message: 'led off',
         led: 'off'});
-
-    // awsIoTShadow.update({led: "off"});
+*/
+    awsIoTShadow.update({led: "off"});
 });
 
 addPostback('/addr', (recipientId) => {
