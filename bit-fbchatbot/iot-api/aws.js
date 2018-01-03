@@ -40,21 +40,21 @@ dev01.on('connect', function() {
     // => 즉 지금부터 연결된 Thing의 'topic_1'이라는 사서함에
     //    메시지가 오면 받겠다는 의미다.
 
-    // device.subscribe('topic_1');
-    // console.log('topic_1의 사서함 구독 시작')
+     device.subscribe('topic_1');
+     console.log('topic_1의 사서함 구독 시작')
 });
 
 // 구독하기로 설정한 사서함에 메시지가 도착할 때 마다
 // AWS IoT 서버에 이 프로그램에 알려준다.
 // 그때 호출될 메서드를 추가한다.
-/*
+
 device.on('message', function(topic, payload) {
     console.log('사서함 메시지 도착');
     console.log('사서함 이름:', topic);
     console.log('받은 메시지:', payload.toString());
     console.log('-------------------------');
 });
-*/
+
 
 function publish(deviceName, topic, dataObj) {
     devices[deviceName].publish(topic, JSON.stringify(dataObj));
