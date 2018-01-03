@@ -28,6 +28,7 @@ const dev01 = awsIot.device({
     host: process.env.DEV01_HOST
  });
 
+
 // 이 프로그램이 AWS IoT에 등록한 Thing과 연결되었을 때 호출될 메서드 추가
 dev01.on('connect', function() {
     // 이 함수를 호출되었다는 것은 AWS IoT의 Thing과 연결되었다는 의미다.

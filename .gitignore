@@ -17,3 +17,4 @@
 *.pem
 *.crt
 !build.gradle
+/.metadata/

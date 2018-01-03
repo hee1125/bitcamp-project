@@ -1,0 +1,144 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scaclable=no">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<title>vGrid 플러그인 사용 페이지</title>
+		<!-- Favicon and touch icons -->
+    <link rel="icon" href="ico/home_iot.png">
+		<style>
+			#container div {
+				width:300px;
+				background:#fff;
+				border:2px solid #aaa;
+				padding:15px;
+				padding-bottom:15px;
+				margin:15px;				
+			}		
+			#container div img {
+				width:100%;
+				border-bottom:1px solid #ccc;
+				padding-bottom:15px;
+				margin-bottom:5px;
+			}
+
+			#container div h2 {
+				font-size:1.2em;
+			}
+			#container div p {
+				font-family:"맑은 고딕", 돋움;
+				color:#333;
+				margin:0;
+				padding:10px;
+			}			
+		</style>
+		<script src="assets/js/jquery-2.1.3.min.js"></script>
+		<script src="assets/js/jquery.vgrid.min.js"></script>
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">Donny <span>by TEMPLATED</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">메인</a></li>
+					<li><a href="loginmain.html">로그인</a></li>
+					<li><a href="mypage.html">마이페이지</a></li>
+					<li><a href="store_management.html">매장관리</a></li>
+					<li><a href="menu_info.html">메뉴관리?</a></li>
+					<li><a href="elements.html">빅데이터</a></li>
+					<li><a href="noticeboard.html">게시판</a></li>
+					<li><a href="index_admin.html">Admin Only</a></li>
+				</ul>
+			</nav>
+			
+		<div id="main">
+
+				<!-- wrapper header : margin bottom을 0으로 -->
+					<section class="wrapper">
+						<div class="inner">
+							<header class="align-center">
+								<h1>페이지 : 메뉴소개 페이지가 될듯함?ㅋㅋ</h1>
+							</header>
+						</div>
+					</section>
+		</div>
+		<div id="container">
+				<div>
+					<img src="images/restaurant01.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<h2>1restaurant - 주방</h2>			
+					<a href="#"><p>맛, 청결, 섬세함.... 궁시렁 궁시렁 궁시렁.  </p></a>
+				</div>
+				<div>
+					<img src="images/menu01.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<h2>2food - 대표음식</h2>			
+					<a href="#"><p>우리 가게의 강추 메뉴입니다.  </p></a>
+				</div>
+				<div>
+					<img src="images/restaurants.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<h2>3restaurant - 카페식 레스토랑</h2>			
+					<a href="#"><p>데이트 장소로 추천해요. </p></a>
+				</div>
+				<div>
+					<img src="images/restaurants_chicago.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<h2>4restaurant - 시카고 레스토랑</h2>					
+					<a href="#"><p>비지니스맨 및 가족 단위 손님이 많습니다.</p></a>
+				</div>
+				<div>
+					<img src="images/bigdata02.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<h2>5데이터 - 수집 및 크롤링</h2>				
+					<a href="#"><p>데이터를 수집 분석하여 당신이 원하면 컨설팅을 제안합니다. </p></a>
+				</div>	
+				<div>
+					<img src="images/bigdata03.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<h2>6빅데이터 - 빅데이터 네트워크</h2>			
+					<a href="#"><p>데이터들은 정형, 반정형, 비정형 데이터 등이 거미망처럼 연결되어 있습니다..  </p></a>
+				</div>
+				<div>
+					<img src="images/pic04.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<h2>7외쿡전철 - 기다림...</h2>			
+					<a href="#"><p>전찰 언제오냐ㅎㅎ </p></a>
+				</div>
+				<div>
+					<img src="images/pic05.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<h2>8외쿡레이디 - 횡단보도</h2>					
+					<a href="#"><p>길을 건널때도 간지나게~ㅎ.</p></a>
+				</div>
+				<div>
+					<img src="images/pic02.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<h2>9외국소녀 - 먼산보기</h2>				
+					<a href="#"><p>선그라스가 너무 잘어울리죠? </p></a>
+				</div>	
+		</div>
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="copyright">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					</ul>
+					<p>&copy; Untitled. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+				</div>
+			</footer>
+		<script>
+			$('#container').vgrid({
+				time:400,
+				delay:30,
+				wait:500
+			});
+		</script>
+		
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+	</body>
+</html>

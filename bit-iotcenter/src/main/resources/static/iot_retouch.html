@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+
+<html lang="ko">
+	<head>
+		<title>Elements - Urban by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/registration.css" />
+		
+		<!-- Favicon and touch icons -->
+    <link rel="icon" href="ico/home_iot.png">
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">Donny <span>by TEMPLATED</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">메인</a></li>
+					<li><a href="loginmain.html">로그인</a></li>
+					<li><a href="mypage.html">마이페이지</a></li>
+					<li><a href="generic.html">매장환경관리</a></li>
+					<li><a href="menu_info.html">매장메뉴관리</a></li>
+					<li><a href="elements.html">빅데이터</a></li>
+					<li><a href="noticeboard.html">게시판</a></li>
+					<li><a href="index_admin.html">Admin Only</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+			<section class="wrapper">
+						<div class="inner">
+							<header class="align-center">
+								<h2>기기 정보</h2>
+								<p>등록하신 IoT 장비정보를 확인할 수 있습니다. 상세설정은 <a href="#"><strong>매장관리</strong></a> 페이지에서 관리 가능합니다.</p>
+							</header>
+						</div>
+					</section>
+							
+				<section class="wrapper style1">
+					<div class="inner">
+						<div class="row">
+							<div class="3u 12u$(medium)">
+								<div class="box">
+									<ul class="actions vertical">
+										<li><a href="#" class="button">패스워드재설정</a></li>
+										<li><a href="store_retouch.html" class="button">매장정보</a></li>
+										<li><a href="iot_retouch.html" class="button">기기정보</a></li>
+										<li><a href="menu_retouch.html" class="button">메뉴정보</a></li>
+										<li><a href="writed_bd.html" class="button">내가 쓴 게시글</a></li>
+										<li><a href="#" class="button">회원탈퇴</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="9u$ 12u$(medium)">
+								<div class="box">
+									<form method="post" action="#">
+										<div class="row uniform">
+											
+												<div class="3u 12u$(xsmall)">
+													<h4>매장넘버</h4>
+												</div>
+												<div class="5u$ 12u$(xsmall)">
+													<input type="text" name="store_no" id="store_no" value="" placeholder="등록매장넘버" />
+												</div>
+												<div class="3u 12u$(xsmall)">
+													<h4>IoT기기</h4>
+												</div>
+												<div class="5u$ 12u$(xsmall)">
+													<div class="select-wrapper">
+														<select name="category" id="category_iot">
+															<option value="">- 기기선택 -</option>
+															<option value="1">Digital Menu Board</option>
+															<option value="2">IoT Sensor</option>
+															<option value="3">Administration</option>
+														</select>
+													</div>
+												</div>
+												<div class="3u 12u$(xsmall)">
+													<h4>기기넘버</h4>
+												</div>
+												<div class="5u$ 12u$(xsmall)">
+													<input type="text" name="device_no" id="device_no" value="" placeholder="추가할 기기의 장비번호를 입력해 주세요." />
+												</div>
+												
+												<div class="3u 12u$(xsmall)">
+													<h4>등록기기확인</h4>
+												</div>
+												<div class="5u$ 12u$(xsmall)">
+													<div class="select-wrapper">
+														<select name="category" id="device_no">
+															<option value="">- 이전에 등록한 기기 정보 확인 -</option>
+															<option value="1">device01</option>
+															<option value="2">device02</option>
+															<option value="3">device03</option>
+														</select>
+													</div>
+												</div>
+												
+												<div class="3u 12u$(xsmall)">
+													<h4>등록 및 삭제</h4>
+												</div>
+												<div class="4u 12u$(small)">
+													<input type="checkbox" id="iot_register" name="iot_register" checked>
+													<label for="iot_register">입력한 기기 등록하기</label>
+												</div>
+												<div class="4u$ 12u$(small)">
+													<input type="checkbox" id="iot_remove" name="iot_remove">
+													<label for="iot_remove">선택한 기기 삭제하기</label>
+												</div>
+												
+												
+												<!-- Break -->
+												<div class="12u$">
+													<ul class="actions">
+														<li><input type="submit" value="기기정보수정" /></li>
+														<li><input type="reset" value="취소" class="alt" /></li>
+														<li><a href="mypage.html" class="button special">마이페이지로 돌아가기</a></li>
+													</ul>
+												</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="copyright">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					</ul>
+					<p>&copy; Untitled. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

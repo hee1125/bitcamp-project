@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+
+<html lang="ko">
+	<head>
+	<title>Elements - Urban by TEMPLATED</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/registration.css" />
+
+	<!-- Favicon and touch icons -->
+	<link rel="icon" href="ico/home_iot.png">
+</head>
+
+<body class="subpage">
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo"><a href="index.html">Donny <span>by TEMPLATED</span></a></div>
+		<a href="#menu">Menu</a>
+	</header>
+
+	<!-- Nav -->
+	<nav id="menu">
+		<ul class="links">
+			<li><a href="index.html">메인</a></li>
+			<li><a href="loginmain.html">로그인</a></li>
+			<li><a href="mypage.html">마이페이지</a></li>
+			<li><a href="generic.html">매장환경관리</a></li>
+			<li><a href="menu_info.html">매장메뉴관리</a></li>
+			<li><a href="elements.html">빅데이터</a></li>
+			<li><a href="noticeboard.html">게시판</a></li>
+			<li><a href="index_admin.html">Admin Only</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main -->
+	<div id="main">
+		<section class="wrapper">
+			<div class="inner">
+				<header class="align-center">
+					<h2>매장 정보 및 수정</h2>
+				</header>
+			</div>
+		</section>
+
+		<section class="wrapper style1">
+			<div class="inner">
+				<div class="row">
+					<div class="3u 12u$(medium)">
+						<div class="box">
+							<ul class="actions vertical">
+								<li><a href="#" class="button">패스워드재설정</a></li>
+								<li><a href="store_retouch.html" class="button">매장정보</a></li>
+								<li><a href="iot_retouch.html" class="button">기기정보</a></li>
+								<li><a href="menu_retouch.html" class="button">메뉴정보</a></li>
+								<li><a href="writed_bd.html" class="button">내가 쓴 게시글</a></li>
+								<li><a href="#" class="button">회원탈퇴</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="9u$ 12u$(medium)">
+						<div class="box">
+							<form method="post" action="#">
+								<div class="row uniform">
+
+
+
+									<div class="2u 12u$(xsmall)">
+										<h4>매장명</h4>
+									</div>
+									<div class="5u$ 12u$(xsmall)">
+										<input type="text" name="store_name" id="store_name" value="" placeholder="Store Name" />
+									</div>
+									<div class="2u 12u$(xsmall)">
+										<h4>사업주명</h4>
+									</div>
+									<div class="5u$ 12u$(xsmall)">
+										<input type="text" name="store_ceo" id="store_ceo" value="" placeholder="사업주님의 성함" />
+									</div>
+									<div class="2u 12u$(xsmall)">
+										<h4>매장연락처</h4>
+									</div>
+									<div class="5u$ 12u$(xsmall)">
+										<input type="text" name="store_tel" id="store_tel" value="" placeholder="Store Tel" />
+									</div>
+									<div class="2u 12u$(xsmall)">
+										<h4>매장주소</h4>
+									</div>
+									<div class="3u 12u$(xsmall)">
+										<input type="text" name="zipcode" id="sample6_postcode" value="" placeholder="우편번호" />
+									</div>
+									<div class="3u$ 12u$(xsmall)">
+										<input type="button" class="button alt icon fa-search" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+									</div>
+									<div class="2u 12u$(xsmall)">
+										<h4>주소</h4>
+									</div>
+									<div class="5u 12u$(xsmall)">
+										<input type="text" name="adress" id="sample6_address" value="" placeholder="주소" />
+									</div>
+									<div class="5u$ 12u$(xsmall)">
+										<input type="text" name="adress2" id="sample6_address2" value="" placeholder="상세주소" />
+									</div>
+									<div class="3u 12u$(xsmall)">
+										<h4>매장 홈페이지</h4>
+									</div>
+									<div class="8u$ 12u$(xsmall)">
+										<a href="#" class="store">홈페이지 URL주소 or 블로그 URL</a>
+									</div>
+
+
+									<!-- Break -->
+									<div class="12u$">
+										<ul class="actions">
+											<li><input type="submit" value="매장정보수정" /></li>
+											<li><input type="reset" value="취소" class="alt" /></li>
+											<li><a href="mypage.html" class="button special">마이페이지로 돌아가기</a></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="copyright">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+			</ul>
+			<p>&copy; Untitled. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<script>
+		function sample6_execDaumPostcode() {
+			new daum.Postcode({
+				oncomplete: function(data) {
+					// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+					// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+					// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+					var fullAddr = ''; // 최종 주소 변수
+					var extraAddr = ''; // 조합형 주소 변수
+
+					// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+					if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+						fullAddr = data.roadAddress;
+
+					} else { // 사용자가 지번 주소를 선택했을 경우(J)
+						fullAddr = data.jibunAddress;
+					}
+
+					// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+					if (data.userSelectedType === 'R') {
+						//법정동명이 있을 경우 추가한다.
+						if (data.bname !== '') {
+							extraAddr += data.bname;
+						}
+						// 건물명이 있을 경우 추가한다.
+						if (data.buildingName !== '') {
+							extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+						}
+						// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+						fullAddr += (extraAddr !== '' ? ' (' + extraAddr + ')' : '');
+					}
+
+					// 우편번호와 주소 정보를 해당 필드에 넣는다.
+					document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
+					document.getElementById('sample6_address').value = fullAddr;
+
+					// 커서를 상세주소 필드로 이동한다.
+					document.getElementById('sample6_address2').focus();
+				}
+			}).open();
+		}
+
+	</script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+</html>

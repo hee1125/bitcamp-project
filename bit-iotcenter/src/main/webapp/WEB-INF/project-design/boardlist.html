@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" href="ico/home_iot.png">
+    
+    <title>게시판</title>
+    
+     <!-- 추가 지정 스타일 -->
+    <style>
+		.wrapper .inner {
+			margin: 0 auto;
+			width: 100em;
+			position: relative;
+			z-index: 99;
+		}
+			
+     @media screen and (max-width: 1280px) {
+            .wrapper>.inner {
+                width: 75em;
+        }
+     }
+        
+        .btn-ared {
+            align-content: flex-end;
+        }
+        
+        .board-table thead th {
+            background: #d91f2d;
+            color: #fff;
+            size: inherit;
+        }
+			
+		table th {
+			font-size: 0.9em;
+			font-weight: 700;
+			padding: 0.75em 0.75em 0.75em 0.75em;
+			text-align: left;
+		}	
+    </style>
+</head>
+
+<body>
+    <div clsss="container">
+        <section class="wrapper">
+           <div class="inner">
+            <header class="align-center">
+                <h1>게시판</h1>
+                <p>우리모두 소통해요~!</p>
+            </header>
+            
+            <div class="table-wrapper">
+                <table class="board-table">
+                    <thead>
+                        <tr>
+                            <th>글번호</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                            <th>조회수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                    <!-- <tfoot>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><a class="button" id="write">글쓰기</a></td>
+                        </tr>
+                    </tfoot> -->
+                </table>
+            </div>
+            <div class="btn-area">
+                <input class="pull-right" type="button" id="write" value="글쓰기">
+            </div>
+					</div>
+        </section>
+			
+    </div>
+     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#write').click(function() {
+                href.location = ""
+            })
+        })
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

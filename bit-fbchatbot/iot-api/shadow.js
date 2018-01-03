@@ -17,7 +17,7 @@ var thingShadows = awsIot.thingShadow({
 
     /* 사물에 대해 발행한 인증서를 검증해 줄
        "인증서를 발행한 회사"의 인증서 파일
-       즉 인증 기관에 대한 인증서 파일*/
+       즉 인증 기관에 대한 인증서 파일 */
     caPath: "/home/ec2-user/vars/aws-iot/root-CA.crt",
 
     /* 다른 클라이언트와 구분하기 위한 임의의 ID */
