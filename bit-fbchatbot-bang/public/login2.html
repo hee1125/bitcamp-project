@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Facebook Login JavaScript Example</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+  <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button> -->
+
+  <!-- <div id="response">
+</div> -->
+  <button type="button" class="button facebook" id="loginBtn">페이스북 계정</button>
+
+  <div id="access_token"></div>
+  <div id="user_id"></div>
+  <div id="name"></div>
+  <div id="email"></div>
+  <div id="gender"></div>
+  <div id="birthday"></div>
+  <div id="id"></div>
+  <script type="text/javascript">
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: '1642835115777308',
+        xfbml: true,
+        version: 'v2.11'
+      });
+      FB.AppEvents.logPageView();
+
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+
+        } else {
+          FB.login(function(response) {
+            // handle the response
+          }, {
+            scope: 'public_profile, email, user_birthday '
+          });
+        }
+      });
+
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }
+
+    function statusChangeCallback(response) {
+      if (response.status === 'connected') {
+        testAPI();
+      } else {
+        document.getElementById('status').innerHTML = 'Please log into this app.';
+      }
+    }
+
+    function testAPI() {
+      FB.api('/me', function(response) {
+        console.log(response.id);
+        console.log(response.name);
+      });
+      FB.api('/me/picture?type=large', function(response) {
+        console.log(response.data.url);
+      });
+      FB.api('/me', {
+        fields: 'email'
+      }, function(response) {
+        console.log(response.email);
+      });
+      FB.api('/me', {
+        fields: 'age_range '
+      }, function(response) {
+        console.log(response.age_range);
+      });
+      FB.api('/me', {
+        fields: 'gender '
+      }, function(response) {
+        console.log(response.gender);
+      });
+      FB.api('/me', {
+        fields: 'locale '
+      }, function(response) {
+        console.log(response.locale);
+      });
+    }
+  </script>
+
+  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+  </fb:login-button>
+
+</body>
+
+</html>
