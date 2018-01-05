@@ -36,10 +36,10 @@ def customCallback(client, userdata, message):
     #print(message.payload)
     # 사서함에서 받은 Json 문자열을 객체로 변환
     dict = json.loads(message.payload.decode('UTF-8'))
-    if dict['control'] == 'vantilator':
-        print('valtilator===>')
+    if eq(dict['control'], 'ventilator'):
+        print('ventilator===>')
         print(dict['value'])
-    elif dict['control'] == 'humidifier':
+    elif eq(dict['control'], 'humidifier'):
         print('humidifier===>')
         print(dict['value'])
 
