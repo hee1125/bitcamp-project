@@ -68,5 +68,5 @@ function subscribe(deviceName, topic, payload){
 */
 module.exports = {
   publish,
-  subscribe
+  //subscribe
 };
