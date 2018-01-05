@@ -24,7 +24,7 @@ def customCallback(client, userdata, message):
     else :
         humidifier.onHumidifier(False)
     print("--------------")
-
+'''
 def customCallback(client, userdata, message):
     print("메시지를 수신하였습니다. \n")
     print("사서함 이름: ")
@@ -40,7 +40,7 @@ def customCallback(client, userdata, message):
     else :
         ventilator.onVentilator(False)
     print("--------------")
-
+'''
 
 
 host = "a3urzfjm9f14zj.iot.ap-northeast-2.amazonaws.com"
@@ -77,6 +77,5 @@ print("connect! \n")
 
 # AWS IoT의 Thing의 'topic_1' 사서함을 구독하겠다고 선언
 # 메시지를 받으면 customCallback 함수가 호출될 것이다.
-myAWSIoTMQTTClient.subscribe(topic, 0, customCallback)
 myAWSIoTMQTTClient.subscribe(topic, 1, customCallback)
 
