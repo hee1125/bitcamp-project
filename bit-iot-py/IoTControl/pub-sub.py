@@ -21,7 +21,7 @@ def customCallback(client, userdata, message):
             humidifier.onHumidifier(True)
         else :
             humidifier.onHumidifier(False)
-    else ventilatorState = dict['ventilator'] :
+    elif ventilatorState = dict['ventilator'] :
         if ventilatorState == "on":
             ventilator.onVentilator(True)
         else :
