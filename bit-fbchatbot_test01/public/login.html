@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI-Prototype(Login)</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('img/mainback.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    .panel-default {
+      opacity: 0.7;
+      margin-top: 200px;
+    }
+
+    .form-group.last {
+      margin-bottom: 20px;
+    }
+  </style>
+  <style>
+    .icon-circle .fa {
+      font-size: 25px;
+      color: #e84700;
+      margin-top: 10px;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      border: 2px solid #e84700;
+      line-height: 35px;
+      cursor: pointer;
+      -webkit-transition: all ease-in-out 0.35s;
+      -moz-transition: all ease-in-out 0.35s;
+      -o-transition: all ease-in-out 0.35s;
+      -ms-transition: all ease-in-out 0.35s;
+      transition: all ease-in-out 0.20s, background-color ease-in-out 0.05s;
+    }
+
+    .icon-circle .fa:hover {
+      background-color: #e84700;
+      color: #fff;
+      border: 1px solid #e84711;
+      -moz-box-shadow: inset 0px 0px 0px 5px #ffffff;
+      -o-box-shadow: inset 0px 0px 0px 5px #ffffff;
+      -ms-box-shadow: inset 0px 0px 0px 5px #ffffff;
+      -webkit-box-shadow: inset 0px 0px 0px 5px #ffffff;
+      box-shadow: inset 0px 0px 0px 5px #ffffff;
+      -ms-transform: scale(1.2, 1.2);
+      -webkit-transform: scale(1.2, 1.2);
+      -moz-transform: scale(1.2, 1.2);
+      -o-transform: scale(1.2, 1.2);
+      transform: scale(1.2, 1.2);
+    }
+
+    @media (min-width:320px) and (max-width:768px) {
+      .icon-circle .fa {
+        font-size: 15px;
+        color: #e84700;
+        margin: 0 auto;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        border: 2px solid #e84700;
+        line-height: 40px;
+        cursor: pointer;
+        -webkit-transition: all ease-in-out 0.35s;
+        -moz-transition: all ease-in-out 0.35s;
+        -o-transition: all ease-in-out 0.35s;
+        -ms-transition: all ease-in-out 0.35s;
+        transition: all ease-in-out 0.20s, background-color ease-in-out 0.05s;
+      }
+      .icon-circle .fa:hover {
+        background-color: #e84700;
+        color: #fff;
+        border: 1px solid #e84711;
+        -moz-box-shadow: inset 0px 0px 0px 5px #ffffff;
+        -o-box-shadow: inset 0px 0px 0px 5px #ffffff;
+        -ms-box-shadow: inset 0px 0px 0px 5px #ffffff;
+        -webkit-box-shadow: inset 0px 0px 0px 5px #ffffff;
+        box-shadow: inset 0px 0px 0px 5px #ffffff;
+        -ms-transform: scale(1.2, 1.2);
+        -webkit-transform: scale(1.2, 1.2);
+        -moz-transform: scale(1.2, 1.2);
+        -o-transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
+      }
+      .icon-circle i:before {
+        margin-left: 0px;
+        font-size: 20px;
+      }
+    }
+
+    .icon-circle i:before {
+      margin-left: 0px;
+      font-size: 20px;
+    }
+
+    .ifacebook .fa {
+      color: #3B5998;
+      border: 2px solid #3B5998;
+    }
+
+    .ifacebook .fa:hover {
+      background-color: #3B5998;
+      color: #fff;
+      border: 1px solid #3B5998;
+    }
+
+    .igoogle .fa {
+      color: #BD3518;
+      border: 2px solid #BD3518;
+    }
+
+    .igoogle .fa:hover {
+      background-color: #BD3518;
+      color: #fff;
+      border: 1px solid #BD3518;
+    }
+
+    .sicon {
+      padding-left: 230px;
+    }
+  </style>
+</head>
+
+<body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-lock"></span> Login</div>
+          <div class="panel-body">
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">
+                                    Email</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">
+                                    Password</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <div class="checkbox">
+                    <label>
+                                            <input type="checkbox" /> Remember me
+                                        </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group last">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <!-- <button type="submit" class="btn btn-success btn-sm">
+                                Sign in</button> -->
+                  <button type="button" onclick="location.href='mainform.html'" class="btn btn-success btn-sm">
+                                        Sign in</button>
+                  <button type="reset" class="btn btn-default btn-sm">
+                                        Reset</button>
+                </div>
+                <!--Socail Icon-->
+                <div class="sicon">
+                  <div class="col-md-0 col-xs-3 text-center">
+                    <div class="icon-circle" id="loginBtn">
+                      <script>
+                        function getUserData() {
+                          console.log('Welcome!  Fetching your information.... ');
+                          FB.api('/me', {
+                            fields: 'email'
+                          }, function(response) {
+                            $('#email').html(response.email);
+                            console.log('Successful login for: ' + response.name);
+                            document.getElementById('status').innerHTML =
+                              'Thanks for logging in, ' + response.name + '!';
+                          });
+                        }
+
+
+
+
+
+                        function statusChangeCallback(response) {
+                          console.log('statusChangeCallback');
+                          console.log(response);
+                          // The response object is returned with a status field that lets the
+                          // app know the current login status of the person.
+                          // Full docs on the response object can be found in the documentation
+                          // for FB.getLoginStatus().
+                          if (response.status === 'connected') {
+                            //window.location.href = "http://www.bangyeonju.xyz/mainform.html";
+                            console.log('페북연결 성공');
+
+
+                          } else if (response.status === 'not_authorized') {
+                            document.getElementById('status').innerHTML = 'Please log into this app.';
+                          } else {
+                            document.getElementById('status').innerHTML = 'Please log into Facebook.';
+                          }
+
+                          function checkLoginState() {
+                            FB.getLoginStatus(function(response) {
+                              statusChangeCallback(response);
+                            }, true);
+                          }
+
+                        }
+                        window.fbAsyncInit = function() {
+                          FB.init({
+                            appId: '1642835115777308',
+                            cookie: true, // enable cookies to allow the server to access
+                            // the session
+                            xfbml: true, // parse social plugins on this page
+                            version: 'v2.8' // use graph api version 2.8
+                          });
+
+                          FB.getLoginStatus(function(response) {
+                            statusChangeCallback(response);
+                          });
+
+                        };
+
+                        // Load the SDK asynchronously
+                        (function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s);
+                          js.id = id;
+                          js.src = "//connect.facebook.net/ko_KR/sdk.js";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+
+                        // Here we run a very simple test of the Graph API after login is
+                        // successful.  See statusChangeCallback() for when this call is made.
+
+                        document.getElementById('loginBtn').addEventListener('click', function() {
+
+                          FB.login(function(response) {
+                            if (response.authResponse) {
+                              access_token = response.authResponse.accessToken; //get access token
+                              user_id = response.authResponse.userID; //get FB UID
+
+                              $("#access_token").text("접근 토큰 : " + access_token);
+                              $("#user_id").text("FB UID : " + user_id);
+                              //user just authorized your app
+                              //document.getElementById('loginBtn').style.display = 'none';
+                              getUserData();
+                              checkLoginState();
+                              console.log('페북연결 성공');
+
+
+                            }
+                          }, {
+                            scope: 'email,public_profile',
+                            return_scopes: true
+                          });
+
+
+                          console.log(scope.email);
+
+
+                        }, false);
+                      </script>
+                      <class="ifacebook" title="Facebook">
+                        <i class="fa fa-facebook"></i>
+                    </div>
+
+                  </div>
+                  <div class="col-md-9 col-xs-3 text-center">
+                    <div class="icon-circle">
+                      <a href="https://google.com" class="igoogle" title="Google+">
+                                                <i class="fa fa-google-plus"></i>
+                                            </a>
+                    </div>
+                  </div>
+                </div>
+                <!--Social Icon End-->
+              </div>
+            </form>
+          </div>
+          <a href="signup.html">Signup here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- <footer>
+        <h2>This is Test Login Page</h2>
+    </footer> -->
+  <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+  <script language="JavaScript" type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+  <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

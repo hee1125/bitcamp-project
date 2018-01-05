@@ -10,8 +10,19 @@ const addMessage = (message, handler) => {
   messageHandler[message] = handler;
 }
 
+// 등록된 메시지 핸들러를 찾아서 리턴한다
 const getHandler = (message) => {
-  return messageHandler[message];
+  for (var key in messageHandler) { // 반복문을 돌면서 key(=message) 값을 처리할 메시지가 있나 확인
+    if (message.indexOf(key) != -1) { // -1이 아니라면 true
+
+      //  if (message.indexOf(key) && message.indexOf(key) != -1) {
+      //   return messageHandler[key]; // key값이 있는 메시지 나옴.
+      //}
+
+      return messageHandler[key]; // key값이 있는 메시지 나옴.
+    }
+  }
+  return null;
 };
 /*
 addMessage('help', (recipientId) => {
@@ -69,7 +80,8 @@ addMessage("도움말", (recipientId) => {
       + "▶︎ 온도\n"
       + "▶︎ 습도\n"
       + "▶︎ 미세먼지\n"
-      // + "▶︎ 자주하는 질문\n",
+      + "▶︎ 가습기\n"
+      + "▶︎ 환풍기\n"
     },
   };
   api.callMessagesAPI(messageData);
@@ -96,20 +108,24 @@ addMessage('메뉴', (recipientId) => {
               "type": "postback",
               "title": "매장관리",
               "payload": "/store"
-            },
-           // signOutButton
+            }
           ],
         },
       }
     }
   };
+  sendAPI.typingOn(recipientId);
   api.callMessagesAPI(messageData);
 })
-addMessage('온도', (recipientId, messageText) => {
 
+addMessage('온도', (recipientId, messageText) => {
    //sendAPI.typingOff(recipientId);
   sendAPI.sendTextMessage(recipientId, '현재온도: ');
-
+/*
+  awsIoT.subscribe('dev01', 'topic_1', {
+    temperature: ''
+  });
+*/
 })
 
 addMessage('습도', (recipientId, messageText) => {
@@ -127,12 +143,12 @@ addMessage('습도', (recipientId, messageText) => {
             {
               "type": "postback",
               "title": "가습기 on",
-              "payload": "/store/humidity/on"
+              "payload": "/store/humidifier/on"
             },
             {
               "type": "postback",
               "title": "가습기 off",
-              "payload": "/store/humidity/off"
+              "payload": "/store/humidifier/off"
             },
             {
               "type": "postback",
@@ -145,9 +161,12 @@ addMessage('습도', (recipientId, messageText) => {
     }
   };
   sendAPI.sendTextMessage(recipientId, '현재습도: ');
+
   api.callMessagesAPI(messageData);
 
 })
+
+
 
 addMessage("미세먼지", (recipientId) => {
   var messageData = {
@@ -164,12 +183,12 @@ addMessage("미세먼지", (recipientId) => {
             {
               "type": "postback",
               "title": "환풍기 on",
-              "payload": "/store/dust/on"
+              "payload": "/store/ventilator/on"
             },
             {
               "type": "postback",
               "title": "환풍기 off",
-              "payload": "/store/dust/off"
+              "payload": "/store/ventilator/off"
             },
             {
               "type": "postback",
@@ -181,7 +200,82 @@ addMessage("미세먼지", (recipientId) => {
       }
     }
   };
+
   sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
+  api.callMessagesAPI(messageData);
+})
+
+
+addMessage('가습기', (recipientId, messageText) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "가습기를 제어 하시겠습니까?",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "가습기 on",
+              "payload": "/store/humidifier/on"
+            },
+            {
+              "type": "postback",
+              "title": "가습기 off",
+              "payload": "/store/humidifier/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
+        }
+      }
+    }
+  };
+  api.callMessagesAPI(messageData);
+
+})
+
+addMessage("환풍기", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "환풍기 제어 하시겠습니까?",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "환풍기 on",
+              "payload": "/store/ventilator/on"
+            },
+            {
+              "type": "postback",
+              "title": "환풍기 off",
+              "payload": "/store/ventilator/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
+        }
+      }
+    }
+  };
+
+  //sendAPI.typingOn(recipientId);
   api.callMessagesAPI(messageData);
 })
 /*

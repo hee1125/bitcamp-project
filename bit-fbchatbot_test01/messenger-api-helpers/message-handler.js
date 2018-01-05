@@ -1,118 +1,353 @@
-// 메신저 서버에게 메시지를 전달해주는 도구 가져오기
-const api = require('./api')
+const api = require('./api');
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi');
+// const matches = require("lodash/matches")
 
-// message를 받았을 때 그 메시지를 처리할 함수를 보관하는 객체
+//message를 받았을 때 그 메시지를 처리할 함수를 보관하는 빈 객체.
 const messageHandler = {
-    // '메시지' : 함수
 };
 
-// message를 처리할 함수를 등록한다.
+// message를 처리할 함수를 등록한다
 const addMessage = (message, handler) => {
-    messageHandler[message] = handler;
+  messageHandler[message] = handler;
 }
-
-// 등록된 메시지를 핸들러를 찾아서 리턴한다.
+// 등록된 메시지 핸들러를 찾아서 리턴한다
 const getHandler = (message) => {
-    return messageHandler[message];
+  for (var key in messageHandler) { // 반복문을 돌면서 key(=message) 값을 처리할 메시지가 있나 확인
+    if (message.indexOf(key) != -1) { // -1이 아니라면 true
+
+      //  if (message.indexOf(key) && message.indexOf(key) != -1) {
+      //   return messageHandler[key]; // key값이 있는 메시지 나옴.
+      //}
+      
+      return messageHandler[key]; // key값이 있는 메시지 나옴.
+    }
+  }
+  return null;
 };
 
-// 'help' 메시지를 처리할 함수 등록
-addMessage('help', (recipientId) => {
-    var messageData = {
-      recipient: {
-        id: recipientId
-      },
-      message: {
-        "attachment":{
-          "type":"template",
-          "payload":{
-            "template_type":"button",
-            "text":"메뉴",
-            "buttons":[
-              {
-                "type":"postback",
-                "title":"LED",
-                "payload":"/led"
-              },
-              {
-                "type":"postback",
-                "title":"계산기",
-                "payload":"/calc"
-              },
-              {
-                "type":"postback",
-                "title":"주소검색",
-                "payload":"/addr"
-              },
+addMessage("도움말", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "채팅창에 입력해 보세요 \n"
+      + "▶︎ 메뉴\n"
+      + "▶︎ 온도\n"
+      + "▶︎ 습도\n"
+      + "▶︎ 미세먼지\n"
+      + "▶︎ 가습기\n"
+      + "▶︎ 환풍기\n"
+    },
+  };
+  api.callMessagesAPI(messageData);
+})
 
-            ]
-          }
+addMessage('메뉴', (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "옵션을 보고싶으세요? 아래에서 탭 해주세요.",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "메뉴판",
+              "payload": "/board" // 버튼 클릭 시, 서버에 다시 보내지는 값; postback-handler 에 구현
+            },
+            {
+              "type": "postback",
+              "title": "매장관리",
+              "payload": "/store"
+            }
+          ],
+        },
+      }
+    }
+  };
+  sendAPI.typingOn(recipientId);
+  api.callMessagesAPI(messageData);
+})
+
+addMessage('온도', (recipientId, messageText) => {
+  sendAPI.sendTextMessage(recipientId, '현재온도: ');
+})
+/*
+addMessage(('가습기')&&('on'), (recipientId, messageText) => {
+  sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidifier on',
+    humidifier: 'on'
+  });
+  //awsIoTShadow.update({humidifier:on});
+  })
+
+addMessage(('가습기')&&('off'), (recipientId, messageText) => {
+  sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidifier off',
+    humidifier: 'off'
+  });
+  //awsIoTShadow.update({humidifier:off});
+  })
+  
+
+addMessage(('가습기')&&('키'), (recipientId, messageText) => {
+  sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidifier on',
+    humidifier: 'on'
+  });
+  //awsIoTShadow.update({humidifier:on});
+  })
+
+addMessage(('가습기')&&('끄'), (recipientId, messageText) => {
+  sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidifier off',
+    humidifier: 'off'
+  });
+  //awsIoTShadow.update({humidifier:off});
+  })
+
+  addMessage(('가습기')&&('켜'), (recipientId, messageText) => {
+    sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
+    awsIoT.publish('dev01', 'topic_1', {
+      message: 'humidifier on',
+      humidifier: 'on'
+    });
+    //awsIoTShadow.update({humidifier:on});
+    })
+  
+  addMessage(('가습기')&&('꺼'), (recipientId, messageText) => {
+    sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
+    awsIoT.publish('dev01', 'topic_1', {
+      message: 'humidifier off',
+      humidifier: 'off'
+    });
+    //awsIoTShadow.update({humidifier:off});
+    })
+    
+
+
+    addMessage(('환풍기')&&('on'), (recipientId, messageText) => {
+      sendAPI.sendTextMessage(recipientId, '환풍기 켭니다');
+      awsIoT.publish('dev01', 'topic_1', {
+        message: 'ventilator on',
+        ventilator: 'on'
+      });
+      //awsIoTShadow.update({ventilator:on});
+      
+      })
+    
+    addMessage(('환풍기')&&('off'), (recipientId, messageText) => {
+      sendAPI.sendTextMessage(recipientId, '환풍기 끕니다');
+      awsIoT.publish('dev01', 'topic_1', {
+        message: 'ventilator off',
+        ventilator: 'off'
+      });
+      //awsIoTShadow.update({ventilator:off});
+      
+      })
+      
+    
+    addMessage(('환풍기')&&('키'), (recipientId, messageText) => {
+      sendAPI.sendTextMessage(recipientId, '환풍기 켭니다');
+      awsIoT.publish('dev01', 'topic_1', {
+        message: 'ventilator on',
+        ventilator: 'on'
+      });
+      //awsIoTShadow.update({ventilator:on});
+      
+      })
+    
+    addMessage(('환풍기')&&('끄'), (recipientId, messageText) => {
+      sendAPI.sendTextMessage(recipientId, '환풍기 끕니다');
+      awsIoT.publish('dev01', 'topic_1', {
+        message: 'ventilator off',
+        ventilator: 'off'
+      });
+      //awsIoTShadow.update({ventilator:off});
+      
+      })
+    
+      addMessage(('환풍기')&&('켜'), (recipientId, messageText) => {
+        sendAPI.sendTextMessage(recipientId, '환풍기 켭니다');
+        awsIoT.publish('dev01', 'topic_1', {
+          message: 'ventilator on',
+          ventilator: 'on'
+        });
+        //awsIoTShadow.update({ventilator:on});
+        
+        })
+      
+      addMessage(('환풍기')&&('꺼'), (recipientId, messageText) => {
+        sendAPI.sendTextMessage(recipientId, '환풍기 끕니다');
+        awsIoT.publish('dev01', 'topic_1', {
+          message: 'ventilator off',
+          ventilator: 'off'
+        });
+        //awsIoTShadow.update({ventilator:off});
+        
+        })
+        */
+        
+addMessage('습도', (recipientId, messageText) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "가습기를 제어 하시겠습니까?",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "가습기 on",
+              "payload": "/store/humidifier/on"
+            },
+            {
+              "type": "postback",
+              "title": "가습기 off",
+              "payload": "/store/humidifier/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
         }
       }
-    };
-    api.callMessagesAPI(messageData);
-});
+    }
+  };
+  sendAPI.sendTextMessage(recipientId, '현재습도: ');
+  
+  api.callMessagesAPI(messageData);
 
-// 현재 계산기 메뉴일 때는 사용자가 입력한 값을 처리하는 함수 등록
-addMessage('/calc', (recipientId, messageText) => {
-    // 계산식을 분석한다.
-    try{
-        var tokens = messageText.split(' ');
-        if(tokens.length != 3)
-          throw '계산 형식 오류!';
+})
 
-        var a = parseInt(tokens[0]);
-        var op = tokens[1];
-        var b = parseInt(tokens[2]);
-        var result = 0;
-        switch (op) {
-          case '+': result = a + b; break;
-          case '-': result = a - b; break;
-          case '*': result = a * b; break;
-          case '%': result = a % b; break;
-          default:
-              sendAPI.sendTextMessage(recipientId, '+, -, *, % 연산자만 사용할 수 있습니다.')
-              return;
+addMessage("미세먼지", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "환풍기 제어 하시겠습니까?",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "환풍기 on",
+              "payload": "/store/ventilator/on"
+            },
+            {
+              "type": "postback",
+              "title": "환풍기 off",
+              "payload": "/store/ventilator/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
         }
-        sendAPI.sendTextMessage(recipientId, '계산 결과는 ' + result + ' 입니다.')
-
-    } catch (exception) {
-      sendAPI.sendTextMessage(recipientId, '계산식 형식이 옳지 않습니다. \n 예) 2 + 3')
+      }
     }
-});
+  };
 
-addMessage('/addr/dong', (recipientId, messageText) => {
-    try {
-        openAPI.searchNewAddress('dong', messageText, (msg) => {
-            sendAPI.sendTextMessage(recipientId, msg);
-        });
-    } catch (err) {
-        console.log(err);
-    }
-});
+  sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
+  api.callMessagesAPI(messageData);
+})
 
-addMessage('/addr/road', (recipientId, messageText) => {
-    try {
-        openAPI.searchNewAddress('road', messageText, (msg) => {
-            sendAPI.sendTextMessage(recipientId, msg);
-        });
-    } catch (err) {
-        console.log(err);
+addMessage('가습기', (recipientId, messageText) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "가습기를 제어 하시겠습니까?",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "가습기 on",
+              "payload": "/store/humidifier/on"
+            },
+            {
+              "type": "postback",
+              "title": "가습기 off",
+              "payload": "/store/humidifier/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
+        }
+      }
     }
-});
+  };
+  api.callMessagesAPI(messageData);
 
-addMessage('/addr/post', (recipientId, messageText) => {
-    try {
-        openAPI.searchNewAddress('post', messageText, (msg) => {
-            sendAPI.sendTextMessage(recipientId, msg);
-        });
-    } catch (err) {
-        console.log(err);
+})
+
+addMessage("환풍기", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "환풍기 제어 하시겠습니까?",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "환풍기 on",
+              "payload": "/store/ventilator/on"
+            },
+            {
+              "type": "postback",
+              "title": "환풍기 off",
+              "payload": "/store/ventilator/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
+        }
+      }
     }
-});
+  };
+
+  //sendAPI.typingOn(recipientId);
+  api.callMessagesAPI(messageData);
+})
+
 
 module.exports = {
-    getHandler
+  getHandler,
 };
+

@@ -1,115 +1,243 @@
-// 메신저 서버에게 메시지를 전달해주는 도구 가져오기
-const api = require('./api')
+const api = require('./api');
 const sendAPI = require('./send');
+const awsIoT = require('../iot-api/aws')
+//const awsIoTShadow = require('../iot-api/shadow')
 
-// postback을 받았을 때 그 메시지를 처리할 함수를 보관하는 객체
 const postbackHandler = {};
 
-// postback을 처리할 함수를 등록한다.
 const addPostback = (postback, handler) => {
-    postbackHandler[postback] = handler;
+  postbackHandler[postback] = handler;
 }
 
-// 등록된 메시지를 핸들러를 찾아서 리턴한다
 const getHandler = (postback) => {
-    return postbackHandler[postback];
+  return postbackHandler[postback];
 };
 
-// '/led' 메시지를 처리할 함수 등록
-addPostback('/led', (recipientId) => {
-    var messageData = {
-      recipient: {
-        id: recipientId
-      },
-      message: {
-        "attachment":{
-          "type":"template",
-          "payload":{
-            "template_type":"button",
-            "text":"LED 스위치",
-            "buttons":[
-              {
-                "type":"postback",
-                "title":"ON",
-                "payload":"/led/on"
-              },
-              {
-                "type":"postback",
-                "title":"OFF",
-                "payload":"/led/off"
-              }
-            ]
-          }
+addPostback("/board", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "메뉴판 확인해주세요",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "메인메뉴판",
+              "payload": "/board/main"
+            },
+            {
+              "type": "postback",
+              "title": "이벤트메뉴판",
+              "payload": "/board/event"
+            },
+          ]
         }
       }
-    };
+    }
+  };
+  api.callMessagesAPI(messageData);
+})
 
-      api.callMessagesAPI(messageData);
-    });
+addPostback("/board/main", (recipientId) => {
+  sendAPI.sendImageMessage(recipientId)
+  // SpringBoot 와 연결한다;
+})
+addPostback("/board/event", (recipientId) => {
+  sendAPI.sendGenericMessage(recipientId)
+  // SpringBoot 와 연결한다;
+})
 
-addPostback('/led/on', (recipientId) => {
-    sendAPI.sendTextMessage(recipientId, "LED를 켜겠습니다.");
-    // 나중에 스프링 부트에 LED 켜는 명령을 보낼 것이다.
-});
-
-addPostback('/led/off', (recipientId) => {
-    sendAPI.sendTextMessage(recipientId, "LED를 끄겠습니다.");
-    // 나중에 스프링 부트에 LED 끄는 명령을 보낼 것이다.
-});
-
-addPostback('/addr', (recipientId) => {
-    var messageData = {
-      recipient: {
-        id: recipientId
-      },
-      message: {
-        "attachment":{
-          "type":"template",
-          "payload":{
-            "template_type":"button",
-            "text":"검색항목",
-            "buttons":[
-              {
-                "type":"postback",
-                "title":"동이름",
-                "payload":"/addr/dong"
-              },
-              {
-                "type":"postback",
-                "title":"도로명",
-                "payload":"/addr/road"
-              },
-              {
-                "type":"postback",
-                "title":"우편번호",
-                "payload":"/addr/post"
-              }
-            ]
-          }
+addPostback("/store", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "매장 관리해주세요",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "온도",
+              "payload": "/store/temperature"
+            },
+            {
+              "type": "postback",
+              "title": "습도",
+              "payload": "/store/humidifier"
+            },
+            {
+              "type": "postback",
+              "title": "미세먼지",
+              "payload": "/store/ventilator"
+            }
+          ]
         }
       }
-    };
+    }
+  };
+  api.callMessagesAPI(messageData);
+})
+addPostback("/store/temperature", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '현재온도:');
+})
+
+
+addPostback("/store/humidifier", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "가습기 on/off 제어 해주세요",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "가습기 on",
+              "payload": "/store/humidifier/on"
+            },
+            {
+              "type": "postback",
+              "title": "가습기 off",
+              "payload": "/store/humidifier/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
+        }
+      }
+    }
+  };
+  sendAPI.sendTextMessage(recipientId, '현재 실내 습도 : ');
+  api.callMessagesAPI(messageData);
+})
+
+addPostback("/store/humidifier/on", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidifier on',
+    humidifier: 'on'
+  });
+  //awsIoTShadow.update({humidifier:on});
+})
+
+addPostback("/store/humidifier/off", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidifier off',
+    humidifier: 'off'
+  });
+  //awsIoTShadow.update({humidifier:off});
+})
+
+
+addPostback("/store/ventilator", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "환풍기 on/off 제어 해주세요",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "환풍기 on",
+              "payload": "/store/ventilator/on"
+            },
+            {
+              "type": "postback",
+              "title": "환풍기 off",
+              "payload": "/store/ventilator/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
+        }
+      }
+    }
+  };
+  sendAPI.sendTextMessage(recipientId, '현재 미세먼지농도 : ');
+  api.callMessagesAPI(messageData);
+})
+
+addPostback("/store/ventilator/on", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '환풍기 켭니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'ventilator on',
+    ventilator: 'on'
+  });
+  //awsIoTShadow.update({ventilator:on});
+  
+})
+
+addPostback("/store/ventilator/off", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '환풍기 끕니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'ventilator off',
+    ventilator: 'off'
+  });
+  //awsIoTShadow.update({ventilator:off});
+  
+})
+
+
+
+addPostback("/menu", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "옵션을 보고싶으세요? 아래에서 탭 해주세요.",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "메뉴판",
+              "payload": "/board" // 버튼 클릭 시, 서버에 다시 보내지는 값; postback-handler 에 구현
+            },
+            {
+              "type": "postback",
+              "title": "매장관리",
+              "payload": "/store"
+            }
+          ]
+        },
+      }
+    }
+
+  };
 
   api.callMessagesAPI(messageData);
-});
+})
 
-addPostback('/addr/road', (recipientId) => {
-    sendAPI.sendTextMessage(recipientId, '동 이름을 입력해주세요~ 예) 신천동');
-});
-
-addPostback('/addr/road', (recipientId) => {
-    sendAPI.sendTextMessage(recipientId, '도로명을 입력해주세요~ 예) 올림픽로33길 17');
-});
-
-addPostback('/addr/post', (recipientId) => {
-    sendAPI.sendTextMessage(recipientId, '우편번호를 입력해주세요~ 예) 05509');
-});
-
-
-addPostback('/calc', (recipientId) => {
-    sendAPI.sendTextMessage(recipientId, '식을 입력하세요. \n 예) 2 + 3')
-});
 
 module.exports = {
-    getHandler
+  getHandler
 };
