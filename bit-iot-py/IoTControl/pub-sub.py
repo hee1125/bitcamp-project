@@ -6,8 +6,8 @@ import argparse
 import json
 import humidifier_api as humidifier
 import ventilator_api as ventilator
-'''
-def customCallback1(client, userdata, message):
+
+def customCallback(client, userdata, message):
     print("메시지를 수신하였습니다. \n")
     print("사서함 이름: ")
     print(message.topic)
@@ -19,11 +19,11 @@ def customCallback1(client, userdata, message):
     humidifierState = dict['humidifier'] # 챗봇에서 메시지가 humidifier 요렇게 와야한다.
     if humidifierState == "on":
         humidifier.onHumidifier(True)
-    else : # else humidifierState == "off" 이게 안되면 else : 요걸로 진행
+    else if humidifierState == "off": # else humidifierState == "off" 이게 안되면 else : 요걸로 진행
         humidifier.onHumidifier(False)
     print("--------------")
-
-def customCallback2(client, userdata, message):
+'''
+def customCallback(client, userdata, message):
     print("메시지를 수신하였습니다. \n")
     print("사서함 이름: ")
     print(message.topic)
@@ -39,20 +39,6 @@ def customCallback2(client, userdata, message):
         ventilator.onVentilator(False)
     print("--------------")
 '''
-
-
-def customCallback3(client, userdata, message):
-
-    print(message.topic)
-    # 사서함에서 받은 Json 문자열을 객체로 변환
-    dict = json.loads(message.payload.decode('UTF-8'))
-    print(dict['message'])
-    humidifierState = dict['humidifier'] # 챗봇에서 메시지가 humidifier 요렇게 와야한다.
-    if humidifierState == "on":
-        humidifier.onHumidifier(True)
-    else humidifierState == "off":
-        humidifier.onHumidifier(False)
-    print("--------------")
 
 
 
@@ -90,6 +76,4 @@ print("connect! \n")
 
 # AWS IoT의 Thing의 'topic_1' 사서함을 구독하겠다고 선언
 # 메시지를 받으면 customCallback 함수가 호출될 것이다.
-#myAWSIoTMQTTClient.subscribe(topic, 1, customCallback1)
-#myAWSIoTMQTTClient.subscribe(topic, 1, customCallback2)
-myAWSIoTMQTTClient.subscribe(topic, 1, customCallback3)
+myAWSIoTMQTTClient.subscribe(topic, 1, customCallback)
