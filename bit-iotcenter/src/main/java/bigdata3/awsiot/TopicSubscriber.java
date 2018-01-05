@@ -22,8 +22,8 @@ public class TopicSubscriber {
   private String clientEndpoint = "a3ag6xqca3ze3x.iot.ap-northeast-2.amazonaws.com";
   private String clientId = "client3";
 
-  private String certificateFile = "C://Users/hee/git/bitcamp-project/bit-iotcenter/dev01.cert.pem";
-  private String privateKeyFile = "C://Users/hee/git/bitcamp-project/bit-iotcenter/dev01.private.key";
+  private String certificateFile = "dev01.cert.pem";
+  private String privateKeyFile = "dev01.private.key";
 
   // private String result;
   private String humidity;
