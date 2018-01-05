@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(27,GPIO.OUT)
+GPIO.setup(23,GPIO.OUT)
 
 def onHumidifier(state):
-    GPIO.output(27, state)
+    GPIO.output(23, state)
