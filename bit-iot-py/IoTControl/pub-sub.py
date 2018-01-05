@@ -62,12 +62,12 @@ def customCallback(client, userdata, message):
     elif dict['control'] == 'humidifier':
         print('humidifier===>')
         print(dict['value'])
-'''
+
     #if ventilatorState == "on":
     #    ventilator.onVentilator(True)
     #else :
     #    ventilator.onVentilator(False)
-    print("--------------")
+
 '''
 
 host = "a3urzfjm9f14zj.iot.ap-northeast-2.amazonaws.com"
