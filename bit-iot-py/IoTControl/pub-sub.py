@@ -16,17 +16,17 @@ def customCallback(client, userdata, message):
     # 사서함에서 받은 Json 문자열을 객체로 변환
     dict = json.loads(message.payload.decode('UTF-8'))
     print(dict['message'])
-    humidifierState = dict['humidifier'] # 챗봇에서 메시지가 humidifier 요렇게 와야한다.
-    ventilatorState = dict['ventilator']
-    if humidifierState == "on":
-        humidifier.onHumidifier(True)
+    if humidifierState = dict['humidifier'] : # 챗봇에서 메시지가 humidifier 요렇게 와야한다.
+        if humidifierState == "on":
+            humidifier.onHumidifier(True)
+        else :
+            humidifier.onHumidifier(False)
+    else ventilatorState = dict['ventilator'] :
         if ventilatorState == "on":
             ventilator.onVentilator(True)
         else :
             ventilator.onVentilator(False)
-    else : # else humidifierState == "off" 이게 안되면 else : 요걸로 진행
-        humidifier.onHumidifier(False)
-    print("--------------")
+
 '''
 def customCallback(client, userdata, message):
     print("메시지를 수신하였습니다. \n")
