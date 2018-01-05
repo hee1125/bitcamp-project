@@ -17,6 +17,7 @@ def customCallback(client, userdata, message):
     dict = json.loads(message.payload.decode('UTF-8'))
     print(dict['message'])
     humidifierState = dict['humidifier'] # 챗봇에서 메시지가 humidifier 요렇게 와야한다.
+    ventilatorState = dict['ventilator']
     if humidifierState == "on":
         humidifier.onHumidifier(True)
         if ventilatorState == "on":
