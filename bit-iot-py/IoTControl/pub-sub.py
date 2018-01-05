@@ -26,7 +26,7 @@ def customCallback(client, userdata, message):
             ventilator.onVentilator(True)
         else :
             ventilator.onVentilator(False)
-aaa
+
 '''
 def customCallback(client, userdata, message):
     print("메시지를 수신하였습니다. \n")
