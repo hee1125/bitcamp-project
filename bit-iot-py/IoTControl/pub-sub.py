@@ -7,6 +7,26 @@ import json
 import humidifier_api as humidifier
 import ventilator_api as ventilator
 
+def customCallback(client, userdata, message):
+    print("메시지를 수신하였습니다. \n")
+    print("사서함 이름: ")
+    print(message.topic)
+    print("메시지 내용: ")
+    #print(message.payload)
+    # 사서함에서 받은 Json 문자열을 객체로 변환
+    dict = json.loads(message.payload.decode('UTF-8'))
+    if dict['control'] == 'humidifier':
+        if dict['value'] == 'on':
+            humidifier.onHumidifier(True)
+        else :
+            humidifier.onHumidifier(False)
+    elif dict['control'] == 'ventilator':
+        if dict['value'] == 'on':
+            ventilator.onVentilator(True)
+        else :
+            ventilator.onVentilator(False)
+
+
 
 '''
 def customCallback(client, userdata, message):
@@ -27,7 +47,7 @@ def customCallback(client, userdata, message):
     else :
         humidifier.onHumidifier(False)
     print("--------------")
-'''
+
 def customCallback(client, userdata, message):
     print("메시지를 수신하였습니다. \n")
     print("사서함 이름: ")
@@ -42,13 +62,13 @@ def customCallback(client, userdata, message):
     elif dict['control'] == 'humidifier':
         print('humidifier===>')
         print(dict['value'])
-
+'''
     #if ventilatorState == "on":
     #    ventilator.onVentilator(True)
     #else :
     #    ventilator.onVentilator(False)
     print("--------------")
-
+'''
 
 host = "a3urzfjm9f14zj.iot.ap-northeast-2.amazonaws.com"
 rootCAPath = "../root-CA.crt"
