@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(24,GPIO.OUT)
+GPIO.setup(4,GPIO.OUT)
 
 def onVentilator(state):
-    GPIO.output(24, state)
+    GPIO.output(4, state)
