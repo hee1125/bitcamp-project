@@ -18,11 +18,14 @@ def customCallback(client, userdata, message):
     # 사서함에서 받은 Json 문자열을 객체로 변환
     dict = json.loads(message.payload.decode('UTF-8'))
     print(dict['message'])
-    humidifierState = dict['humidifier']
-    if humidifierState == "on":
+    if humidifierState == dict['humidifier on'] :
         humidifier.onHumidifier(True)
-    else :
+    elif humidifierState == dict['humidifier off']:
         humidifier.onHumidifier(False)
+    elif ventilatorState == dict['ventilator on'] :
+        ventilator.onVentilator(True)
+    elif ventilatorState == dict['ventilator off']:
+        ventilator.onVentilator(False)
     print("--------------")
 '''
 def customCallback(client, userdata, message):
