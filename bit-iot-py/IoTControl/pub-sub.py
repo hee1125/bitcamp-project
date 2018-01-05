@@ -20,12 +20,12 @@ def customCallback(client, userdata, message):
     print(dict['message'])
     if humidifierState == dict['humidifier on'] :
         humidifier.onHumidifier(True)
-    elif humidifierState == dict['humidifier off']:
-        humidifier.onHumidifier(False)
     elif ventilatorState == dict['ventilator on'] :
         ventilator.onVentilator(True)
-    elif ventilatorState == dict['ventilator off']:
+    elif ventilatorState == dict['ventilator off'] :
         ventilator.onVentilator(False)
+    else :
+        humidifier.onHumidifier(False)
     print("--------------")
 '''
 def customCallback(client, userdata, message):
@@ -44,7 +44,6 @@ def customCallback(client, userdata, message):
         ventilator.onVentilator(False)
     print("--------------")
 '''
-
 
 host = "a3urzfjm9f14zj.iot.ap-northeast-2.amazonaws.com"
 rootCAPath = "../root-CA.crt"
