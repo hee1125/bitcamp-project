@@ -19,14 +19,14 @@ def customCallback(client, userdata, message):
     dict = json.loads(message.payload.decode('UTF-8'))
     if dict['control'] == 'humidifier':
         if dict['value'] == 'on':
-            ser = serial.Serial('COM6') # 시리얼 포트를 준비한다.
+            ser = serial.Serial('/dev/ttyACM0') # 시리얼 포트를 준비한다.
             time.sleep(2) # 장비와 연결될 시간을 확보한다.
             print("실행 완료!")
             ser.write(b'1')
             # humidifier.onHumidifier(True)
             
         else :
-            ser = serial.Serial('COM6') # 시리얼 포트를 준비한다.
+            ser = serial.Serial('/dev/ttyACM0') # 시리얼 포트를 준비한다.
             time.sleep(2) # 장비와 연결될 시간을 확보한다.
             print("실행 완료!")
             ser.write(b'0')
