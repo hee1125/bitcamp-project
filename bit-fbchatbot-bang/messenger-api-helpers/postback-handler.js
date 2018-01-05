@@ -233,30 +233,22 @@ addPostback("/store/humidifier", (recipientId) => {
 
 addPostback("/store/humidifier/on", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
-  awsIoT.publish('dev01', 'topic_1', {
-    message: 'humidifier on',
-    humidifier: 'on'
+  awsIoT.publish('dev01', 'topic_2', {
+    control: 'humidifier',
+    value: 'on'
   });
   //awsIoTShadow.update({humidifier:on});
 })
 
 addPostback("/store/humidifier/off", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
-  awsIoT.publish('dev01', 'topic_1', {
-    message: 'humidifier off',
-    humidifier: 'off'
+  awsIoT.publish('dev01', 'topic_2', {
+    control: 'humidifier',
+    value: 'off'
   });
   //awsIoTShadow.update({humidifier:off});
 })
 
-addPostback("/store/humidity/off", (recipientId) => {
-  sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
-  awsIoT.publish('dev01', 'topic_2', {
-    message: 'humidity off',
-    humidity: 'off'
-  });
-  // 우선 주석 pub_sub 진행 후 shadow 진행! awsIoTShadow.update({humidity:off});
-})
 
 
 addPostback("/store/ventilator", (recipientId) => {
@@ -297,9 +289,9 @@ addPostback("/store/ventilator", (recipientId) => {
 
 addPostback("/store/ventilator/on", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '환풍기 켭니다');
-  awsIoT.publish('dev01', 'topic_1', {
-    message: 'ventilator on',
-    ventilator: 'on'
+  awsIoT.publish('dev01', 'topic_2', {
+      control: 'ventilator',
+      value: 'on'
   });
   //awsIoTShadow.update({ventilator:on});
 
@@ -307,9 +299,9 @@ addPostback("/store/ventilator/on", (recipientId) => {
 
 addPostback("/store/ventilator/off", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '환풍기 끕니다');
-  awsIoT.publish('dev01', 'topic_1', {
-    message: 'ventilator off',
-    ventilator: 'off'
+  awsIoT.publish('dev01', 'topic_2', {
+      control: 'ventilator',
+      value: 'off'
   });
   //awsIoTShadow.update({ventilator:off});
 
