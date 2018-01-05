@@ -36,12 +36,13 @@ def customCallback(client, userdata, message):
     #print(message.payload)
     # 사서함에서 받은 Json 문자열을 객체로 변환
     dict = json.loads(message.payload.decode('UTF-8'))
-    print(dict['message'])
-    ventilatorState = dict['ventilator']
-    if ventilatorState == "on":
-        ventilator.onVentilator(True)
-    else :
-        ventilator.onVentilator(False)
+    print(dict['control'])
+    value = dict['value']
+    print(value)
+    #if ventilatorState == "on":
+    #    ventilator.onVentilator(True)
+    #else :
+    #    ventilator.onVentilator(False)
     print("--------------")
 
 
@@ -51,7 +52,7 @@ certificatePath = "../dev01.cert.pem"
 privateKeyPath = "../dev01.private.key"
 useWebsocket = False
 clientId = "client2"
-topic = "topic_1"
+topic = "topic_2"
 
 # 실행하면서 로그를 남기기 위한 설정
 logger = logging.getLogger("AWSIoTPythonSDK.core")
