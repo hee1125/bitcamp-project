@@ -3,13 +3,13 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(2,GPIO.OUT)
-GPIO.output(2, False)
+GPIO.setup(27,GPIO.OUT)
+GPIO.output(27, False)
 
-GPIO.output(2, True)
+GPIO.output(27, True)
 
 time.sleep(1)
 
-GPIO.output(2, False)
+GPIO.output(27, False)
 
 GPIO.cleanup()
