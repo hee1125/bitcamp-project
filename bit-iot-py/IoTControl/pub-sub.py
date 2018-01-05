@@ -6,7 +6,7 @@ import argparse
 import json
 import humidifier_api as humidifier
 import ventilator_api as ventilator
-
+'''
 def customCallback(client, userdata, message):
     print("메시지를 수신하였습니다. \n")
     print("사서함 이름: ")
@@ -22,7 +22,7 @@ def customCallback(client, userdata, message):
     else :
         humidifier.onHumidifier(False)
     print("--------------")
-
+'''
 def customCallback(client, userdata, message):
     print("메시지를 수신하였습니다. \n")
     print("사서함 이름: ")
