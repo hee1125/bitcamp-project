@@ -16,19 +16,13 @@ def customCallback(client, userdata, message):
     # 사서함에서 받은 Json 문자열을 객체로 변환
     dict = json.loads(message.payload.decode('UTF-8'))
     print(dict['message'])
-    # 챗봇에서 메시지가 humidifier 또는 ventilator 로 들어온다.
-    if humidifierState == dict['humidifier'] :
-        if humidifierState == "on":
-            humidifier.onHumidifier(True)
-        else :
-            humidifier.onHumidifier(False)
-    elif ventilatorState == dict['ventilator'] :
-        if ventilatorState == "on":
-            ventilator.onVentilator(True)
-        else :
-            ventilator.onVentilator(False)
+    humidifierState = dict['humidifier']
+    if humidifierState == "on":
+        humidifier.onHumidifier(True)
+    else :
+        humidifier.onHumidifier(False)
     print("--------------")
-'''
+
 def customCallback(client, userdata, message):
     print("메시지를 수신하였습니다. \n")
     print("사서함 이름: ")
@@ -44,7 +38,7 @@ def customCallback(client, userdata, message):
     else :
         ventilator.onVentilator(False)
     print("--------------")
-'''
+
 
 
 
@@ -82,4 +76,4 @@ print("connect! \n")
 
 # AWS IoT의 Thing의 'topic_1' 사서함을 구독하겠다고 선언
 # 메시지를 받으면 customCallback 함수가 호출될 것이다.
-myAWSIoTMQTTClient.subscribe(topic, 1, customCallback)
+myAWSIoTMQTTClient.subscribe(topic, 2, customCallback)
