@@ -1,4 +1,4 @@
-# AWS IoT 파이썬 라이브러리 및 관련 라이브러리 로딩
+# AWS IoT Shadow
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
 import logging
 import time
@@ -8,54 +8,49 @@ import led_api as led
 
 # shadow 명령을 실행한 후 호출될 함수 정의
 def updateCallback(payload, responseStatus, token):
-    print("update 명령 수행 결과!-------------")
+    print("update 명령 수행결과 -----------------")
     print(payload)
     print(responseStatus)
     print(token)
-    print("--------------")
+    print("------------------------")
 
 def getCallback(payload, responseStatus, token):
-    print("get 명령 수행 결과!-------------")
+    print("get 명령 수행결과 -----------------")
     # AWSIoT 서버에서 받은 JSON 문자열을 객체로 변환
     dict = json.loads(payload)
-
     if responseStatus == "rejected" and dict['code'] == 404:
-        print("섀도우가 존재하지 않습니다.")
+        print("shadow가 존재하지 않습니다.")
 
-        # shadow 기본 값 설정하기
+        # shadow 기본값 설정하기
         myJSONPayload = '{"state":{"desired":{"led":"on"}}}'
         myDeviceShadow.shadowUpdate(myJSONPayload, updateCallback, 5)
     else:
-        print("현재 섀도우의 값은 다음과 같습니다.")
+        print("현재 shadow의 값은 다음과 같습니다.")
         print("led:" + dict['state']['desired']['led'])
         print(token)
-        if dict['state']['desired']['led'] == "on":
+        if dict['state']['desired']['led'] =="on":
             led.onLed(True)
         else:
             led.onLed(False)
-    print("--------------")
 
-# AWS IoT의 Thing에 접속할 때 사용할 정보 준비
+    print("------------------------")
+    #
+    # #print(message.payload)
+    # # 사서함에서 받은 Json 문자열을 객체로 변환
+    # dict = json.loads(message.payload.decode('UTF-8'))
+    # print(dict['message'])
+    # ledState = dict['led']
+    # if ledState == "on":
+    #     led.onLed(True)
+    # else:
+    #     led.onLed(False)
+    # print("--------------")
 
-# AWS에 등록한 Thing을 가리키는 URL.
-# AWS IoT 사물 관리 페이지에서 "상호작용" 메뉴에서
-# HTTPS의 RestAPI를 요청할 때 사용할 Thing의 URL이다.
-host = "a3ag6xqca3ze3x.iot.ap-northeast-2.amazonaws.com"
-
-# 사물에 대해 발행한 인증서를 검증해 줄
-# "인증서를 발행한 회사(인증기관)"의 인증서 파일
-rootCAPath = "root-CA.crt"
-
-# AWS 서버에 Thing을 생성한 후 만든 인증서의 사물인증서 파일
-certificatePath = "dev01.cert.pem"
-
-# AWS 서버에 Thing을 생성한 후 만든 인증서의 개인키 파일
-privateKeyPath = "dev01.private.key"
-
-# web 소켓 사용 여부
+host = "a1jawjb5359l39.iot.ap-northeast-2.amazonaws.com"
+rootCAPath = "../root-CA.crt"
+certificatePath = "../dev01.cert.pem"
+privateKeyPath = "../dev01.private.key"
 useWebsocket = False
-
-# 다른 클라이언트와 구분하기 위한 임의의 ID
 clientId = "client2"
 
 
@@ -66,7 +61,6 @@ streamHandler = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 streamHandler.setFormatter(formatter)
 logger.addHandler(streamHandler)
-
 
 # AWSIoTMQTTClient 초기화
 myShadowClient = AWSIoTMQTTShadowClient(clientId)
@@ -80,10 +74,9 @@ myShadowClient.configureMQTTOperationTimeout(5)  # 5 sec
 
 # AWS IoT에 등록된 Thing과 연결
 myShadowClient.connect()
-print("shadow connect\n")
+print("shadow connect! \n")
 
 # thing shadow 객체 생성
 myDeviceShadow = myShadowClient.createShadowHandlerWithName("dev01", True)
 
-# 현재 shadow 값 가져오기
 myDeviceShadow.shadowGet(getCallback, 5)
