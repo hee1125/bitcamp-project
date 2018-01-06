@@ -41,6 +41,7 @@ dev01.on('connect', function() {
 
     dev01.subscribe('topic_1');
     console.log('topic_1의 사서함 구독 시작')
+
 });
 
 
@@ -56,17 +57,29 @@ dev01.on('message', function(topic, payload) {
 });
 
 
+function subscribe(deviceName, topic, payload){
+    devices[deviceName].subscribe(topic, payload.toString());
+
+}
+/*
+var temp = toString(req.query.temp);
+var humi = toString(req.query.humi);
+
+subscribe('dev01', 'topic_1', {
+
+        humidity : req.query.temp,
+        temperature : req.query.humi,
+        dustDensityug : req.query.dust
+
+});
+*/
+
 function publish(deviceName, topic, dataObj){
     devices[deviceName].publish(topic, JSON.stringify(dataObj));
 
 }
 
-function subscribe(deviceName, topic, payload){
-    devices[deviceName].subscribe(topic, payload.toString());
-
-}
-
 module.exports = {
-  publish,
-  subscribe
+  subscribe,
+  publish
 };

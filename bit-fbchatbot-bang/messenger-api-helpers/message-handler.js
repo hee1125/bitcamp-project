@@ -1,6 +1,7 @@
 const api = require('./api');
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi');
+const awsIoT = require('../iot-api/aws')
 
 //message를 받았을 때 그 메시지를 처리할 함수를 보관하는 빈 객체.
 const messageHandler = {
@@ -121,11 +122,12 @@ addMessage('메뉴', (recipientId) => {
 addMessage('온도', (recipientId, messageText) => {
    //sendAPI.typingOff(recipientId);
   sendAPI.sendTextMessage(recipientId, '현재온도: ');
-/*
+
   awsIoT.subscribe('dev01', 'topic_1', {
-    temperature: ''
+      "temp": req.query.temp,
+      "humi": req.query.humi
   });
-*/
+
 })
 
 addMessage('습도', (recipientId, messageText) => {
