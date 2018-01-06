@@ -192,6 +192,7 @@ addPostback("/store", (recipientId) => {
 })
 addPostback("/store/temperature", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '현재온도:');
+  
 })
 
 
