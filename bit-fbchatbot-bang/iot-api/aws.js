@@ -56,20 +56,31 @@ dev01.on('message', function(topic, payload) {
     console.log('-------------------------');
 });
 
-
 function subscribe(deviceName, topic, payload){
-    devices[deviceName].subscribe(topic, payload.toString());
+    devices[deviceName].subscribe(topic, payload.toString())
+}
+
+/*
+function subscribe(deviceName, topic, payload){
+    devices[deviceName].subscribe(topic, payload.toString("sensor").equals("dht"))
+            temp : res.query.temp
+            humi : res.query.humi
 
 }
+*/
+
+
+
+
 /*
-var temp = toString(req.query.temp);
-var humi = toString(req.query.humi);
+var temp = toString(res.query.temp);
+var humi = toString(res.query.humi);
 
 subscribe('dev01', 'topic_1', {
 
-        humidity : req.query.temp,
-        temperature : req.query.humi,
-        dustDensityug : req.query.dust
+        humidity : res.query.temp,
+        temperature : res.query.humi,
+        dustDensityug : res.query.dust
 
 });
 */
