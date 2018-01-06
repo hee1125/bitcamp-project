@@ -114,6 +114,6 @@ function publish(deviceName, topic, dataObj){
 }
 
 module.exports = {
-  subscribe,
+  
   publish
 };
