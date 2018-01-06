@@ -82,7 +82,6 @@ public class TopicSubscriber {
                 dustDensityug = (String)data.get("dust");
             }
 
-
         }
       }, true);
 
