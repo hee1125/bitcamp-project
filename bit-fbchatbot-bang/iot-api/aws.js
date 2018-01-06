@@ -55,10 +55,33 @@ dev01.on('message', function(topic, payload) {
     console.log('받은 메시지:', payload.toString());
     console.log('-------------------------');
 });
-
+/*
 function subscribe(deviceName, topic, payload){
-    devices[deviceName].subscribe(topic, payload.toString())
+    devices[deviceName].subscribe(topic, payload.toString("sensor").equals("dht"))
 }
+
+awsIotClient.subscribe(new AWSIotTopic(Topic1, Topic1Qos) {
+  @Override
+  public void onMessage(AWSIotMessage message) {
+    // 이 메서드는 서버에서 메시지를 수신 할 때 마다 호출된다.
+    //System.out.println(System.currentTimeMillis() + ": <<< " + message.getStringPayload());
+
+
+      @SuppressWarnings("unchecked")
+      Map<String,Object> data = new Gson().fromJson(message.getStringPayload(), Map.class);
+
+      if (data.get("sensor").equals("dht")) {
+          humidity = (String)data.get("humi");
+          temperature = (String)data.get("temp");
+      } else if (data.get("sensor").equals("dust")) {
+          dustDensityug = (String)data.get("dust");
+      }
+
+  }
+}, true);
+*/
+
+
 
 /*
 function subscribe(deviceName, topic, payload){

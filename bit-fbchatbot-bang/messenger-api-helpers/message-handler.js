@@ -124,7 +124,6 @@ addMessage('온도', (recipientId, messageText) => {
    //sendAPI.typingOff(recipientId);
     sendAPI.sendTextMessage(recipientId, '현재온도: ')
 
-   );
 })
 
 addMessage('습도', (recipientId, messageText) => {
