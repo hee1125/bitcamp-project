@@ -58,6 +58,8 @@ dev01.on('message', function(topic, payload) {
     console.log(temp);
     console.log('-------------------------');
 });
+
+    console.log(temp);
 /*
 dev01.on('message', function(topic, payload) {
     if ( == "dht") {
@@ -83,7 +85,6 @@ dev01.on('message', function(topic, payload) {
 
 });
 
-
 awsIotClient.subscribe(new AWSIotTopic(Topic1, Topic1Qos) {
   @Override
   public void onMessage(AWSIotMessage message) {
@@ -104,9 +105,6 @@ awsIotClient.subscribe(new AWSIotTopic(Topic1, Topic1Qos) {
   }
 }, true);
 */
-
-
-
 /*
 function subscribe(deviceName, topic, payload){
     devices[deviceName].subscribe(topic, payload.toString("sensor").equals("dht"))
@@ -115,10 +113,6 @@ function subscribe(deviceName, topic, payload){
 
 }
 */
-
-
-
-
 /*
 var temp = toString(res.query.temp);
 var humi = toString(res.query.humi);
@@ -150,10 +144,18 @@ subscribe('dev01', 'topic_1', dataObj) {
 })
 
 */
+/*
+function subscribe(deviceName, topic, dataObj) {
 
+    var dataObj = payload.toString('utf-8')
+    var obj = JSON.parse(dataObj)
+    var temp = obj.temp
+    var humi = obj.humi
+    devices[deviceName].subscribe(topic, payload.toString(dataObj))
+}
+*/
 function publish(deviceName, topic, dataObj){
     devices[deviceName].publish(topic, JSON.stringify(dataObj));
-
 }
 
 module.exports = {
