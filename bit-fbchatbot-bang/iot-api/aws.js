@@ -58,11 +58,17 @@ dev01.on('message', function(topic, payload) {
     console.log(temp);
     console.log('-------------------------');
 
-    function subscribe (message, temp, callback) {
-        callback(message);
-    }
 });
-
+function subscribe (message, temp, callback) {
+    dev01.on('message', function(topic, payload) {
+        var dataObj = payload.toString('utf-8')
+        var obj = JSON.parse(dataObj)
+        var temp = obj.temp
+        var humi = obj.humi
+    
+    callback(message);
+    });
+}
 /*
 function subscribe (message, temp, callback) {
     callback(message);
