@@ -65,9 +65,8 @@ function subscribe (message, temp, callback) {
         var obj = JSON.parse(dataObj)
         var temp = obj.temp
         var humi = obj.humi
-
-    callback(temp);
     });
+    callback(temp);
 }
 /*
 function subscribe (message, temp, callback) {
