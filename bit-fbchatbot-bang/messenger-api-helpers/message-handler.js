@@ -128,7 +128,7 @@ addMessage('온도', (recipientId, messageText) => {
         console.log('받은 메시지:', payload.toString());
         console.log('-------------------------');
         sendAPI.sendTextMessage(recipientId, '현재온도: ' + payload.toString())
-   });
+    });
 
 })
 

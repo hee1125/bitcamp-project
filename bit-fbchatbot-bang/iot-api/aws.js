@@ -52,7 +52,7 @@ dev01.on('connect', function() {
 dev01.on('message', function(topic, payload) {
     console.log('사서함 메시지 도착');
     console.log('사서함 이름:', topic);
-    console.log('받은 메시지:', payload.toString());
+    console.log('받은 메시지:', payload.toString("temp"));
     console.log('-------------------------');
 });
 
