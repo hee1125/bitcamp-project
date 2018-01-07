@@ -59,7 +59,7 @@ dev01.on('message', function(topic, payload) {
 
         var temperature = payload.toString('utf-8');
         var temp = toString(JSON.parse(temperature));
-        console.log(temp);
+        console.log(toString(temp));
 
 });
 
