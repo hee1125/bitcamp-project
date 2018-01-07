@@ -44,7 +44,7 @@ dev01.on('connect', function() {
 
 });
 
-
+/*
 // 구독하기로 설정한 사서함에 메시지가 도착할 때 마다
 // AWS IoT 서버에 이 프로그램에 알려준다.
 // 그때 호출될 메서드를 추가한다.
@@ -58,8 +58,15 @@ dev01.on('message', function(topic, payload) {
     console.log(temp);
     console.log('-------------------------');
 });
+*/
+subscribe('dev01', 'topic_1', payload.toString(dataObj)
+    var obj = JSON.parse(dataObj)
+    var temp = obj.temp
+    var humi = obj.humi
+    console.log(temp)
+)
 
-    console.log(temp);
+
 /*
 dev01.on('message', function(topic, payload) {
     if ( == "dht") {
