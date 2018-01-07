@@ -60,7 +60,7 @@ dev01.on('message', function(topic, payload) {
 });
 
 const subscribe = (topic, dataObj, callback) => {
-    var dataObj = payload.toString(dataObj)
+    var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
     var temp = obj.temp
     var humi = obj.humi
