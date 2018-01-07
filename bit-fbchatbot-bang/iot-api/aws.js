@@ -55,18 +55,17 @@ dev01.on('message', function(topic, payload) {
     console.log('받은 메시지:', payload.toString());
     console.log('-------------------------');
 });
-
-
 /*
+dev01.on('message', function(topic, payload) {
+    if (topic.equals('topic_1') & payload.toString("dht"))
 
-dev01.on('message', function(topic, payload)){
 
-}
-
+});
+*/
 function subscribe(deviceName, topic, payload){
-    devices[deviceName].subscribe(topic, payload.toString("sensor").equals("dht"))
+    devices[deviceName].subscribe(topic, payload.toString())
 }
-
+/*
 awsIotClient.subscribe(new AWSIotTopic(Topic1, Topic1Qos) {
   @Override
   public void onMessage(AWSIotMessage message) {
@@ -121,6 +120,6 @@ function publish(deviceName, topic, dataObj){
 }
 
 module.exports = {
-
-  publish
+    subscribe,
+    publish
 };
