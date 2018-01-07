@@ -59,15 +59,18 @@ dev01.on('message', function(topic, payload) {
     console.log('-------------------------');
 });
 
-function subscribe (message, temp, callback) {
+function subscribe (message, function(topic, payload) {
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
     var temp = obj.temp
     callback(obj.temp);
+})
+/*
+function subscribe (message, temp, callback) {
+    callback(message);
+
 }
-
-
-
+*/
 
 /*
 function subscribe (deviceName, topic, dataObj) {
