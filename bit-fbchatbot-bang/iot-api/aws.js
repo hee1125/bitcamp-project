@@ -59,7 +59,7 @@ dev01.on('message', function(topic, payload) {
     if (payload.toString() == "dht")
         var dht = payload.toString('utf-8');
         var temp = JSON.parse(dht);
-        console.log(dht);
+        console.log(temp);
 
 });
 
