@@ -55,7 +55,7 @@ dev01.on('message', function(topic, payload) {
     var obj = JSON.parse(dataObj)
     console.log('받은 메시지:', obj);
     var temp = toString(obj.temp)
-    console.log(temp);
+    console.log(typeof temp);
     console.log('-------------------------');
 });
 /*
