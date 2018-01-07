@@ -58,17 +58,15 @@ dev01.on('message', function(topic, payload) {
     console.log(temp);
     console.log('-------------------------');
 });
-/*
-const subscribe = (topic, dataObj, callback) => {
-    var dataObj = payload.toString('utf-8')
-    var obj = JSON.parse(dataObj)
-    var temp = obj.temp
-    var humi = obj.humi
 
+const subscribe = (message, temp, callback) => {
     callback(message);
     console.log(message)
 }
-*/
+
+
+
+
 /*
 function subscribe (deviceName, topic, dataObj) {
     devices[deviceName].subscribe(topic, JSON.parse(dataObj))
