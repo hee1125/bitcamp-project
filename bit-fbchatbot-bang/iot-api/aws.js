@@ -58,7 +58,7 @@ dev01.on('message', function(topic, payload) {
     console.log(temp);
     console.log('-------------------------');
 });
-
+/*
 const subscribe = (topic, dataObj, callback) => {
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
@@ -68,7 +68,7 @@ const subscribe = (topic, dataObj, callback) => {
     callback(message);
     console.log(message)
 }
-
+*/
 /*
 function subscribe (deviceName, topic, dataObj) {
     devices[deviceName].subscribe(topic, JSON.parse(dataObj))
@@ -196,6 +196,6 @@ function publish(deviceName, topic, dataObj){
 }
 
 module.exports = {
-    subscribe,
+    //subscribe,
     publish
 };
