@@ -57,10 +57,10 @@ dev01.on('message', function(topic, payload) {
 */
 dev01.on('message', function(topic, payload) {
 
-        var temperature = topic.payload.toString('utf-8');
+        var temperature = payload.toString('utf-8');
         var temp = toString(JSON.parse(temperature));
         console.log(temp);
-    
+
 });
 
 
