@@ -59,7 +59,7 @@ dev01.on('message', function(topic, payload) {
     console.log('-------------------------');
 });
 
-function subscribe (topic, temp, callback) {
+function subscribe (message, temp, callback) {
     callback(message);
 }
 /*
