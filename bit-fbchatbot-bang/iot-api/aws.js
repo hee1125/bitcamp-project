@@ -44,25 +44,25 @@ dev01.on('connect', function() {
 
 });
 
-/*
+
 // 구독하기로 설정한 사서함에 메시지가 도착할 때 마다
 // AWS IoT 서버에 이 프로그램에 알려준다.
 // 그때 호출될 메서드를 추가한다.
 dev01.on('message', function(topic, payload) {
     console.log('사서함 메시지 도착');
     console.log('사서함 이름:', topic);
-    console.log('받은 메시지:', payload.toString());
+    console.log('받은 메시지:', payload.JSON.parse());
     console.log('-------------------------');
 });
-*/
+/*
 dev01.on('message', function(topic, payload) {
     if (topic.topic == "dht") {
         var dht = payload.toString('utf-8');
-        var temp = JSON.parse(dht);
+        var  = JSON.parse(dht);
         console.log(temp);
     }
 });
-
+*/
 /*
 server.on('published', function (packet, client) {
     if (packet.topic == 'presence') {
