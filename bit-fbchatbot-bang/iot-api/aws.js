@@ -61,7 +61,7 @@ dev01.on('message', function(topic, payload) {
         var temp = toString(JSON.parse(temperature));
         console.log(temp);
     }
-});
+}); 
 
 
 /*
