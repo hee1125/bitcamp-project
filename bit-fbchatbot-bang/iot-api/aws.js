@@ -56,13 +56,7 @@ dev01.on('message', function(topic, payload) {
     console.log('-------------------------');
 });
 
-dev01.on('message', function(topic, payload) {
-    if (topic.equals('topic_1') & payload.toString("dht")) {
-        var temperature = payload.toString('utf-8');
-        var temp = JSON.parse(temperature);
-        console.log(temp);
-    }
-});
+
 
 /*
 server.on('published', function (packet, client) {
@@ -79,11 +73,11 @@ dev01.on('message', function(topic, payload) {
 
 
 });
-*/
+
 function subscribe(deviceName, topic, payload){
     devices[deviceName].subscribe(topic, payload.toString())
 }
-/*
+
 awsIotClient.subscribe(new AWSIotTopic(Topic1, Topic1Qos) {
   @Override
   public void onMessage(AWSIotMessage message) {
@@ -138,6 +132,6 @@ function publish(deviceName, topic, dataObj){
 }
 
 module.exports = {
-    subscribe,
+    //subscribe,
     publish
 };

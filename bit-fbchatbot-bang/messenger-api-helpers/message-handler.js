@@ -122,16 +122,14 @@ addMessage('메뉴', (recipientId) => {
 
 addMessage('온도', (recipientId, messageText) => {
    //sendAPI.typingOff(recipientId);
-   /*
-    awsIoT.subscribe('dev01','topic_1', {
-            if (topic.equals('topic_1') & payload.toString("dht")) {
-                var temperature = payload.toString('utf-8');
-                var temp = JSON.parse(temperature);
-                console.log(temp);
-            }
-        sendAPI.sendTextMessage(recipientId, '현재온도: ' + temp)
-    }
-    */
+    aswIoT.dev01.on('message', function(topic, payload) {
+        console.log('사서함 메시지 도착');
+        console.log('사서함 이름:', topic);
+        console.log('받은 메시지:', payload.toString());
+        console.log('-------------------------');
+        sendAPI.sendTextMessage(recipientId, '현재온도: ' + payload.toString())
+   });
+
 })
 
 addMessage('습도', (recipientId, messageText) => {
