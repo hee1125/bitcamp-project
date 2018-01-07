@@ -53,6 +53,7 @@ dev01.on('message', function(topic, payload) {
     console.log('사서함 이름:', topic);
     var dataObj = payload.toString('utf-8')
     console.log('받은 메시지:', JSON.parse(dataObj));
+    console.log(dataObj.temp);
     console.log('-------------------------');
 });
 /*
@@ -128,11 +129,11 @@ subscribe('dev01', 'topic_1', {
 
 });
 */
-/*
+
 function subscribe(deviceName, topic, dataObj){
     devices[deviceName].subscribe(topic, JSON.parse(dataObj))
 }
-*/
+
 function publish(deviceName, topic, dataObj){
     devices[deviceName].publish(topic, JSON.stringify(dataObj));
 
