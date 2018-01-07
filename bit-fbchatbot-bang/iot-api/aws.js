@@ -56,11 +56,11 @@ dev01.on('message', function(topic, payload) {
 });
 */
 dev01.on('message', function(topic, payload) {
-    if ("sensor" == "dht") {
+
         var temperature = topic.payload.toString('utf-8');
         var temp = toString(JSON.parse(temperature));
         console.log(temp);
-    }
+    
 });
 
 
