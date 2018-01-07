@@ -44,7 +44,7 @@ dev01.on('connect', function() {
 
 });
 
-/*
+
 // 구독하기로 설정한 사서함에 메시지가 도착할 때 마다
 // AWS IoT 서버에 이 프로그램에 알려준다.
 // 그때 호출될 메서드를 추가한다.
@@ -58,13 +58,32 @@ dev01.on('message', function(topic, payload) {
     console.log(temp);
     console.log('-------------------------');
 });
-*/
-subscribe('dev01', 'topic_1', payload.toString(dataObj)
+
+function subscribe (deviceName, topic, dataObj) {
+    devices[deviceName].subscribe(topic, JSON.parse(dataObj))
     var obj = JSON.parse(dataObj)
     var temp = obj.temp
     var humi = obj.humi
     console.log(temp)
-)
+}
+/*
+dict = json.loads(message.payload.decode('UTF-8'))
+elif dict['control'] == 'ventilator':
+        if dict['value'] == 'on':
+            ventilator.onVentilator(True)
+        else :
+            ventilator.onVentilator(False)
+
+subscribe('dev01', 'topic_1', payload.toString(dataObj))
+
+function publish(deviceName, topic, dataObj){
+    devices[deviceName].publish(topic, JSON.stringify(dataObj));
+}
+
+awsIoT.publish('dev01', 'topic_2', {
+  control: 'humidifier',
+  value: 'on'
+});
 
 
 /*
@@ -166,6 +185,6 @@ function publish(deviceName, topic, dataObj){
 }
 
 module.exports = {
-    //subscribe,
+    subscribe,
     publish
 };

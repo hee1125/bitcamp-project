@@ -28,8 +28,7 @@ var thingShadows = awsIot.thingShadow({
 
 });
 
-thingShadows
-  .on('connect', function() {
+thingShadows.on('connect', function() {
     // 이 함수가 호출되었다는 것은 AWS IoT의 Thing과 연결되었다는 의미다.
     console.log('shadow 제어장비가 준비되었음!');
     // 지정한 Thing에 대해 섀도우 연결을 요청한다.

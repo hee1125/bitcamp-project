@@ -123,7 +123,7 @@ addMessage('메뉴', (recipientId) => {
 addMessage('온도', (recipientId, messageText) => {
     //sendAPI.typingOff(recipientId);
     sendAPI.sendTextMessage(recipientId, '현재온도: ')
-    // awsIoT.subscribe('dev01', 'topic_1', dataObj.temp)
+    awsIoT.subscribe('dev01', 'topic_1', dataObj.temp)
 
 })
 
