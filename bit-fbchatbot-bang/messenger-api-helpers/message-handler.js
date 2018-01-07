@@ -122,7 +122,7 @@ addMessage('메뉴', (recipientId) => {
 
 addMessage('온도', (recipientId, messageText) => {
    //sendAPI.typingOff(recipientId);
-    aswIoT.dev01.on('message', function(topic, payload) {
+    awsIoT.dev01.on('message', function(topic, payload) {
         console.log('사서함 메시지 도착');
         console.log('사서함 이름:', topic);
         console.log('받은 메시지:', payload.toString());
