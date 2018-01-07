@@ -60,8 +60,10 @@ dev01.on('message', function(topic, payload) {
 });
 
 function subscribe (message, temp, callback) {
-    callback(message);
-    console.log(message)
+    var dataObj = payload.toString('utf-8')
+    var obj = JSON.parse(dataObj)
+    var temp = obj.temp
+    callback(obj.temp);
 }
 
 
