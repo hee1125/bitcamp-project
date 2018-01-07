@@ -54,15 +54,15 @@ dev01.on('message', function(topic, payload) {
     console.log('받은 메시지:', payload.toString("temp"));
     console.log('-------------------------');
 });
-
+/*
 dev01.on('message', function(topic, payload) {
     if (topic.topic == 'topic_1') {
         var temperature = topic.payload.toString('utf-8');
         var temp = toString(JSON.parse(temperature));
         console.log(temp);
     }
-}); 
-
+});
+*/
 
 /*
 server.on('published', function (packet, client) {
