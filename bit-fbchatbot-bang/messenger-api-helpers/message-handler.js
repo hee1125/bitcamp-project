@@ -122,8 +122,9 @@ addMessage('메뉴', (recipientId) => {
 
 addMessage('온도', (recipientId, messageText) => {
    //sendAPI.typingOff(recipientId);
-    sendAPI.sendTextMessage(recipientId, '현재온도: ')
-
+    awsIoT.subscribe('dev01', 'topic_1', payload.toString("dht"));
+    console.log('받은 메시지:', payload.toString());
+    sendAPI.sendTextMessage(recipientId, '현재온도: ' + payload.toString())
 })
 
 addMessage('습도', (recipientId, messageText) => {
