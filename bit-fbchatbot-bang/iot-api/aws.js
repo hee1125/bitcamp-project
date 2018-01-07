@@ -51,18 +51,18 @@ dev01.on('connect', function() {
 dev01.on('message', function(topic, payload) {
     console.log('사서함 메시지 도착');
     console.log('사서함 이름:', topic);
-    console.log('받은 메시지:', JSON.parse());
+    console.log('받은 메시지:', JSON.parse(dataObj));
     console.log('-------------------------');
 });
 /*
 dev01.on('message', function(topic, payload) {
-    if (topic.topic == "dht") {
+    if ( == "dht") {
         var dht = payload.toString('utf-8');
         var  = JSON.parse(dht);
         console.log(temp);
     }
 });
-*/
+
 /*
 server.on('published', function (packet, client) {
     if (packet.topic == 'presence') {
@@ -79,9 +79,6 @@ dev01.on('message', function(topic, payload) {
 
 });
 
-function subscribe(deviceName, topic, payload){
-    devices[deviceName].subscribe(topic, payload.toString())
-}
 
 awsIotClient.subscribe(new AWSIotTopic(Topic1, Topic1Qos) {
   @Override
@@ -130,7 +127,11 @@ subscribe('dev01', 'topic_1', {
 
 });
 */
-
+/*
+function subscribe(deviceName, topic, dataObj){
+    devices[deviceName].subscribe(topic, JSON.parse(dataObj))
+}
+*/
 function publish(deviceName, topic, dataObj){
     devices[deviceName].publish(topic, JSON.stringify(dataObj));
 
