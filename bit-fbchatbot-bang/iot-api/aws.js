@@ -57,11 +57,12 @@ dev01.on('message', function(topic, payload) {
     var temp = obj.temp
     console.log(temp);
     console.log('-------------------------');
+
+    function subscribe (message, temp, callback) {
+        callback(message);
+    }
 });
 
-function subscribe (message, temp, callback) {
-    callback(message);
-}
 /*
 function subscribe (message, temp, callback) {
     callback(message);
