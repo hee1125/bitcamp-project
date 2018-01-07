@@ -56,10 +56,10 @@ dev01.on('message', function(topic, payload) {
 });
 */
 dev01.on('message', function(topic, payload) {
-
-        var temperature = payload.toString('utf-8');
-        var temp = JSON.parse(temperature);
-        console.log(temp);
+    if (payload.toString() == "dht")
+        var dht = payload.toString('utf-8');
+        var temp = JSON.parse(dht);
+        console.log(dht);
 
 });
 
