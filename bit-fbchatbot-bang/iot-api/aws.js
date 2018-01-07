@@ -55,6 +55,24 @@ dev01.on('message', function(topic, payload) {
     console.log('받은 메시지:', payload.toString());
     console.log('-------------------------');
 });
+
+dev01.on('message', function(topic, payload) {
+    if (topic.equals('topic_1') & payload.toString("dht")) {
+        var temperature = payload.toString('utf-8');
+        var temp = JSON.parse(temperature);
+        console.log(temp);
+    }
+});
+
+/*
+server.on('published', function (packet, client) {
+    if (packet.topic == 'presence') {
+        var stringBuf = packet.payload.toString('utf-8');
+        var obj = JSON.parse(stringBuf);
+        console.log(obj);
+    }
+});
+*/
 /*
 dev01.on('message', function(topic, payload) {
     if (topic.equals('topic_1') & payload.toString("dht"))
