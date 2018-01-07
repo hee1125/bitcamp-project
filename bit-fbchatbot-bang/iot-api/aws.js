@@ -58,7 +58,7 @@ dev01.on('message', function(topic, payload) {
 dev01.on('message', function(topic, payload) {
     if (topic.topic == 'topic_1') {
         var temperature = topic.payload.toString('utf-8');
-        var temp = JSON.parse(temperature);
+        var temp = JSON.parse(temp);
         console.log(temp);
     }
 });
