@@ -122,6 +122,7 @@ addMessage('메뉴', (recipientId) => {
 
 addMessage('온도', (recipientId, messageText) => {
    //sendAPI.typingOff(recipientId);
+   /*
     awsIoT.dev01.on('message', function(topic, payload) {
         console.log('사서함 메시지 도착');
         console.log('사서함 이름:', topic);
@@ -129,7 +130,7 @@ addMessage('온도', (recipientId, messageText) => {
         console.log('-------------------------');
         sendAPI.sendTextMessage(recipientId, '현재온도: ' + payload.toString())
     });
-
+*/
 })
 
 addMessage('습도', (recipientId, messageText) => {
