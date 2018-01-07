@@ -55,7 +55,14 @@ dev01.on('message', function(topic, payload) {
     console.log('받은 메시지:', payload.toString());
     console.log('-------------------------');
 });
+
+
 /*
+
+dev01.on('message', function(topic, payload)){
+
+}
+
 function subscribe(deviceName, topic, payload){
     devices[deviceName].subscribe(topic, payload.toString("sensor").equals("dht"))
 }
@@ -114,6 +121,6 @@ function publish(deviceName, topic, dataObj){
 }
 
 module.exports = {
-  
+
   publish
 };
