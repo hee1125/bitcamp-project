@@ -122,7 +122,7 @@ addMessage('메뉴', (recipientId) => {
 
 addMessage('온도', (recipientId, messageText) => {
     //sendAPI.typingOff(recipientId);
-    awsIoT.dev01('message', 'temp', (msg) => {
+    awsIoT.dev01.on('message', 'temp', (msg) => {
         sendAPI.sendTextMessage(recipientId, msg);
     });
 
