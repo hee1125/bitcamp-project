@@ -61,7 +61,7 @@ dev01.on('message', function(topic, payload) {
 
 function subscribe (message, temp, callback) {
     callback(message);
-})
+}
 /*
 function subscribe (message, temp, callback) {
     callback(message);
