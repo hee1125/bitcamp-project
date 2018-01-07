@@ -122,12 +122,12 @@ addMessage('메뉴', (recipientId) => {
 
 addMessage('온도', (recipientId, messageText) => {
     //sendAPI.typingOff(recipientId);
-
-    awsIoT.dev01.on('message', function(topic, payload) {
+    dev01.subscribe('topic_1');
+    dev01.on('message', function(topic, payload) {
         var dataObj = payload.toString('utf-8')
         var obj = JSON.parse(dataObj)
         var temp = obj.temp
-        sendAPI.sendTextMessage(recipientId, '현재온도: ' + temp)
+        sendAPI.sendTextMessage(recipientId, '현재온도: '+temp)
     });
     /*
     awsIoT.subscribe('dev01', 'topic_1', {
@@ -137,6 +137,7 @@ addMessage('온도', (recipientId, messageText) => {
         sendAPI.sendTextMessage(recipientId, '현재온도: ' + temp)
     })
     */
+
 })
 
 addMessage('습도', (recipientId, messageText) => {

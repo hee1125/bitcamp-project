@@ -131,10 +131,25 @@ subscribe('dev01', 'topic_1', {
 
 });
 */
+/*
+dev01.on('message', function(topic, payload) {
+    var dataObj = payload.toString('utf-8')
+    var obj = JSON.parse(dataObj)
+    var temp = obj.temp
+    console.log(temp);
+});
 
 function subscribe(deviceName, topic, dataObj){
-    devices[deviceName].subscribe(topic, JSON.parse(dataObj))
+    devices[deviceName].subscribe(topic, payload.toString(dataObj))
 }
+
+subscribe('dev01', 'topic_1', dataObj) {
+    var obj = JSON.parse(dataObj)
+    var temp = obj.temp
+    console.log(temp);
+})
+
+*/
 
 function publish(deviceName, topic, dataObj){
     devices[deviceName].publish(topic, JSON.stringify(dataObj));
