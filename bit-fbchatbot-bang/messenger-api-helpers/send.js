@@ -1,6 +1,5 @@
 const api = require('./api')
 
-
 const typingOn = (recipientId) => {
   const messageData = {
     recipient: {

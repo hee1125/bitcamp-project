@@ -24,7 +24,7 @@ def customCallback(client, userdata, message):
             print("실행 완료!")
             ser.write(b'1')
             # humidifier.onHumidifier(True)
-            
+
         else :
             ser = serial.Serial('/dev/ttyACM0') # 시리얼 포트를 준비한다.
             time.sleep(2) # 장비와 연결될 시간을 확보한다.
@@ -113,7 +113,6 @@ myAWSIoTMQTTClient.configureMQTTOperationTimeout(5)  # 5 sec
 myAWSIoTMQTTClient.connect()
 print("connect! \n")
 
-# AWS IoT의 Thing의 'topic_1' 사서함을 구독하겠다고 선언
+# AWS IoT의 Thing의 'topic_2' 사서함을 구독하겠다고 선언
 # 메시지를 받으면 customCallback 함수가 호출될 것이다.
 myAWSIoTMQTTClient.subscribe(topic, 1, customCallback)
-

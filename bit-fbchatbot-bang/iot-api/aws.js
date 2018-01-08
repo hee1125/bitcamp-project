@@ -66,6 +66,7 @@ function subscribe (deviceName, topic, callback) {
         var obj = JSON.parse(dataObj)
         var temp = obj.temp
         var humi = obj.humi
+    // if msg
     callback(temp);
     });
 }

@@ -20,7 +20,7 @@
       width:600px;
       margin:45px auto;
     }
-    
+
     @media screen and (max-width: 480px) {
 
       button {
@@ -110,7 +110,7 @@
                   </div><!-- /.modal-dialog -->
                 </div>
   </div>
-                
+
   <!-- Main -->
   <div id="main">
     <section class="wrapper">
@@ -164,6 +164,17 @@
                           <label>
                             <input name="switch-field-1" class="ace ace-switch ace-switch-3" type="checkbox" />
                             <span class="lbl"></span>
+<!--                             $(cell).after('<span class="lbl"></span>');
+
+                            <form>
+                              <label for="flip-select">Flip toggle switch select:</label>
+                              <select id="flip-select" name="flip-select" data-role="flipswitch">
+                                <option>Off</option>
+                                <option>On</option>
+                              </select>
+                            </form>
+-->
+
                           </label></li>
                           <li class="list-group-item">Auto Setting 활성
                           <label>
@@ -177,8 +188,8 @@
                   </div>
                   <a href="#my-modal" class="button" role="button" data-toggle="modal">온도관리</a>
                 </div>
-                
-                
+
+
                 <div class="col align-center">
                   <div class="image round fit">
                     <img src="${pageContext.servletContext.contextPath}/images/clean.jpg" alt="" />
@@ -210,7 +221,7 @@
                   </div>
                   <a href="#" class="button">습도관리</a>
                 </div>
-                
+
                 <div class="col align-center">
                   <div class="image round fit">
                     <img src="${pageContext.servletContext.contextPath}/images/fine_dust01.jpg" alt="" />
@@ -272,7 +283,7 @@ setInterval(function() {
       <p>&copy; Untitled. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
     </div>
   </footer>
-  
+
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/assets/js/bootstrap.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/assets/js/ace-elements.min.js"></script>
@@ -284,18 +295,18 @@ setInterval(function() {
   <script type="text/javascript">
       jQuery(function($) {
         $('.modal.aside').ace_aside();
-        
+
         $('#aside-inside-modal').addClass('aside').ace_aside({container: '#my-modal > .modal-dialog'});
-        
+
         //$('#top-menu').modal('show')
-        
+
         $(document).one('ajaxloadstart.page', function(e) {
           //in ajax mode, remove before leaving page
           $('.modal.aside').remove();
           $(window).off('.aside')
         });
-        
-        
+
+
         //make content sliders resizable using jQuery UI (you should include jquery ui files)
         //$('#right-menu > .modal-dialog').resizable({handles: "w", grid: [ 20, 0 ], minWidth: 200, maxWidth: 600});
       })

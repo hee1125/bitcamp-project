@@ -22,4 +22,14 @@ public class AwsIotControl {
     return "awsiot/iot_control";
   }
   
+  @RequestMapping("iot_control")
+  public String getHumidifier(Model model) {
+    
+    model.addAttribute("publish", awsIotService.getPublish());
+    
+    return "awsiot/iot_control";
+  }
+  
+
+  
 }
