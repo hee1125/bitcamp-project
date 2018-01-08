@@ -29,7 +29,7 @@ public class AwsIotControl {
   }
   
   @RequestMapping("device/${device}/state/${state}")
-  @ResponseBody
+  //@ResponseBody
   public String getHumidifier(
       @PathVariable String device,
       @PathVariable String state) {
