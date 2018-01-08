@@ -56,6 +56,8 @@ dev01.on('message', function(topic, payload) {
     console.log('받은 메시지:', obj);
     var temp = obj.temp
     console.log(temp);
+    global.temp = obj.temp;
+    global.humi = obj.humi;
     console.log('-------------------------');
 
 });
