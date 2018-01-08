@@ -1,9 +1,15 @@
 package bigdata3.web;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 import bigdata3.service.AwsIotService;
 
@@ -22,14 +28,23 @@ public class AwsIotControl {
     return "awsiot/iot_control";
   }
   
-  @RequestMapping("iot_control")
-  public String getHumidifier(Model model) {
+  @RequestMapping("${device}/${state}")
+  @ResponseBody
+  public String getHumidifier(
+      @PathVariable("device") String device,
+      @PathVariable("state") String state,
+      Model model) {
+      
+      HashMap<String,String> valueMap = new HashMap<>();
+      valueMap.put("control", device);
+      valueMap.put("value", state);
     
-    model.addAttribute("publish", awsIotService.getPublish());
-    
-    return "awsiot/iot_control";
+      try {
+        awsIotService.publish(new Gson().toJson(valueMap));
+      } catch (Exception e) {
+        return "fail";
+      } 
+      return "ok";
   }
-  
-
   
 }

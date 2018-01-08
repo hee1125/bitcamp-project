@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import com.amazonaws.services.iot.client.AWSIotException;
 import com.amazonaws.services.iot.client.AWSIotMessage;
 import com.amazonaws.services.iot.client.AWSIotMqttClient;
 import com.amazonaws.services.iot.client.AWSIotQos;
@@ -90,6 +91,14 @@ public class TopicSubscriber {
     } catch (Exception e) {
       throw new RuntimeException("AWS IoT 서버에 연결 실패!");
     }
+  }
+  
+  public void publish(String payload) throws AWSIotException {
+    awsIotClient.publish(Topic1, payload);
+  }
+  
+  public void publish(String topic, String payload) throws AWSIotException {
+    awsIotClient.publish(topic, payload);
   }
 
   /*
