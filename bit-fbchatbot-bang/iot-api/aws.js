@@ -59,7 +59,7 @@ dev01.on('message', function(topic, payload) {
     console.log('-------------------------');
 
 });
-
+/*
 function subscribe (deviceName, topic, callback) {
     devices[deviceName].on('message', function(topic, payload) {
         var dataObj = payload.toString('utf-8')
@@ -71,7 +71,7 @@ function subscribe (deviceName, topic, callback) {
     });
 }
 
-/*
+*/
 function subscribe (message, temp, callback) {
     dev01.on('message', function(topic, payload) {
         var dataObj = payload.toString('utf-8')
@@ -81,7 +81,7 @@ function subscribe (message, temp, callback) {
     callback(temp);
     });
 }
-*/
+
 
 
 
