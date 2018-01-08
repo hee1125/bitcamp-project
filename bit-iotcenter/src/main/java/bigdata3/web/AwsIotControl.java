@@ -39,7 +39,7 @@ public class AwsIotControl {
       valueMap.put("value", state);
     
       try {
-        awsIotService.publish(new Gson().toJson(valueMap));
+        awsIotService.publish("topic_2", new Gson().toJson(valueMap));
       } catch (Exception e) {
         return "fail";
       } 
