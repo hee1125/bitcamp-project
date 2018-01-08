@@ -28,11 +28,11 @@ public class AwsIotControl {
     return "awsiot/iot_control";
   }
   
-  @RequestMapping("device/${device}/state/${state}")
-  //@ResponseBody
-  public String getHumidifier(
-      @PathVariable String device,
-      @PathVariable String state) {
+  @RequestMapping("setState")
+  @ResponseBody
+  public String setState(
+      String device,
+      String state) {
       
       HashMap<String,String> valueMap = new HashMap<>();
       valueMap.put("control", device);
