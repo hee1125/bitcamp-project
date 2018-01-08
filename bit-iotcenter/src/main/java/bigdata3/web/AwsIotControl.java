@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 import bigdata3.service.AwsIotService;
 
 @Controller
-@RequestMapping("/awsiot")
+@RequestMapping("/awsiot/")
 public class AwsIotControl {
 
   @Autowired
@@ -32,8 +32,7 @@ public class AwsIotControl {
   @ResponseBody
   public String getHumidifier(
       @PathVariable String device,
-      @PathVariable String state,
-      Model model) {
+      @PathVariable String state) {
       
       HashMap<String,String> valueMap = new HashMap<>();
       valueMap.put("control", device);
