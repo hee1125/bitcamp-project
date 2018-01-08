@@ -162,7 +162,7 @@
                         <ul class="list-group">
                           <li class="list-group-item">기기 전원상태
                           <label>
-                            <input id="switch1" name="switch-field-1" class="ace ace-switch ace-switch-3" type="checkbox" />
+                            <input data-device="humidifier" name="switch-field-1" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
 <!--                             $(cell).after('<span class="lbl"></span>');
 
@@ -178,7 +178,7 @@
                           </label></li>
                           <li class="list-group-item">Auto Setting 활성
                           <label>
-                            <input name="switch-field-2" class="ace ace-switch ace-switch-2" type="checkbox" />
+                            <input data-device="humidifier2" name="switch-field-2" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 설정온도 : 18도</li>
@@ -206,12 +206,12 @@
                         <ul class="list-group">
                           <li class="list-group-item">기기 전원상태
                           <label>
-                            <input name="switch-field-3" class="ace ace-switch ace-switch-3" type="checkbox" />
+                            <input name="switch-field-3" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 활성
                           <label>
-                            <input name="switch-field-4" class="ace ace-switch ace-switch-2" type="checkbox" />
+                            <input name="switch-field-4" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 설정습도 : 50%</li>
@@ -239,12 +239,12 @@
                           <li class="list-group-item">현재 상태 : 나쁨</li>
                           <li class="list-group-item">기기 전원상태
                           <label>
-                            <input name="switch-field-5" class="ace ace-switch ace-switch-3" type="checkbox" />
+                            <input name="switch-field-5" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 활성
                           <label>
-                            <input name="switch-field-6" class="ace ace-switch ace-switch-2" type="checkbox" />
+                            <input name="switch-field-6" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 설정 미세먼지 : 10μg/m3</li>
@@ -311,8 +311,12 @@ setInterval(function() {
         //$('#right-menu > .modal-dialog').resizable({handles: "w", grid: [ 20, 0 ], minWidth: 200, maxWidth: 600});
       })
       
-      $('#switch1').on('change', function(event) {
-    	  alert(event.target.checked)
+      $('.iot-switch').on('change', function(event) {
+    	  var tag = $(event.target);
+    	  var device = tag.attr('data-device');
+    	  var url = '${pageContext.servletContext.contextPath}/awsiot/setState?device=' + device + 
+    			        "&state=" + tag.prop("checked")
+    	  alert(url)
       });
       
     </script>
