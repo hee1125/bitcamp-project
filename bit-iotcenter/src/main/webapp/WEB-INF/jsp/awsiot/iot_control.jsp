@@ -315,8 +315,11 @@ setInterval(function() {
     	  var tag = $(event.target);
     	  var device = tag.attr('data-device');
     	  var url = '${pageContext.servletContext.contextPath}/awsiot/setState?device=' + device + 
-    			        "&state=" + tag.prop("checked")
-    	  alert(url)
+    			        "&state=" + (tag.prop("checked")? "on" : "off");
+    	  console.log(url);
+    	  $.get(url, function(data) {
+    		  alert(data);
+    	  })
       });
       
     </script>
