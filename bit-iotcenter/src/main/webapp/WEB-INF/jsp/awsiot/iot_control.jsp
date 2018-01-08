@@ -162,7 +162,7 @@
                         <ul class="list-group">
                           <li class="list-group-item">기기 전원상태
                           <label>
-                            <input name="switch-field-1" class="ace ace-switch ace-switch-3" type="checkbox" />
+                            <input id="switch1" name="switch-field-1" class="ace ace-switch ace-switch-3" type="checkbox" />
                             <span class="lbl"></span>
 <!--                             $(cell).after('<span class="lbl"></span>');
 
@@ -310,6 +310,11 @@ setInterval(function() {
         //make content sliders resizable using jQuery UI (you should include jquery ui files)
         //$('#right-menu > .modal-dialog').resizable({handles: "w", grid: [ 20, 0 ], minWidth: 200, maxWidth: 600});
       })
+      
+      $('#switch1').on('change', function(event) {
+    	  alert(event.target.checked)
+      });
+      
     </script>
 </body>
 </html>
