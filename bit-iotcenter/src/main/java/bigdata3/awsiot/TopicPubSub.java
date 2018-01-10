@@ -14,7 +14,7 @@ import com.amazonaws.services.iot.client.sample.sampleUtil.SampleUtil.KeyStorePa
 import com.google.gson.Gson;
 
 @Component
-public class TopicSubscriber {
+public class TopicPubSub {
 
   private final String Topic1 = "topic_1";
   private final AWSIotQos Topic1Qos = AWSIotQos.QOS0;
@@ -45,7 +45,7 @@ public class TopicSubscriber {
     return dustDensityug;
   }
 
-  public TopicSubscriber() {
+  public TopicPubSub() {
     if (awsIotClient == null && certificateFile != null && privateKeyFile != null) {
       KeyStorePasswordPair pair = SampleUtil.getKeyStorePasswordPair(
           certificateFile,
@@ -92,11 +92,11 @@ public class TopicSubscriber {
       throw new RuntimeException("AWS IoT 서버에 연결 실패!");
     }
   }
-  
+  /*
   public void publish(String payload) throws AWSIotException {
     awsIotClient.publish(Topic1, payload);
   }
-  
+  */
   public void publish(String topic, String payload) throws AWSIotException {
     awsIotClient.publish(topic, payload);
   }

@@ -26,12 +26,12 @@ public class AwsIotServiceImpl implements AwsIotService {
     return message;
   }
   
-
+/*
   @Override
   public void publish(String payload) throws AWSIotException {
     topicSubscriber.publish(payload);
   }
-  
+*/
   @Override
   public void publish(String topic, String payload) throws AWSIotException {
     topicSubscriber.publish(topic, payload);

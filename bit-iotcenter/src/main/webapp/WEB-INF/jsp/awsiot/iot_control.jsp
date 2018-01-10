@@ -162,23 +162,13 @@
                         <ul class="list-group">
                           <li class="list-group-item">기기 전원상태
                           <label>
-                            <input data-device="humidifier" name="switch-field-1" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
+                            <input data-device="humidifier" name="switch-humidifier-1" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
-<!--                             $(cell).after('<span class="lbl"></span>');
-
-                            <form>
-                              <label for="flip-select">Flip toggle switch select:</label>
-                              <select id="flip-select" name="flip-select" data-role="flipswitch">
-                                <option>Off</option>
-                                <option>On</option>
-                              </select>
-                            </form>
--->
 
                           </label></li>
                           <li class="list-group-item">Auto Setting 활성
                           <label>
-                            <input data-device="humidifier2" name="switch-field-2" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
+                            <input data-device="humidifier_auto" name="switch-humidifier_auto-2" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 설정온도 : 18도</li>
@@ -206,12 +196,12 @@
                         <ul class="list-group">
                           <li class="list-group-item">기기 전원상태
                           <label>
-                            <input name="switch-field-3" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
+                            <input data-device="humidifier" name="switch-humidifier-3" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 활성
                           <label>
-                            <input name="switch-field-4" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
+                            <input data-device="humidifier_auto" name="switch-humidifier_auto-4" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 설정습도 : 50%</li>
@@ -239,12 +229,12 @@
                           <li class="list-group-item">현재 상태 : 나쁨</li>
                           <li class="list-group-item">기기 전원상태
                           <label>
-                            <input name="switch-field-5" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
+                            <input data-device="ventilator" name="switch-ventilator-5" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 활성
                           <label>
-                            <input name="switch-field-6" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
+                            <input data-device="ventilator_auto" name="switch-ventilator_auto-6" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 설정 미세먼지 : 10μg/m3</li>

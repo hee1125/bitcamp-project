@@ -21,7 +21,7 @@ public class AwsIotControl {
   AwsIotService awsIotService;
   
   @RequestMapping("iot_control")
-  public String getHumiTemp(Model model) {
+  public String getHumiTempDust(Model model) {
     
     model.addAttribute("message", awsIotService.getMessage());
     
