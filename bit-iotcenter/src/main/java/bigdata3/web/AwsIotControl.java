@@ -34,7 +34,7 @@ public class AwsIotControl {
       String device,
       String state) {
       
-      // model.addAttribute("controlvalue", awsIotService.getControlValue());
+      model.addAttribute("controlvalue", awsIotService.getControlValue());
     
       HashMap<String,String> valueMap = new HashMap<>();
       valueMap.put("control", device);
