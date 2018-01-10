@@ -25,7 +25,15 @@ public class AwsIotServiceImpl implements AwsIotService {
     message.put("dustDensityug", topicPubSub.getdustDensityug());
     return message;
   }
-  
+  /*
+  @Override
+  public Map<String, Object> getControlValue() {
+    Map<String,Object> controlvalue = new HashMap<>();
+    controlvalue.put("humidifier", topicPubSub.getHumidifier());
+    controlvalue.put("ventilator", topicPubSub.getVentilator());
+    return controlvalue;
+  }
+  */
 /*
   @Override
   public void publish(String payload) throws AWSIotException {

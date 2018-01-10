@@ -253,13 +253,13 @@
     </section>
   </div>
 
-  <!-- 5초 간격으로 새로고침 -->
+  <!-- 5초 간격으로 새로고침 
 <script>
 setInterval(function() {
   location.reload();
 }, 5000);
 </script>
-
+-->
 
   <!-- Footer -->
   <footer id="footer">
@@ -311,6 +311,19 @@ setInterval(function() {
     		  alert(data);
     	  })
       });
+      <!-- 
+      $('.iot-switch').on('change', function(event) {
+          var tag = $(event.target);
+          var device = tag.attr('data-device');
+          var url = '${pageContext.servletContext.contextPath}/awsiot/setState?device=' + device + 
+                    "&state=" + (tag.prop("checked")? "on" : "off");
+          console.log(url);
+          $.get(url, function(data) {
+            alert(data);
+          })
+        });
+      -->
+      
       
     </script>
 </body>
