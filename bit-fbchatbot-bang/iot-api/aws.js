@@ -58,6 +58,7 @@ dev01.on('message', function(topic, payload) {
     console.log(temp);
     global.temp = obj.temp;
     global.humi = obj.humi;
+    global.dust = obj.dust;
     console.log('-------------------------');
 
 });
@@ -80,6 +81,7 @@ function subscribe (message, temp, callback) {
         var obj = JSON.parse(dataObj)
         var temp = obj.temp
         var humi = obj.humi
+        var dust = obj.dust
     callback(temp);
     });
 }
