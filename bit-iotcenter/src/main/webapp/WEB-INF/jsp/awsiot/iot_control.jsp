@@ -340,7 +340,7 @@
       
       $('#collapse3').on('shown.bs.collapse', function () {
         $.getJSON('${pageContext.servletContext.contextPath}/awsiot/iot_control_state', function(data) {
-          if (data.humidifier == "on") {
+          if (data.ventilator == "on") {
               $('input[data-device=ventilator]').prop('checked', true)
           } else {
               $('input[data-device=ventilator]').prop('checked', false)
