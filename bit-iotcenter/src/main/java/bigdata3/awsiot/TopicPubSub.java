@@ -32,8 +32,8 @@ public class TopicPubSub {
   private String humidity;
   private String temperature;
   private String dustDensityug;
-  private String humidifier;
-  private String ventilator;
+  private String humidifier = "off";
+  private String ventilator = "off";
   /*
   public String getResult() {
     return result;
