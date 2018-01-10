@@ -316,9 +316,9 @@
       -->
       setInterval(function() {
     	  $.getJSON('${pageContext.servletContext.contextPath}/awsiot/iot_sensor_state', function(data) {
-              $('#humidity').innerHTML(data.humidity);
-              $('#temperature').innerHTML(data.temperature);
-              $('#dustDesityug').innerHTML(data.dustDensityug);
+              $('#humidity').html(data.humidity);
+              $('#temperature').html(data.temperature);
+              $('#dustDesityug').html(data.dustDensityug);
               
         })
       }, 5000);
