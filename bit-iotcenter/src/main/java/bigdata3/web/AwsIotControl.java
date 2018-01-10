@@ -27,6 +27,12 @@ public class AwsIotControl {
     return "awsiot/iot_control";
   }
   
+  @RequestMapping("iot_sensorState")
+  @ResponseBody
+  public String getSensorState() {
+    return new Gson().toJson(awsIotService.getControlValue());
+  }
+  
   
   @RequestMapping("setState")
   @ResponseBody
