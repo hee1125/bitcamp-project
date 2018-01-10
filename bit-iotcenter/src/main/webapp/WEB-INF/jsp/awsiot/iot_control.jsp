@@ -155,7 +155,7 @@
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <!-- AWSIoT에 들어간 실내 온도 값-->
-                          <a data-toggle="collapse" href="#collapse1">현재온도 : <span id="temperature">${message.temperature}</span>
+                          <a id="temperature_collapse" data-toggle="collapse" href="#collapse1">현재온도 : <span id="temperature">${message.temperature}</span>
                       </div>
                       <div id="collapse1" class="panel-collapse collapse">
                         <ul class="list-group">
@@ -323,7 +323,12 @@
         })
       }, 5000);
       
+      $('#temperature_collapse').on('shown.bs.collapse', function () {
+    	  console.log('=================>')
+    	})
       
-    </script>
+      
+      
+      </script>
 </body>
 </html>
