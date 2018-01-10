@@ -155,8 +155,7 @@
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <!-- AWSIoT에 들어간 실내 온도 값-->
-                          <a data-toggle="collapse" href="#collapse1">현재온도 : ${message.temperature} °C<br></a>
-                        </h4>
+                          <a data-toggle="collapse" href="#collapse1">현재온도 : <span id="temperature">${message.temperature}</span>
                       </div>
                       <div id="collapse1" class="panel-collapse collapse">
                         <ul class="list-group">
@@ -189,7 +188,7 @@
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <!-- AWSIoT에 들어간 실내 습도 값-->
-                          <a data-toggle="collapse" href="#collapse2">현재습도 : ${message.humidity} %<br></a>
+                          <a data-toggle="collapse" href="#collapse2">현재습도 : <span id="humidity">${message.humidity}</span> %<br></a>
                         </h4>
                       </div>
                       <div id="collapse2" class="panel-collapse collapse">
@@ -221,7 +220,7 @@
                       <div class="panel-heading">
                         <h4 class="panel-title">
                             <!-- AWSIoT에 들어간 실내 미세먼지 값-->
-                          <a data-toggle="collapse" href="#collapse3">현재 실내 미세먼지: ${message.dustDensityug} [ug/m3]<br></a>
+                          <a data-toggle="collapse" href="#collapse3">현재 실내 미세먼지: <span id="dustDensityug">${message.dustDensityug}</span> [ug/m3]<br></a>
                         </h4>
                       </div>
                       <div id="collapse3" class="panel-collapse collapse">
@@ -317,9 +316,10 @@
       -->
       setInterval(function() {
     	  $.getJSON('${pageContext.servletContext.contextPath}/awsiot/iot_sensor_state', function(data) {
-              console.log(data.humidity);
-              console.log(data.temperature);
-              console.log(data.dustDensityug);
+              $('#humidity').innerHTML(data.humidity);
+              $('#temperature').innerHTML(data.temperature);
+              $('#dustDesityug').innerHTML(data.dustDensityug);
+              
         })
       }, 5000);
       
