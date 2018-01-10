@@ -253,14 +253,6 @@
     </section>
   </div>
 
-  <!-- 5초 간격으로 새로고침 
-<script>
-setInterval(function() {
-  location.reload();
-}, 5000);
-</script>
--->
-
   <!-- Footer -->
   <footer id="footer">
     <div class="copyright">
@@ -323,6 +315,13 @@ setInterval(function() {
           })
         });
       -->
+      setInterval(function() {
+    	  $.getJSON('${pageContext.servletContext.contextPath}/awsiot/iot_sensor_state', function(data) {
+              console.log(data.humidity);
+              console.log(data.temperature);
+              console.log(data.dustDensityug);
+        })
+      }, 5000);
       
       
     </script>
