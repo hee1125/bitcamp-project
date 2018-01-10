@@ -155,19 +155,19 @@
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <!-- AWSIoT에 들어간 실내 온도 값-->
-                          <a id="temperature_collapse" data-toggle="collapse" href="#collapse1">현재온도 : <span id="temperature">${message.temperature}</span>
+                          <a data-toggle="collapse" href="#collapse1">현재온도 : <span id="temperature">${message.temperature}</span>
                       </div>
                       <div id="collapse1" class="panel-collapse collapse">
                         <ul class="list-group">
                           <li class="list-group-item">기기 전원상태
                           <label>
-                            <input data-device="humidifier" name="switch-humidifier-1" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
+                            <input data-device="temperature" name="switch-humidifier-1" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
 
                           </label></li>
                           <li class="list-group-item">Auto Setting 활성
                           <label>
-                            <input data-device="humidifier_auto" name="switch-humidifier_auto-2" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
+                            <input data-device="temperature_auto" name="switch-humidifier_auto-2" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 설정온도 : 18도</li>
@@ -323,9 +323,25 @@
         })
       }, 5000);
       
-      $('#temperature_collapse').on('shown.bs.collapse', function () {
-    	  console.log('=================>')
-    	})
+      $('#collapse1').on('shown.bs.collapse', function () {
+    	  //$('input[data-device=temperature]').prop('checked', true)
+    	});
+    	
+    	$('#collapse2').on('shown.bs.collapse', function () {
+        //$('input[data-device=humidifier]').prop('checked', true)
+        $.getJSON('${pageContext.servletContext.contextPath}/awsiot/iot_control_state', function(data) {
+              console.log(data.humidifier);
+              
+        })
+      });
+      
+      $('#collapse3').on('shown.bs.collapse', function () {
+        //$('input[data-device=ventilator]').prop('checked', true)
+        $.getJSON('${pageContext.servletContext.contextPath}/awsiot/iot_control_state', function(data) {
+              console.log(data.ventilator);
+              
+        })
+      });
       
       
       
