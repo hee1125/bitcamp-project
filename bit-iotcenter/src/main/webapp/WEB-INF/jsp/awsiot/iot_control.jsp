@@ -328,17 +328,23 @@
     	});
     	
     	$('#collapse2').on('shown.bs.collapse', function () {
-        //$('input[data-device=humidifier]').prop('checked', true)
         $.getJSON('${pageContext.servletContext.contextPath}/awsiot/iot_control_state', function(data) {
-              console.log(data.humidifier);
+          if (data.humidifier == "on") {
+        	  $('input[data-device=humidifier]').prop('checked', true)
+          } else {
+        	  $('input[data-device=humidifier]').prop('checked', false)
+          }
               
         })
       });
       
       $('#collapse3').on('shown.bs.collapse', function () {
-        //$('input[data-device=ventilator]').prop('checked', true)
         $.getJSON('${pageContext.servletContext.contextPath}/awsiot/iot_control_state', function(data) {
-              console.log(data.ventilator);
+          if (data.humidifier == "on") {
+              $('input[data-device=ventilator]').prop('checked', true)
+          } else {
+              $('input[data-device=ventilator]').prop('checked', false)
+          }
               
         })
       });
