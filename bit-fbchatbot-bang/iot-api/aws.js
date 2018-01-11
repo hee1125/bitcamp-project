@@ -83,9 +83,10 @@ dev01.on('message', function(topic, payload) {
     console.log('사서함 이름:', topic);
     var objmap = new Map();
         objmap.set(payload.toString('utf-8'))
-    /*
+
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
+    /*
     var objmap = new Map();
         if (objmap.set('sensor', obj.sensor) == 'dht') {
             temp_value = objmap.set('temp', obj.temp)
