@@ -57,7 +57,7 @@ function getHumi_value() {
 function getDust_value() {
   return dust_value;
 }
-
+/*
 var objmap = new Map();// obj 맵객체로
 objmap.set('sensor', obj.sensor)
 objmap.set('temp', obj.temp)
@@ -73,7 +73,7 @@ var objmapmap = new Map();
         dust_value = obj.dust
     }
 console.log(objmapmap);
-
+*/
 
 // 구독하기로 설정한 사서함에 메시지가 도착할 때 마다
 // AWS IoT 서버에 이 프로그램에 알려준다.
