@@ -100,13 +100,14 @@ dev01.on('message', function(topic, payload) {
     global.temp = obj.temp;
     global.humi = obj.humi;
     global.dust = obj.dust;
-});
+
 
 console.log(temp_value);
 
 console.log('받은 메시지:', obj);
 
 console.log(dust_value);
+});
 /*
         var temp = obj.temp
         var humi = obj.humi
