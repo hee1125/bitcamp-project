@@ -44,9 +44,9 @@ dev01.on('connect', function() {
 
 });
 
-var temp_value;
-var humi_value;
-var dust_value;
+var temp_value = global.temp;
+var humi_value = global.humi;
+var dust_value = global.dust;
 
 function getTemp_value() {
   return temp_value;
@@ -115,7 +115,8 @@ dev01.on('message', function(topic, payload) {
     console.log('-------------------------');
 });
     console.log(getTemp_value());
-    console.log(getHumi_value());
+    console.log(humi_value);
+    console.log(global.dust);
     console.log('-------------------------');
 /*
 function subscribe (message, sensor_value, callback) {
