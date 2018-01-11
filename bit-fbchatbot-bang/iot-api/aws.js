@@ -52,23 +52,20 @@ dev01.on('message', function(topic, payload) {
     console.log('사서함 메시지 도착');
     console.log('사서함 이름:', topic);
     var dataObj = payload.toString('utf-8')
-    // var obj = JSON.parse(dataObj)
-
-    var objmap = new Map(payload.toString('utf-8'));// obj 맵객체로
-/*
+    var obj = JSON.parse(dataObj)
+    var objmap = new Map();// obj 맵객체로
+    objmap.set('sensor', obj.sensor)
     objmap.set('temp', obj.temp)
     objmap.set('humi', obj.humi)
     objmap.set('dust', obj.dust)
-*/
     console.log('맵:', objmap);
 /*
-    if (objmap.get(sensor).equals("dht")) {
-        var temp_value = obj.temp (String)obj.get(temp)
-        var humi_value = (String)obj.get(humi)
-    } else if (objmap.get(sensor).equals("dust")) {
-        var dust_value = (String)obj.get(dust)
-    }
-
+        if (objmap.get(sensor).equals("dht")) {
+            var temp_value = obj.temp (String)obj.get(temp)
+            var humi_value = (String)obj.get(humi)
+        } else if (objmap.get(sensor).equals("dust")) {
+            var dust_value = (String)obj.get(dust)
+        }
 */
 
 
