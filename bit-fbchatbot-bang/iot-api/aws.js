@@ -85,18 +85,14 @@ dev01.on('message', function(topic, payload) {
     var obj = JSON.parse(dataObj)
     var objmap = new Map();
         objmap.set(obj)
-
-
-    /*
-    var objmap = new Map();
-        if (objmap.set('sensor', obj.sensor) == 'dht') {
+        if (objmap.get('sensor', obj.sensor == 'dht')) {
             temp_value = objmap.set('temp', obj.temp)
             humi_value = objmap.set('humi', obj.humi)
         }
-        else if (objmap.set('sensor', obj.sensor) == 'dust') {
+        else if (objmap.get('sensor', obj.sensor == 'dust')) {
             dust_value = objmap.set('dust', obj.dust)
         }
-    */
+    
     console.log(objmap);
 
     console.log('받은 메시지:', obj);
