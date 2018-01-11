@@ -52,7 +52,7 @@ dev01.on('message', function(topic, payload) {
     console.log('사서함 메시지 도착');
     console.log('사서함 이름:', topic);
     var dataObj = payload.toString('utf-8')
-    var obj = JSON.parse(dataObj)
+    // var obj = JSON.parse(dataObj)
 
     var objmap = new Map(payload.toString('utf-8'));// obj 맵객체로
 /*
