@@ -83,9 +83,9 @@ dev01.on('message', function(topic, payload) {
     console.log('사서함 이름:', topic);
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
-    temp_value = global.obj.temp
-    humi_value = global.obj.humi
-    dust_value = global.obj.dust
+    temp_value = global.temp
+    humi_value = global.humi
+    dust_value = global.dust
     /*
     var objmap = new Map();
         objmap.set(obj)
@@ -97,12 +97,16 @@ dev01.on('message', function(topic, payload) {
             dust_value = objmap.dust
         }
     */
-    console.log(temp_value);
-
-    console.log('받은 메시지:', obj);
-
-    console.log(dust_value);
+    global.temp = obj.temp;
+    global.humi = obj.humi;
+    global.dust = obj.dust;
 });
+
+console.log(temp_value);
+
+console.log('받은 메시지:', obj);
+
+console.log(dust_value);
 /*
         var temp = obj.temp
         var humi = obj.humi
