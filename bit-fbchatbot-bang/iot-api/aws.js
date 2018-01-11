@@ -61,11 +61,11 @@ dev01.on('message', function(topic, payload) {
     console.log('맵:', objmap);
 
         if (objmap.get('sensor').equals('dht')) {
-            var temp_value = (String)obj.get(temp)
-            var humi_value = (String)obj.get(humi)
+            var temp_value = obj.temp
+            var humi_value = obj.humi
             console.log(objmap);
         } else if (objmap.get('sensor').equals('dust')) {
-            var dust_value = (String)obj.get(dust)
+            var dust_value = obj.dust
             console.log(objmap);
         }
 
