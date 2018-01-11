@@ -92,12 +92,12 @@ dev01.on('message', function(topic, payload) {
         else if (objmap.get('sensor', obj.sensor == 'dust')) {
             dust_value = objmap.set('dust', obj.dust)
         }
-    
-    console.log(objmap);
+
+    console.log(objmap.temp_value);
 
     console.log('받은 메시지:', obj);
 
-    console.log(objmap);
+    console.log(objmap.dust_value);
 
 
         var temp = obj.temp
