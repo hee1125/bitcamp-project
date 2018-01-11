@@ -54,12 +54,26 @@ dev01.on('message', function(topic, payload) {
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
 
-    var objmap = new Map();// obj 맵객체로
+    var objmap = new Map(payload.toString('utf-8'));// obj 맵객체로
+/*
     objmap.set('temp', obj.temp)
     objmap.set('humi', obj.humi)
     objmap.set('dust', obj.dust)
-    
+*/
     console.log('맵:', objmap);
+/*
+    if (objmap.get(sensor).equals("dht")) {
+        var temp_value = obj.temp (String)obj.get(temp)
+        var humi_value = (String)obj.get(humi)
+    } else if (objmap.get(sensor).equals("dust")) {
+        var dust_value = (String)obj.get(dust)
+    }
+
+*/
+
+
+
+
 
     console.log('받은 메시지:', obj);
         var temp = obj.temp
