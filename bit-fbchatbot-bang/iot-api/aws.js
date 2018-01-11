@@ -84,11 +84,11 @@ dev01.on('message', function(topic, payload) {
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
     var objmap = new Map();
-        if (objmap.set('sensor', obj.sensor == 'dht')) {
+        if (objmap.set('sensor', obj.sensor)) {
             objmap.set('sensor', obj.sensor)
             temp_value = objmap.set('temp', obj.temp)
             humi_value = objmap.set('humi', obj.humi)
-        } else if (objmap.set('sensor', obj.sensor == 'dust')) {
+        } else if (objmap.set('sensor', obj.sensor)) {
             objmap.set('sensor', obj.sensor)
             dust_value = objmap.set('dust', obj.dust)
         }
