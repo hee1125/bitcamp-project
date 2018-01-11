@@ -44,6 +44,19 @@ dev01.on('connect', function() {
 
 });
 
+var temp_value;
+var humi_value;
+var dust_value;
+
+function getTemp_value() {
+  return temp_value;
+}
+function getHumi_value() {
+  return humi_value;
+}
+function getDust_value() {
+  return dust_value;
+}
 
 var objmap = new Map();// obj 맵객체로
 objmap.set('sensor', obj.sensor)
@@ -70,7 +83,22 @@ dev01.on('message', function(topic, payload) {
     console.log('사서함 이름:', topic);
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
+    var objmap = new Map();
+        if (objmap.set('sensor', obj.sensor == 'dht')) {
+            objmap.set('sensor', obj.sensor)
+            temp_value = objmap.set('temp', obj.temp)
+            humi_value = objmap.set('humi', obj.humi)
+        } else if (objmap.set('sensor', obj.sensor == 'dust')) {
+            objmap.set('sensor', obj.sensor)
+            dust_value = objmap.set('dust', obj.dust)
+        }
+    console.log(objmap.temp_value);
+
     console.log('받은 메시지:', obj);
+
+    console.log(objmap.temp_value);
+
+
         var temp = obj.temp
         var humi = obj.humi
         var dust = obj.dust
@@ -83,11 +111,21 @@ dev01.on('message', function(topic, payload) {
     console.log('-------------------------');
 });
 
-
+/*
 function subscribe (message, sensor_value, callback) {
     dev01.on('message', function(topic, payload) {
         var dataObj = payload.toString('utf-8')
         var obj = JSON.parse(dataObj)
+        var objmap = new Map();
+            if (objmap.set('sensor', obj.sensor == 'dht')) {
+                objmap.set('sensor', obj.sensor)
+                temp_value = objmap.set('temp', obj.temp)
+                humi_value = objmap.set('humi', obj.humi)
+            } else if (objmap.set('sensor', obj.sensor == 'dust')) {
+                objmap.set('sensor', obj.sensor)
+                dust_value = objmap.set('dust', obj.dust)
+            }
+
         var temp = obj.temp
         var humi = obj.humi
         var dust = obj.dust
@@ -102,7 +140,7 @@ function subscribe (message, sensor_value, callback) {
     });
 }
 
-
+*/
 function publish(deviceName, topic, dataObj){
     devices[deviceName].publish(topic, JSON.stringify(dataObj));
 }
