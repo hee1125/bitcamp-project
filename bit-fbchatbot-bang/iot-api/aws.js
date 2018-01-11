@@ -44,6 +44,20 @@ dev01.on('connect', function() {
 
 });
 
+var temp_value
+function temp_value() {
+    return temp_value
+}
+var humi_value
+function humi_value() {
+    return humi_value
+}
+
+var dust_value
+function dust_value() {
+    return dust_value
+}
+
 
 // 구독하기로 설정한 사서함에 메시지가 도착할 때 마다
 // AWS IoT 서버에 이 프로그램에 알려준다.
@@ -60,13 +74,14 @@ dev01.on('message', function(topic, payload) {
     objmap.set('dust', obj.dust)
     console.log('맵:', objmap);
 
+    var objmapmap = new Map();
         if (objmap.get('sensor') == 'dht') {
-            var temp_value = obj.temp
-            var humi_value = obj.humi
-            console.log(objmap);
+            temp_value = obj.temp
+            humi_value = obj.humi
+            console.log('맵맵:'objmapmap);
         } else if (objmap.get('sensor') == 'dust') {
-            var dust_value = obj.dust
-            console.log(objmap);
+            dust_value = obj.dust
+            console.log('맵맵:'objmapmap);
         }
 
 
