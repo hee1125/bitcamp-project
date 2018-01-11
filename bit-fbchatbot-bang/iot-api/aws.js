@@ -54,7 +54,11 @@ dev01.on('message', function(topic, payload) {
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
 
-    var objmap = new Map(obj);// obj 맵객체로
+    var objmap = new Map();// obj 맵객체로
+    objmap.set('temp', obj.temp)
+    objmap.set('humi', obj.humi)
+    objmap.set('dust', obj.dust)
+    
     console.log('맵:', objmap);
 
     console.log('받은 메시지:', obj);
