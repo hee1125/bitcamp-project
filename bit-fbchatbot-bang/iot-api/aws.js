@@ -60,7 +60,7 @@ dev01.on('message', function(topic, payload) {
         var humi = obj.humi
         global.temp = obj.temp;
         global.humi = obj.humi;
-    } else (obj.get("sensor").equls("dust")) {
+    } else if (obj.get("sensor").equls("dust")) {
         var dust = obj.dust
         global.dust = obj.dust;
     }
