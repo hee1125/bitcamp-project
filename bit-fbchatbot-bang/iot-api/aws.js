@@ -78,10 +78,10 @@ dev01.on('message', function(topic, payload) {
         if (objmap.get('sensor') == 'dht') {
             temp_value = obj.temp
             humi_value = obj.humi
-            console.log('맵맵:'objmapmap);
+            console.log(objmapmap);
         } else if (objmap.get('sensor') == 'dust') {
             dust_value = obj.dust
-            console.log('맵맵:'objmapmap);
+            console.log(objmapmap);
         }
 
 
