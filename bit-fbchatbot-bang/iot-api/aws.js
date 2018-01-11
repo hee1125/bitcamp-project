@@ -54,13 +54,20 @@ dev01.on('message', function(topic, payload) {
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
     console.log('받은 메시지:', obj);
-    var temp = obj.temp
-    console.log(temp);
-    global.temp = obj.temp;
-    global.humi = obj.humi;
-    global.dust = obj.dust;
-    console.log('-------------------------');
 
+    if (obj.get("sensor").equals("dht")) {
+        var temp = obj.temp
+        var humi = obj.humi
+        global.temp = obj.temp;
+        global.humi = obj.humi;
+    } else if (obj.get("sensor").equls("dust")) {
+        var dust = obj.dust
+        global.dust = obj.dust;
+    }
+    console.log(temp);
+    console.log(humi);
+    console.log(dust);
+    console.log('-------------------------');
 });
 /*
 function subscribe (deviceName, topic, callback) {
@@ -82,7 +89,7 @@ function subscribe (message, temp, callback) {
         var temp = obj.temp
         var humi = obj.humi
         var dust = obj.dust
-    callback(temp);
+    callback();
     });
 }
 
