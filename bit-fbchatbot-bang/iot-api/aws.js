@@ -100,6 +100,7 @@ function subscribe (message, sensor_value, callback) {
     });
 }
 */
+/*
 function subscribe (message, sensor_value, callback) {
     dev01.on('message', function(topic, payload) {
         var dataObj = payload.toString('utf-8')
@@ -107,7 +108,7 @@ function subscribe (message, sensor_value, callback) {
         var objmap = new dataMap(JSON.parse(obj));// obj 맵객체로
         // console.log(objmap);
 
-/*
+
             if (objmap.get(sensor).equals("dht")) {
                 var temp_value = obj.temp (String)obj.get(temp)
                 var humi_value = (String)obj.get(humi)
