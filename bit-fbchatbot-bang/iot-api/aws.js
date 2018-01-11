@@ -114,7 +114,9 @@ dev01.on('message', function(topic, payload) {
         //console.log(global.dust);
     console.log('-------------------------');
 });
-
+    console.log(temp_value);
+    console.log(humi_value);
+    console.log('-------------------------');
 /*
 function subscribe (message, sensor_value, callback) {
     dev01.on('message', function(topic, payload) {
