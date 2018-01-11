@@ -81,7 +81,7 @@ dev01.on('message', function(topic, payload) {
 
         } else if (objmap.get('sensor') == 'dust') {
             dust_value = obj.dust
-            console.log(objmapmap);
+            
         }
     console.log(objmapmap);
 
