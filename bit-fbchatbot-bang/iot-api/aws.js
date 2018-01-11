@@ -59,14 +59,15 @@ dev01.on('message', function(topic, payload) {
     objmap.set('humi', obj.humi)
     objmap.set('dust', obj.dust)
     console.log('맵:', objmap);
-/*
-        if (objmap.get(sensor).equals("dht")) {
-            var temp_value = obj.temp (String)obj.get(temp)
+
+        if (objmap.get('sensor').equals('dht')) {
+            var temp_value = (String)obj.get(temp)
             var humi_value = (String)obj.get(humi)
-        } else if (objmap.get(sensor).equals("dust")) {
+            console.log(objmap);
+        } else if (objmap.get('sensor').equals('dust')) {
             var dust_value = (String)obj.get(dust)
+            console.log(objmap);
         }
-*/
 
 
 
