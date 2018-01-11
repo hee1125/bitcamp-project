@@ -161,13 +161,13 @@
                         <ul class="list-group">
                           <li class="list-group-item">기기 전원상태
                           <label>
-                            <input data-device="temperature" name="switch-humidifier-1" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
+                            <input data-device="temperature" name="switch-temperature-1" class="ace ace-switch ace-switch-3 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
 
                           </label></li>
                           <li class="list-group-item">Auto Setting 활성
                           <label>
-                            <input data-device="temperature_auto" name="switch-humidifier_auto-2" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
+                            <input data-device="temperature_auto" name="switch-temperature_auto-2" class="ace ace-switch ace-switch-2 iot-switch" type="checkbox" />
                             <span class="lbl"></span>
                           </label></li>
                           <li class="list-group-item">Auto Setting 설정온도 : 18도</li>
