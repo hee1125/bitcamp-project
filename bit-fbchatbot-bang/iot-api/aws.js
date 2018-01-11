@@ -86,11 +86,11 @@ dev01.on('message', function(topic, payload) {
     var objmap = new Map();
         objmap.set(obj)
         if (objmap.get('sensor', obj.sensor == 'dht')) {
-            temp_value = objmap.set('temp', obj.temp)
-            humi_value = objmap.set('humi', obj.humi)
+            temp_value = objmap.temp
+            humi_value = objmap.humi
         }
         else if (objmap.get('sensor', obj.sensor == 'dust')) {
-            dust_value = objmap.set('dust', obj.dust)
+            dust_value = objmap.dust
         }
 
     console.log(objmap.temp_value);
