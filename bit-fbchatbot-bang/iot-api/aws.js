@@ -83,8 +83,9 @@ dev01.on('message', function(topic, payload) {
     console.log('사서함 이름:', topic);
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
-    temp_value = obj.temp
-    humi_value = obj.humi
+    temp_value = global.obj.temp
+    humi_value = global.obj.humi
+    dust_value = global.obj.dust
     /*
     var objmap = new Map();
         objmap.set(obj)
@@ -100,9 +101,9 @@ dev01.on('message', function(topic, payload) {
 
     console.log('받은 메시지:', obj);
 
-    console.log(humi_value);
+    console.log(dust_value);
 
-
+/*
         var temp = obj.temp
         var humi = obj.humi
         var dust = obj.dust
@@ -116,7 +117,7 @@ dev01.on('message', function(topic, payload) {
 });
     console.log(getTemp_value());
     console.log(humi_value);
-    console.log(global.dust);
+    console.log(global.temp);
     console.log('-------------------------');
 /*
 function subscribe (message, sensor_value, callback) {
