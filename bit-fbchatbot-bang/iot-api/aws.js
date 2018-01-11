@@ -102,7 +102,7 @@ dev01.on('message', function(topic, payload) {
     console.log('받은 메시지:', obj);
 
     console.log(dust_value);
-
+});
 /*
         var temp = obj.temp
         var humi = obj.humi
@@ -114,7 +114,7 @@ dev01.on('message', function(topic, payload) {
         //console.log(global.humi);
         //console.log(global.dust);
     console.log('-------------------------');
-});
+*/
     console.log(getTemp_value());
     console.log(humi_value);
     console.log(global.temp);
