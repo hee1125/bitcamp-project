@@ -66,10 +66,12 @@ function getDust_value() {
 for(i=1;;i++) {
 var objmapmap = new Map();
     if (objmap_dht.get('sensor') == 'dht') {
-        temp_value = global.temp
-        humi_value = global.humi
+        objmap_dht.set('sensor_value', sensor_value)
+        objmap_dht.set('temp_value', temp_value)
+        objmap_dht.set('humi_value', humi_value)
     } else if (objmap_dust.get('sensor') == 'dust') {
-        dust_value = global.dust
+        objmap_dht.set('sensor_value', sensor_value)
+        objmap_dust.set('dust_value', dust_value)
     }
 console.log(objmapmap);
 }
