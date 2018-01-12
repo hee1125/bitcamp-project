@@ -123,7 +123,7 @@ addMessage('메뉴', (recipientId) => {
 addMessage('온도', (recipientId, messageText) => {
     //sendAPI.typingOff(recipientId);
     //awsIoT.subscribe('topic_1', 'temp', (msg) => {
-    sendAPI.sendTextMessage(recipientId, '현재온도: ' + awsIoT.objmap.get('temp')+ '°C');
+    sendAPI.sendTextMessage(recipientId, '현재온도: ' + awsIoT.objmap_dht.get('temp')+ '°C');
 
 
     //});
@@ -207,7 +207,7 @@ addMessage("미세먼지", (recipientId) => {
     }
   };
 
-  sendAPI.sendTextMessage(recipientId, '현재미세먼지: ' + awsIoT.objmap.get('dust')+ '[ug/m3]');
+  sendAPI.sendTextMessage(recipientId, '현재미세먼지: ' + awsIoT.objmap_dht.get('dust')+ '[ug/m3]');
   api.callMessagesAPI(messageData);
 })
 

@@ -138,17 +138,6 @@ function subscribe (message, sensor_value, callback) {
         humi_value = global.humi;
         dust_value = global.dust;
 */
-        var objmap = new Map();
-            if (obj.get('sensor', obj.sensor == 'dht')) {
-                objmap.set('sensor', obj.sensor)
-                temp_value = objmap.set('temp', obj.temp)
-                humi_value = objmap.set('humi', obj.humi)
-            } else if (obj.get('sensor', obj.sensor == 'dust')) {
-                objmap.set('sensor', obj.sensor)
-                dust_value = objmap.set('dust', obj.dust)
-            }
-
-/*
         var objmap_dht = new Map();
             if (sensor_value == 'dht') {
                 objmap_dht.set('sensor_value', sensor_value)
@@ -160,10 +149,10 @@ function subscribe (message, sensor_value, callback) {
                 objmap_dust.set('sensor_value', sensor_value)
                 objmap_dust.set('dust_value', dust_value)
             }
-*/
-    console.log(objmap);
-    //console.log(objmap_dht);
-    //console.log(objmap_dust);
+
+
+    console.log(objmap_dht);
+    console.log(objmap_dust);
     callback();
     });
 }
