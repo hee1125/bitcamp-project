@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bigdata3.dao.ReplyDao">
+	<resultMap type="reply" id="replyMap">
+		<id column="tpno" property="replyNo" />
+		<result column="bdno" property="boardNo"/>
+		<result column="rno" property="replyContent" />
+		<result column="rcontent" property="replyer" />
+		<result column="replyer" property="userName" />
+		<result column="rsubject" property="replySubject" />
+		<result column="rdate" property="createDate" />
+	</resultMap>
+  
+  <select id="list" resultMap="replyMap" parameterType="int">
+    select rno, bdno, rcontent, replyer, rsubject, rdate 
+    from reply
+    where bdno = #{boardNo}
+  </select>
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bigdata3.dao.FileDao">
+	<resultMap type="upload" id="uploadMap">
+		<id column="fmno" property="uploadNo" />
+		<result column="bdno" property="boardNo" />
+		<result column="bno" property="branchNo" />
+		<result column="ori_file_name" property="fileName" />
+		<result column="save_file_name" property="newFileName" />
+		<result column="fm_date_time" property="uploadDate" />
+		<result column="fm_udate_time" property="updateDate" />
+		<result column="save_user_name" property="uploader" />
+		<result column="del_chk" property="delCheck" />
+	</resultMap>
+    
+	<insert id="insert" parameterType="map">
+		INSERT INTO branch_file(fmno,bno,ori_file_name,save_file_name,fm_date_time,fm_udate_time,save_user_name,del_chk)
+		  VALUES(#{uploadNo},#{branchNo},#{fileName},#{newFileName},now(),now(),'조민국',DEFAULT) 
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from branch_file
+		where bno=#{branchNo}
+	</delete>
+
+</mapper>

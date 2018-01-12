@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bigdata3.dao.MenuTemplateDao">
+  <resultMap type="menuTemplate" id="menuTemplateMap">
+    <id column="tpno" property="templateNo"/>
+    <result column="bname" property="branchName"/>
+    <result column="tptype" property="templateType"/>
+    <result column="tparea" property="templateArea"/>
+    <result column="tpcontent" property="templateContent"/>
+    <result column="mtype" property="menuType"/>
+    <result column="mname" property="menuName"/>
+    <result column="mprice" property="menuPrice"/>
+    <result column="mkcal" property="menuKcal"/>
+    <result column="tpdate" property="createDate"/>
+    <result column="tpupdate" property="updateDate"/>
+  </resultMap>
+  
+  <!-- <select id="list" resultMap="menuTemplateMap" parameterType="map">
+    select select tpno, bname, tptype, tparea, tpcontent, mtype, mname, mprice, mkcal, tpdate, tpupdate
+    from menu_template
+    order by tpno
+    limit #{start}, #{end}
+  </select> -->
+  
+  <select id="selectByTempType" resultMap="menuTemplateMap" parameterType="string">
+    select select tpno, bname, tptype, tparea, tpcontent, mtype, mname, mprice, mkcal, tpdate, tpupdate
+    from menu_template
+    where tptype = #{templateType}
+  </select> 
+  
+  <insert id="insert" parameterType="template" useGeneratedKeys="true" keyColumn="tpno" keyProperty="templateNo">
+    insert into menu_template(tpno, bname, tptype, tparea, tpcontent, mtype, mname, mprice, mkcal, tpdate, tpupdate)
+    values(#{templateNo},#{branchName},#{templateType},#{templateArea},#{templateContent},
+    #{menuType},#{menuName},#{menuPrice},#{menuKcal),default,default)
+  </insert>
+  
+  <!-- <update id="update" parameterType="template">
+    update template
+    set
+  </update> -->
+  
+  <!-- <update id="delete" parameterType="int">
+  </update> -->
+</mapper>

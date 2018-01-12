@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bigdata3.dao.BranchMasterDao">
+
+  <resultMap type="branchMaster" id="branchMasterMap">
+    <id column="bmno" property="no"/>
+    <result column="bmemail" property="email"/>
+    <result column="bmpwd" property="password"/>
+    <result column="bmname" property="name"/>
+    <result column="bmtel" property="tel"/>
+    <result column="bmfbid" property="facebook"/>
+    <result column="bmgrade" property="grade"/>
+    
+    <!--  
+    <result column="bname" property="bname"/>
+    <result column="bno" property="bno"/>
+    <result column="btel" property="btel"/>
+    -->
+  </resultMap>
+
+  <select id="selectList" resultMap="branchMasterMap" parameterType="map">
+    select  bmno, bmemail, bmname, bmtel, bmgrade
+    from branch_master
+    limit #{startIndex}, #{pageSize}
+  </select>
+  
+  <select id="selectOne" resultMap="branchMasterMap" parameterType="int">
+    select  bm.bmemail, bm.bmname, bm.bmtel, b.bname, b.bno, b.btel
+    from branch_master bm left join branch b on b.bmno=bm.bmno
+    where bm.bmno = #{branchmasterNo}
+  </select>
+  
+  <select id="selectOneByEmailPassword" resultMap="branchMasterMap" parameterType="map">
+    select  bmno, bmname, bmtel, bmemail, bmgrade
+    from branch_master
+    where bmemail=#{email} and bmpwd=password(#{password})
+  </select>
+  
+  <insert id="insert" parameterType="branchMaster">
+    insert into branch_master(bmemail, bmpwd, bmname, bmtel) 
+    values(#{email}, password(#{password}), #{name}, #{tel})
+  </insert>
+  
+  <delete id="delete" parameterType="int">
+    delete from branch_master where bmno=#{branchmasterNo}
+  </delete>
+  
+  <update id="update" parameterType="branchMaster">
+    update branch_master set 
+      bmname = #{name}, 
+      bmtel = #{tel},
+      bmemail = #{email}
+    where bmemail=#{email}
+  </update>
+
+</mapper>

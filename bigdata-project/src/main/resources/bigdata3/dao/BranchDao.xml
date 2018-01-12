@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bigdata3.dao.BranchDao">
+
+  <resultMap type="branch" id="branchMap">
+    <id column="bno" property="no"/>
+    <result column="bname" property="name"/>
+    <result column="baddr" property="addr"/>
+    <result column="btel" property="tel"/>
+    <result column="bintro" property="intro"/>
+    <result column="barea" property="area"/>
+    <result column="bmno" property="bmno"/>
+    <result column="bmname" property="bmname"/>
+    
+      
+    <collection property="uploadList" ofType="string">
+      <result column="save_file_name"/>
+    </collection>
+    
+  </resultMap>
+
+  <select id="selectList" resultMap="branchMap" parameterType="map">
+    select  b.bno, b.bname, b.btel, bm.bmno, bm.bmname, null as save_file_name
+    from branch b left join branch_master bm
+    on b.bmno=bm.bmno
+    limit #{startIndex}, #{pageSize}
+  </select>
+  
+  <select id="selectListByBranchNo" resultMap="branchMap" parameterType="int">
+    select b.bname, b.bno, b.btel, null as save_file_name
+    from branch b
+    where b.bmno=#{branchmasterNo}
+  </select>
+  
+  <select id="selectOne" resultMap="branchMap" parameterType="int">
+    select  b.bno, b.bname, b.btel, b.baddr, b.bintro, b.barea, bm.bmno, bm.bmname, bf.save_file_name
+    from branch b left join branch_master bm on b.bmno=bm.bmno 
+    			  left outer join branch_file bf on b.bno=bf.bno
+    where b.bno = #{branchNo}
+  </select>
+  
+  
+  <insert id="insert" parameterType="branch" useGeneratedKeys="true" keyColumn="bno" keyProperty="no">
+    insert into branch(bname, btel, baddr, barea, bmno, bintro) 
+    values(#{name}, #{tel}, #{addr}, #{area}, #{bmno}, #{intro})
+  </insert>
+  
+  <delete id="delete" parameterType="int">
+    delete from branch where bno=#{branchNo}
+  </delete>
+  
+  <update id="update" parameterType="branch">
+    update branch set 
+      bname=#{name}, 
+      btel=#{tel},
+      baddr=#{addr},
+      bintro=#{intro},
+      barea=#{area},
+      bmno=#{bmno}
+    where bno=#{no}
+  </update>
+  
+  <!--  
+  <insert id="insertPhoto" parameterType="map">
+    insert into file_mgr(bno,path)
+    values(#{branchNo},#{photoPath})
+  </insert>
+  
+  <select id="selectPhotoList" parameterType="int">
+    select fmno, bno, save_file_name
+    from file_mgr
+    where bno=#{branchNo}
+  </select>
+  
+  <delete id="deletePhoto" parameterType="int">
+    delete from file_mgr
+    where bno=#{branchNo}
+  </delete>
+-->
+</mapper>

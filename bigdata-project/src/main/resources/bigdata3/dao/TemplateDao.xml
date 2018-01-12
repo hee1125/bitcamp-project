@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bigdata3.dao.TemplateDao">
+	<resultMap type="template" id="templateMap">
+    <id column="tpno" property="templateNo" />
+    <result column="tpmno" property="tempManagerNo" />
+    <result column="tptype" property="templateType" />
+    <result column="tparea" property="templateArea" />
+    <result column="tpdate" property="createDate" />
+    <result column="tpupdate" property="updateDate" />
+  </resultMap>
+
+	<select id="list" resultMap="templateMap" parameterType="map">
+	</select>
+	
+	<insert id="insert" parameterType="template" useGeneratedKeys="true" keyColumn="tpno" keyProperty="templateNo">
+	
+	</insert>
+
+</mapper>

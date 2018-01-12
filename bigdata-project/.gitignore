@@ -1,0 +1,16 @@
+**/.vscode
+**/bin
+**/build
+**/.gradle/
+**/.classpath
+**/temp/
+**/.class
+**/.log
+**/.DS_Store
+**/Debug
+**/Release
+**/.settings/
+keystore.jks
+cacerts.jks
+server.cer
+!build.gradle

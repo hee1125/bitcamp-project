@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bigdata3.dao.TempManagerDao">
+	<resultMap type="tempManager" id="tempManagerMap">
+		<id column="tpmno" property="tempManagerNo" />
+		<result column="tptype" property="templateType" />
+		<result column="tpmdate" property="createDate" />
+		<result column="manager" property="manager" />
+		<result column="tpmcomment" property="templateComment" />
+		<association property="upload" javaType="upload">
+      <id column="tfno" property="no" />
+      <result column="filename" property="fileName" />
+      <result column="newfilename" property="newFilename" />
+      <result column="filepath" property="filePath" />
+    </association>
+	</resultMap>
+	
+	<select id="list" resultMap="tempManagerMap" parameterType="map">
+		select tm.tpmno, tm.tptype, tm.tpmdate, tm.manager, tm.tpmcomment, tf.filename, tf.newfilename, tf.filepath
+		from temp_mgr tm left join temp_file tf
+		on tm.tpmno = tf.tpmno
+		limit #{startIndex}, #{pageSize}
+	</select>
+	
+	<insert id="insert" parameterType="tempManager" useGeneratedKeys="true" keyColumn="tpmno" keyProperty="tempManagerNo">
+	 insert into temp_mgr(tpmno, tptype, tpmdate, manager, tpmcomment)
+	 values(#{tempManagerNo}, #{templateType}, default,#{manager},#{templateComment})
+	</insert>
+	
+	<insert id="insertFile" parameterType="map">
+	 INSERT INTO
+    temp_file(tpmno,filename,newfilename,tpmdate,visible,filepath)
+    VALUES(#{tempManagerNo},#{fileName},#{newFilename},now(),default,#{filePath})
+	</insert>
+
+</mapper>

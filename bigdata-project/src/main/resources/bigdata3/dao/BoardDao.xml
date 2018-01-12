@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bigdata3.dao.BoardDao">
+	<resultMap type="Board" id="boardMap">
+		<id column="bdno" property="boardNo" />
+		<result column="bdtype" property="boardType" />
+		<result column="bdwriter" property="boardWriter" />
+		<result column="bdsubject" property="boardSubject" />
+		<result column="bdhit" property="boardHit" />
+		<result column="bdcontent" property="boardContent" />
+		<result column="bddate" property="createDate" />
+		<result column="bdupdate" property="updateDate" />
+		<result column="delchk" property="deleteCheck" />
+	</resultMap>
+
+	<select id="list" resultMap="boardMap" parameterType="map">
+		select bdno, bdtype, bdwriter, bdsubject, bdhit, bdcontent, bddate,
+		bdupdate, delchk
+		from board
+		order by bdno desc
+		limit #{start}, #{end}
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from board
+	</select>
+
+	<select id="selectOne" resultMap="boardMap" parameterType="int">
+		select bdno, bdtype, bdwriter, bdsubject, bdhit, bdcontent, bddate,
+		bdupdate, delchk
+		from board
+		where bdno=#{boardNo}
+		order by bdno desc
+	</select>
+
+	<insert id="insert" parameterType="board" useGeneratedKeys="true"
+		keyColumn="bdno" keyProperty="boardNo">
+		insert into board(bdno, bdtype, bdwriter, bdsubject, bdhit, bdcontent,
+		bddate, bdupdate, delchk)
+		values(#{boardNo},#{boardType},#{boardWriter},#{boardSubject},default,#{boardContent},now(),now()
+		,default)
+	</insert>
+
+	<update id="update" parameterType="board">
+		update board
+		set
+		bdsubject = #{boardSubject},
+		bdcontent = #{boardContent},
+		bdupdate = now()
+		where bdno = #{boardNo}
+	</update>
+
+	<update id="delete" parameterType="int">
+		update board
+		set
+		delchk = 'Y'
+		where bdno = #{boardNo}
+	</update>
+
+	<update id="increaseHit" parameterType="int">
+		update board
+		set
+		bdhit = bdhit + 1
+		where bdno = #{boardNo}
+	</update>
+</mapper>

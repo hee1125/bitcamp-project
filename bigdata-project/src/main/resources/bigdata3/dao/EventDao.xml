@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bigdata3.dao.EventDao">
+
+	<resultMap type="event" id="eventMap">
+		<id column="evno" property="no" />
+		<result column="etpno" property="etpno" />
+		<result column="bno" property="bno" />
+		<result column="evtype" property="type" />
+		<result column="evtitle" property="title" />
+		<result column="evinfo" property="info" />
+		<result column="evcontent" property="content" />
+		<result column="evcontent2" property="content2" />
+		<result column="evsdate" property="startdate" />
+		<result column="evedate" property="enddate" />
+		<result column="delchk" property="delcheck" />
+		<result column="bname" property="bname" />
+		<result column="etptitle" property="etptitle" />
+		
+
+		<collection property="uploadList" ofType="string">
+			<result column="save_file_name" />
+		</collection>
+	</resultMap>
+
+	<select id="selectList" resultMap="eventMap" parameterType="map">
+		select evno, evtitle, bno, evtype, null as
+		save_file_name
+		from event
+		limit #{startIndex}, #{pageSize}
+	</select>
+
+	<insert id="insert" parameterType="event" useGeneratedKeys="true"
+		keyColumn="evno" keyProperty="no">
+		insert into event(bno, etpno, evtitle, evtype, evsdate, evedate, evcontent,
+		evinfo)
+		values(#{bno},#{etpno}, #{title}, #{type}, #{startdate}, #{enddate}, #{content}, #{info})
+	</insert>
+	
+	<select id="selectOne" resultMap="eventMap" parameterType="int">
+    select  e.evtitle, e.evtype, e.evsdate, e.evedate, e.evcontent, e.evinfo, b.bname, et.etptitle, ef.save_file_name
+    from event e join branch b on e.bno=b.bno
+    			 left outer join event_template et on e.etpno=et.etpno
+    			 left outer join event_file ef on e.evno=ef.evno
+    where e.evno=#{eventNo}
+    
+    
+  </select>
+
+
+
+
+</mapper>

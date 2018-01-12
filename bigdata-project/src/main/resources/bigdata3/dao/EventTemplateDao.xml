@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bigdata3.dao.EventTemplateDao">
+
+  <resultMap type="eventTemplate" id="eventTemplateMap">
+    <id column="etpno" property="no"/>
+    <result column="etptitle" property="title"/>
+    <result column="etpinfo" property="info"/>
+    <result column="etpdate" property="date"/>
+    <result column="delchk" property="delcheck"/>
+      
+    <collection property="imageList" ofType="string">
+      <result column="etpimg"/>
+    </collection>
+    </resultMap>
+    
+    <select id="selectListByEventTemplate" resultMap="eventTemplateMap" parameterType="map">
+    select etpno, etptitle, null as etpimg
+    from event_template
+    
+    
+  	</select>
+    
+
+
+  
+</mapper>

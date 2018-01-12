@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bigdata3.dao.MenuDao">
+  <resultMap type="menu" id="menuMap">
+    <id column="mno" property="menuNo"/>
+    <result column="mtype" property="menuType"/>
+    <result column="mname" property="menuName"/>
+    <result column="mprice" property="menuPrice"/>
+    <result column="mcontent" property="menuContent"/>
+    <result column="mkcal" property="menuKcal"/>
+    <result column="mdate" property="createDate"/>
+    <result column="delchk" property="deleteCheck"/>
+    <result column="manager" property="manager"/>
+  </resultMap>
+  
+  <select id="list" resultMap="menuMap" parameterType="map">
+    select mno, mtype, mname, mprice, mcontent, mkcal, mdate, delchk, manager
+    from menu
+    order by mno
+    limit #{start}, #{end}
+  </select>
+  
+  <select id="noPaging" resultMap="menuMap" parameterType="menu">
+    select mno, mtype, mname, mprice, mcontent, mkcal, mdate, delchk, manager
+    from menu
+    order by mno
+  </select>
+  
+  <select id="selectOne" resultMap="menuMap" parameterType="int">
+    select mno, mtype, mname, mprice, mcontent, mkcal, mdate, delchk, manager
+    from menu
+    where mno = #{menuNo}
+  </select>
+  
+  <select id="count" resultType="int">
+    select count(*) from menu
+  </select>
+  
+  <insert id="insert" parameterType="menu" useGeneratedKeys="true" keyColumn="mno" keyProperty="menuNo">
+    insert into menu(mno, mtype, mname, mprice, mcontent, mkcal, mdate, delchk, manager)
+    values(#{menuNo}, #{menuType}, #{menuName}, #{menuPrice}, #{menuContent}, #{menuKcal}
+    , now(), default, #{manager})
+  </insert>
+  
+  <update id="update" parameterType="menu">
+    update menu
+    set
+    mname = #{menuName},
+    mprice = #{menuPrice},
+    mkcal = #{menuKcal},
+    mdate = #{createDate}
+    where mno = #{menuNo}
+  </update>
+  
+  <update id="delete" parameterType="int">
+    update menu
+    set
+    delchk = 'Y'
+    where mno = #{menuNo}
+  </update>
+
+</mapper>
