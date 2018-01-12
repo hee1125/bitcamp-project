@@ -62,9 +62,11 @@ function getDust_value() {
   return dust_value;
 }
 
-var objmap = new Map();
+var objmap_dht = new Map();
 objmap.set('temp_value', global.temp)
 objmap.set('humi_value', global.humi)
+
+var objmap_dust = new Map();
 objmap.set('dust_value', global.dust)
 
 
@@ -126,7 +128,8 @@ console.log('-------------------------');
 console.log(getTemp_value());
 console.log(humi_value);
 console.log(global.dust);
-console.log(objmap);
+console.log(objmap_dht);
+console.log(objmap_dust);
 console.log('-------------------------');
 });
 /*
