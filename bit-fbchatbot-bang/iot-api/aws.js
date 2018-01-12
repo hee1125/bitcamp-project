@@ -44,10 +44,10 @@ dev01.on('connect', function() {
 
 });
 
-var sensor_value// = global.seonsor;
-var temp_value// = global.temp;
-var humi_value// = global.humi;
-var dust_value// = global.dust;
+var sensor_value = global.seonsor;
+var temp_value = global.temp;
+var humi_value = global.humi;
+var dust_value = global.dust;
 
 function getSensor_value() {
   return sensor_value;
@@ -104,10 +104,6 @@ dev01.on('message', function(topic, payload) {
     global.humi = obj.humi;
     global.dust = obj.dust;
 
-// *1번 확인 후 아래 _value 값 지우고 다시 진행
-    temp_value = global.temp
-    humi_value = global.humi
-    dust_value = global.dust
 
     /*
         var temp = obj.temp
@@ -118,11 +114,8 @@ dev01.on('message', function(topic, payload) {
         global.dust = obj.dust;
     */
 
-console.log(temp_value);
-
 console.log('받은 메시지:', obj);
 
-console.log(dust_value);
 console.log('-------------------------');
 console.log(getTemp_value());
 console.log(humi_value);
@@ -140,12 +133,7 @@ console.log(global.dust);
         //console.log(global.dust);
     console.log('-------------------------');
 */
-while() {
-    console.log(getTemp_value());
-    console.log(humi_value);
-    console.log(global.dust);
-    console.log('-------------------------');
-}
+
 /*
 function subscribe (message, sensor_value, callback) {
     dev01.on('message', function(topic, payload) {
