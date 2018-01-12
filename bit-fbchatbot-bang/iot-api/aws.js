@@ -44,10 +44,10 @@ dev01.on('connect', function() {
 
 });
 
-var sensor_value// = global.seonsor;
-var temp_value// = global.temp;
-var humi_value// = global.humi;
-var dust_value// = global.dust;
+var sensor_value = global.seonsor;
+var temp_value = global.temp;
+var humi_value = global.humi;
+var dust_value = global.dust;
 
 function getSensor_value() {
   return sensor_value;
