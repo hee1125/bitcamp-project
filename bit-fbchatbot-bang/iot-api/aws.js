@@ -62,14 +62,6 @@ function getDust_value() {
   return dust_value;
 }
 
-var objmap_dht = new Map();
-objmap_dht.set('temp_value', temp_value)
-objmap_dht.set('humi_value', humi_value)
-
-var objmap_dust = new Map();
-objmap_dust.set('dust_value', dust_value)
-
-
 
 /* 3번
 var objmap = new Map();// obj 맵객체로
@@ -125,6 +117,13 @@ dev01.on('message', function(topic, payload) {
 console.log('받은 메시지:', obj);
 
 console.log('-------------------------');
+var objmap_dht = new Map();
+objmap_dht.set('temp_value', temp_value)
+objmap_dht.set('humi_value', humi_value)
+
+var objmap_dust = new Map();
+objmap_dust.set('dust_value', dust_value)
+
 console.log(getTemp_value());
 console.log(humi_value);
 console.log(global.dust);
