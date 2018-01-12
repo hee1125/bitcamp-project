@@ -123,7 +123,9 @@ addMessage('메뉴', (recipientId) => {
 addMessage('온도', (recipientId, messageText) => {
     //sendAPI.typingOff(recipientId);
     //awsIoT.subscribe('topic_1', 'temp', (msg) => {
-    sendAPI.sendTextMessage(recipientId, '현재온도: ' + awsIoT.temp_value + '°C');
+    sendAPI.sendTextMessage(recipientId, '현재온도: ' + awsIoT.objmap_dht.get('temp_value', temp_value) + '°C');
+
+
     //});
 
 });
