@@ -126,6 +126,7 @@ console.log('-------------------------');
 console.log(getTemp_value());
 console.log(humi_value);
 console.log(global.dust);
+console.log(objmap);
 console.log('-------------------------');
 });
 /*
