@@ -118,11 +118,18 @@ console.log('받은 메시지:', obj);
 
 console.log('-------------------------');
 var objmap_dht = new Map();
-objmap_dht.set('temp_value', temp_value)
-objmap_dht.set('humi_value', humi_value)
-
+    if (sensor_value == 'dht') {
+        objmap_dht.set('sensor_value', sensor_value)
+        objmap_dht.set('temp_value', temp_value)
+        objmap_dht.set('humi_value', humi_value)
+    }
 var objmap_dust = new Map();
-objmap_dust.set('dust_value', dust_value)
+    if (sensor_value == 'dust') {
+        objmap_dht.set('sensor_value', sensor_value)
+        objmap_dust.set('dust_value', dust_value)
+    }
+
+
 
 console.log(getTemp_value());
 console.log(humi_value);
