@@ -63,23 +63,17 @@ function getDust_value() {
 }
 
 
-/* 3번
-var objmap = new Map();// obj 맵객체로
-objmap.set('sensor', global.sensor)
-objmap.set('temp', global.temp)
-objmap.set('humi', global.humi)
-objmap.set('dust', global.dust)
-console.log('맵:', objmap);
-
+for(i=1;;i++) {
 var objmapmap = new Map();
-    if (objmap.get('sensor') == 'dht') {
+    if (objmap_dht.get('sensor') == 'dht') {
         temp_value = global.temp
         humi_value = global.humi
-    } else if (objmap.get('sensor') == 'dust') {
+    } else if (objmap_dust.get('sensor') == 'dust') {
         dust_value = global.dust
     }
 console.log(objmapmap);
-*/
+}
+
 
 // 구독하기로 설정한 사서함에 메시지가 도착할 때 마다
 // AWS IoT 서버에 이 프로그램에 알려준다.
