@@ -101,8 +101,7 @@ console.log('받은 메시지:', obj);
 console.log(getTemp_value());
 console.log(humi_value);
 console.log(global.dust);
-console.log(objmap_dht);
-console.log(objmap_dust);
+
 console.log('-------------------------');
 });
 
@@ -154,7 +153,8 @@ function subscribe (message, sensor_value, callback) {
                     objmap_dust.set('dust_value', dust_value)
                 }
 */
-
+    console.log(objmap_dht);
+    console.log(objmap_dust);
     callback();
     });
 }
