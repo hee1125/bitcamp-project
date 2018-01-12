@@ -132,12 +132,12 @@ function subscribe (message, sensor_value, callback) {
         global.temp = obj.temp;
         global.humi = obj.humi;
         global.dust = obj.dust;
-
+/*
         sensor_value = global.sensor;
         temp_value = global.temp;
         humi_value = global.humi;
         dust_value = global.dust;
-
+*/
         var objmap = new Map();
             if (obj.get('sensor', obj.sensor == 'dht')) {
                 objmap.set('sensor', obj.sensor)
@@ -161,9 +161,9 @@ function subscribe (message, sensor_value, callback) {
                 objmap_dust.set('dust_value', dust_value)
             }
 */
-    //console.log(objmap);
-    console.log(objmap_dht);
-    console.log(objmap_dust);
+    console.log(objmap);
+    //console.log(objmap_dht);
+    //console.log(objmap_dust);
     callback();
     });
 }
