@@ -140,10 +140,12 @@ console.log(global.dust);
         //console.log(global.dust);
     console.log('-------------------------');
 */
+while() {
     console.log(getTemp_value());
     console.log(humi_value);
     console.log(global.dust);
     console.log('-------------------------');
+}
 /*
 function subscribe (message, sensor_value, callback) {
     dev01.on('message', function(topic, payload) {
