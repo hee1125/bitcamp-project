@@ -61,13 +61,13 @@ function getHumi_value() {
 function getDust_value() {
   return dust_value;
 }
-/*2번
+
 var objmap = new Map();
 objmap.set('temp_value', global.temp)
 objmap.set('humi_value', global.humi)
 objmap.set('dust_value', global.dust)
-//objmap = global.map
-*/
+objmap = global.map
+
 
 /* 3번
 var objmap = new Map();// obj 맵객체로
@@ -126,6 +126,7 @@ console.log('-------------------------');
 console.log(getTemp_value());
 console.log(humi_value);
 console.log(global.dust);
+console.log('-------------------------');
 });
 /*
         var temp = obj.temp
