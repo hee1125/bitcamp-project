@@ -63,11 +63,11 @@ function getDust_value() {
 }
 
 var objmap_dht = new Map();
-objmap_dht.set('temp_value', global.temp)
-objmap_dht.set('humi_value', global.humi)
+objmap_dht.set('temp_value', temp_value)
+objmap_dht.set('humi_value', humi_value)
 
 var objmap_dust = new Map();
-objmap_dust.set('dust_value', global.dust)
+objmap_dust.set('dust_value', dust_value)
 
 
 
