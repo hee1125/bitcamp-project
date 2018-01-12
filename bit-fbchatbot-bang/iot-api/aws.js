@@ -44,10 +44,10 @@ dev01.on('connect', function() {
 
 });
 
-var sensor_value = global.seonsor;
-var temp_value = global.temp;
-var humi_value = global.humi;
-var dust_value = global.dust;
+var sensor_value// = global.seonsor;
+var temp_value// = global.temp;
+var humi_value// = global.humi;
+var dust_value// = global.dust;
 
 function getSensor_value() {
   return sensor_value;
@@ -96,14 +96,20 @@ dev01.on('message', function(topic, payload) {
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
 
+    var sensor = obj.sensor
     var temp = obj.temp
     var humi = obj.humi
     var dust = obj.dust
 
+    global.sensor = obj.sensor;
     global.temp = obj.temp;
     global.humi = obj.humi;
     global.dust = obj.dust;
 
+    sensor_value = global.sensor;
+    temp_value = global.temp;
+    humi_value = global.humi;
+    dust_value = global.dust;
 
     /*
         var temp = obj.temp
