@@ -63,24 +63,6 @@ function getDust_value() {
 }
 
 
-for(i=1;;i++) {
-    var objmap_dht = new Map();
-        if (sensor_value == 'dht') {
-            objmap_dht.set('sensor_value', sensor_value)
-            objmap_dht.set('temp_value', temp_value)
-            objmap_dht.set('humi_value', humi_value)
-        }
-    var objmap_dust = new Map();
-        if (sensor_value == 'dust') {
-            dust.set('sensor_value', sensor_value)
-            objmap_dust.set('dust_value', dust_value)
-        }
-    
-console.log(objmap_dht);
-console.log(objmap_dust);
-}
-
-
 // 구독하기로 설정한 사서함에 메시지가 도착할 때 마다
 // AWS IoT 서버에 이 프로그램에 알려준다.
 // 그때 호출될 메서드를 추가한다.
@@ -138,6 +120,24 @@ console.log(objmap_dht);
 console.log(objmap_dust);
 console.log('-------------------------');
 });
+
+
+for(i=1;;i++) {
+    var objmap_dht = new Map();
+        if (sensor_value == 'dht') {
+            objmap_dht.set('sensor_value', sensor_value)
+            objmap_dht.set('temp_value', temp_value)
+            objmap_dht.set('humi_value', humi_value)
+        }
+    var objmap_dust = new Map();
+        if (sensor_value == 'dust') {
+            dust.set('sensor_value', sensor_value)
+            objmap_dust.set('dust_value', dust_value)
+        }
+
+console.log(objmap_dht);
+console.log(objmap_dust);
+}
 /*
         var temp = obj.temp
         var humi = obj.humi
