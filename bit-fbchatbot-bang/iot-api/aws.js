@@ -44,10 +44,14 @@ dev01.on('connect', function() {
 
 });
 
-var temp_value = global.temp;
-var humi_value = global.humi;
-var dust_value = global.dust;
+var sensor_value// = global.seonsor;
+var temp_value// = global.temp;
+var humi_value// = global.humi;
+var dust_value// = global.dust;
 
+function getSensor_value() {
+  return sensor_value;
+}
 function getTemp_value() {
   return temp_value;
 }
@@ -57,20 +61,28 @@ function getHumi_value() {
 function getDust_value() {
   return dust_value;
 }
-/*
+/*2번
+var objmap = new Map();
+objmap.set('temp_value', global.temp)
+objmap.set('humi_value', global.humi)
+objmap.set('dust_value', global.dust)
+//objmap = global.map
+*/
+
+/* 3번
 var objmap = new Map();// obj 맵객체로
-objmap.set('sensor', obj.sensor)
-objmap.set('temp', obj.temp)
-objmap.set('humi', obj.humi)
-objmap.set('dust', obj.dust)
+objmap.set('sensor', global.sensor)
+objmap.set('temp', global.temp)
+objmap.set('humi', global.humi)
+objmap.set('dust', global.dust)
 console.log('맵:', objmap);
 
 var objmapmap = new Map();
     if (objmap.get('sensor') == 'dht') {
-        temp_value = obj.temp
-        humi_value = obj.humi
+        temp_value = global.temp
+        humi_value = global.humi
     } else if (objmap.get('sensor') == 'dust') {
-        dust_value = obj.dust
+        dust_value = global.dust
     }
 console.log(objmapmap);
 */
@@ -83,24 +95,28 @@ dev01.on('message', function(topic, payload) {
     console.log('사서함 이름:', topic);
     var dataObj = payload.toString('utf-8')
     var obj = JSON.parse(dataObj)
-    temp_value = global.temp
-    humi_value = global.humi
-    dust_value = global.dust
-    /*
-    var objmap = new Map();
-        objmap.set(obj)
-        if (objmap.get('sensor', obj.sensor == 'dht')) {
-            temp_value = objmap.temp
-            humi_value = objmap.humi
-        }
-        else if (objmap.get('sensor', obj.sensor == 'dust')) {
-            dust_value = objmap.dust
-        }
-    */
+
+    var temp = obj.temp
+    var humi = obj.humi
+    var dust = obj.dust
+
     global.temp = obj.temp;
     global.humi = obj.humi;
     global.dust = obj.dust;
 
+// *1번 확인 후 아래 _value 값 지우고 다시 진행
+    temp_value = global.temp
+    humi_value = global.humi
+    dust_value = global.dust
+
+    /*
+        var temp = obj.temp
+        var humi = obj.humi
+        var dust = obj.dust
+        global.temp = obj.temp;
+        global.humi = obj.humi;
+        global.dust = obj.dust;
+    */
 
 console.log(temp_value);
 
@@ -122,22 +138,13 @@ console.log(dust_value);
 */
     console.log(getTemp_value());
     console.log(humi_value);
-    console.log(global.temp);
+    console.log(global.dust);
     console.log('-------------------------');
 /*
 function subscribe (message, sensor_value, callback) {
     dev01.on('message', function(topic, payload) {
         var dataObj = payload.toString('utf-8')
         var obj = JSON.parse(dataObj)
-        var objmap = new Map();
-            if (objmap.set('sensor', obj.sensor == 'dht')) {
-                objmap.set('sensor', obj.sensor)
-                temp_value = objmap.set('temp', obj.temp)
-                humi_value = objmap.set('humi', obj.humi)
-            } else if (objmap.set('sensor', obj.sensor == 'dust')) {
-                objmap.set('sensor', obj.sensor)
-                dust_value = objmap.set('dust', obj.dust)
-            }
 
         var temp = obj.temp
         var humi = obj.humi
@@ -146,6 +153,17 @@ function subscribe (message, sensor_value, callback) {
         global.temp = obj.temp;
         global.humi = obj.humi;
         global.dust = obj.dust;
+
+        var objmap = new Map();
+            if (obj.get('sensor', obj.sensor == 'dht')) {
+                objmap.set('sensor', obj.sensor)
+                temp_value = objmap.set('temp', obj.temp)
+                humi_value = objmap.set('humi', obj.humi)
+            } else if (obj.get('sensor', obj.sensor == 'dust')) {
+                objmap.set('sensor', obj.sensor)
+                dust_value = objmap.set('dust', obj.dust)
+            }
+
 
         console.log(global.dust);
 
