@@ -66,7 +66,7 @@ var objmap = new Map();
 objmap.set('temp_value', global.temp)
 objmap.set('humi_value', global.humi)
 objmap.set('dust_value', global.dust)
-objmap = global.map
+
 
 
 /* 3번
