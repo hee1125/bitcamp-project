@@ -64,16 +64,20 @@ function getDust_value() {
 
 
 for(i=1;;i++) {
-var objmapmap = new Map();
-    if (objmap_dht.get('sensor') == 'dht') {
-        objmap_dht.set('sensor_value', sensor_value)
-        objmap_dht.set('temp_value', temp_value)
-        objmap_dht.set('humi_value', humi_value)
-    } else if (objmap_dust.get('sensor') == 'dust') {
-        objmap_dht.set('sensor_value', sensor_value)
-        objmap_dust.set('dust_value', dust_value)
-    }
-console.log(objmapmap);
+    var objmap_dht = new Map();
+        if (sensor_value == 'dht') {
+            objmap_dht.set('sensor_value', sensor_value)
+            objmap_dht.set('temp_value', temp_value)
+            objmap_dht.set('humi_value', humi_value)
+        }
+    var objmap_dust = new Map();
+        if (sensor_value == 'dust') {
+            dust.set('sensor_value', sensor_value)
+            objmap_dust.set('dust_value', dust_value)
+        }
+    
+console.log(objmap_dht);
+console.log(objmap_dust);
 }
 
 
