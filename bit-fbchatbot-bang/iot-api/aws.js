@@ -50,16 +50,16 @@ var humi_value
 var dust_value
 
 function getSensor_value() {
-  return sensor_value;
+  return objmap.sensor_value;
 }
 function getTemp_value() {
-  return temp_value;
+  return objmap.temp_value;
 }
 function getHumi_value() {
-  return humi_value;
+  return objmap.humi_value;
 }
 function getDust_value() {
-  return dust_value;
+  return objmap.dust_value;
 }
 
 
