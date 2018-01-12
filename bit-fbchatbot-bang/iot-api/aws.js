@@ -44,10 +44,10 @@ dev01.on('connect', function() {
 
 });
 
-var sensor_value = global.seonsor;
-var temp_value = global.temp;
-var humi_value = global.humi;
-var dust_value = global.dust;
+var sensor_value
+var temp_value
+var humi_value
+var dust_value
 
 function getSensor_value() {
   return sensor_value;
@@ -98,21 +98,6 @@ dev01.on('message', function(topic, payload) {
 
 console.log('받은 메시지:', obj);
 
-console.log('-------------------------');
-var objmap_dht = new Map();
-    if (sensor_value == 'dht') {
-        objmap_dht.set('sensor_value', sensor_value)
-        objmap_dht.set('temp_value', temp_value)
-        objmap_dht.set('humi_value', humi_value)
-    }
-var objmap_dust = new Map();
-    if (sensor_value == 'dust') {
-        objmap_dht.set('sensor_value', sensor_value)
-        objmap_dust.set('dust_value', dust_value)
-    }
-
-
-
 console.log(getTemp_value());
 console.log(humi_value);
 console.log(global.dust);
@@ -121,23 +106,6 @@ console.log(objmap_dust);
 console.log('-------------------------');
 });
 
-
-for(i=1;;i++) {
-    var objmap_dht = new Map();
-        if (sensor_value == 'dht') {
-            objmap_dht.set('sensor_value', sensor_value)
-            objmap_dht.set('temp_value', temp_value)
-            objmap_dht.set('humi_value', humi_value)
-        }
-    var objmap_dust = new Map();
-        if (sensor_value == 'dust') {
-            dust.set('sensor_value', sensor_value)
-            objmap_dust.set('dust_value', dust_value)
-        }
-
-console.log(objmap_dht);
-console.log(objmap_dust);
-}
 /*
         var temp = obj.temp
         var humi = obj.humi
@@ -151,7 +119,6 @@ console.log(objmap_dust);
     console.log('-------------------------');
 */
 
-/*
 function subscribe (message, sensor_value, callback) {
     dev01.on('message', function(topic, payload) {
         var dataObj = payload.toString('utf-8')
@@ -174,20 +141,29 @@ function subscribe (message, sensor_value, callback) {
                 objmap.set('sensor', obj.sensor)
                 dust_value = objmap.set('dust', obj.dust)
             }
-
-
-        console.log(global.dust);
+            /*
+            var objmap_dht = new Map();
+                if (sensor_value == 'dht') {
+                    objmap_dht.set('sensor_value', sensor_value)
+                    objmap_dht.set('temp_value', temp_value)
+                    objmap_dht.set('humi_value', humi_value)
+                }
+            var objmap_dust = new Map();
+                if (sensor_value == 'dust') {
+                    objmap_dht.set('sensor_value', sensor_value)
+                    objmap_dust.set('dust_value', dust_value)
+                }
+*/
 
     callback();
     });
 }
 
-*/
 function publish(deviceName, topic, dataObj){
     devices[deviceName].publish(topic, JSON.stringify(dataObj));
 }
 
 module.exports = {
-    //subscribe,
+    subscribe
     publish
 };
