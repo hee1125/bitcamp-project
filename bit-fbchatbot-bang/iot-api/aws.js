@@ -123,6 +123,10 @@ console.log(temp_value);
 console.log('받은 메시지:', obj);
 
 console.log(dust_value);
+console.log('-------------------------');
+console.log(getTemp_value());
+console.log(humi_value);
+console.log(global.dust);
 });
 /*
         var temp = obj.temp
