@@ -44,25 +44,6 @@ dev01.on('connect', function() {
 
 });
 
-var sensor_value
-var temp_value
-var humi_value
-var dust_value
-/*
-function getSensor_value() {
-  return sensor_value;
-}
-function getTemp_value() {
-  return temp_value;
-}
-function getHumi_value() {
-  return humi_value;
-}
-function getDust_value() {
-  return dust_value;
-}
-*/
-
 // 구독하기로 설정한 사서함에 메시지가 도착할 때 마다
 // AWS IoT 서버에 이 프로그램에 알려준다.
 // 그때 호출될 메서드를 추가한다.
@@ -77,10 +58,13 @@ dev01.on('message', function(topic, payload) {
     var humi = obj.humi
     var dust = obj.dust
 
-    global.sensor = obj.sensor;
-    global.temp = obj.temp;
-    global.humi = obj.humi;
-    global.dust = obj.dust;
+    if (sensor == 'dht') {
+        global.temp = obj.temp;
+        global.humi = obj.humi;
+    } else if (sensor == 'dust') {
+        global.dust = obj.dust;
+    }
+
     /*
         var temp = obj.temp
         var humi = obj.humi
@@ -95,63 +79,10 @@ console.log('받은 메시지:', obj);
 console.log('-------------------------');
 });
 
-/*
-        var temp = obj.temp
-        var humi = obj.humi
-        var dust = obj.dust
-        global.temp = obj.temp;
-        global.humi = obj.humi;
-        global.dust = obj.dust;
-        //console.log(global.temp);
-        //console.log(global.humi);
-        //console.log(global.dust);
-    console.log('-------------------------');
-*/
-
-function subscribe (message, sensor_value, callback) {
-    dev01.on('message', function(topic, payload) {
-        var dataObj = payload.toString('utf-8')
-        var obj = JSON.parse(dataObj)
-
-        var sensor = obj.sensor
-        var temp = obj.temp
-        var humi = obj.humi
-        var dust = obj.dust
-
-        global.sensor = obj.sensor;
-        global.temp = obj.temp;
-        global.humi = obj.humi;
-        global.dust = obj.dust;
-
-        sensor_value = global.sensor;
-        temp_value = global.temp;
-        humi_value = global.humi;
-        dust_value = global.dust;
-
-        var objmap_dht = new Map();
-            if (sensor_value == 'dht') {
-                objmap_dht.set('sensor_value', sensor_value)
-                objmap_dht.set('temp_value', temp_value)
-                objmap_dht.set('humi_value', humi_value)
-            }
-        var objmap_dust = new Map();
-            if (sensor_value == 'dust') {
-                objmap_dust.set('sensor_value', sensor_value)
-                objmap_dust.set('dust_value', dust_value)
-            }
-
-
-    console.log(objmap_dht);
-    console.log(objmap_dust);
-    callback();
-    });
-}
-
 function publish(deviceName, topic, dataObj){
     devices[deviceName].publish(topic, JSON.stringify(dataObj));
 }
 
 module.exports = {
-    subscribe,
     publish
 };
