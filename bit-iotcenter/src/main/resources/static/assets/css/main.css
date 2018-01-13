@@ -3705,7 +3705,7 @@
 		-webkit-justify-content: center;
 		-ms-justify-content: center;
 		justify-content: center;
-		background-image: url("../../images/banner.jpg");
+		background-image: url("../../images/olu-eletu-13086.jpg");
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -3866,6 +3866,7 @@
 
 	#footer {
 		padding: 6em 2em 4em 2em;
+		background-color: #fff;
 	}
 
 		#footer > .inner {
@@ -3874,7 +3875,7 @@
 		}
 
 		#footer .copyright {
-			color: #bfbfbf;
+			color: chocolate;
 			font-size: 0.9em;
 			margin: 0 0 2em 0;
 			padding: 0;

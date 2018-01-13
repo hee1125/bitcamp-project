@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+
+<html lang="ko">
+	<head>
+	<title>My Page Main</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/registration.css" />
+	<link rel="stylesheet" href="assets/css/Footer-with-button-logo.css">
+
+	<!-- Favicon and touch icons -->
+	<link rel="icon" href="ico/home_iot.png">
+</head>
+<style>
+	.modal-dialog {
+		position: relative width:600px;
+		margin: 45px auto;
+	}
+
+	.pb-modalreglog-input-group {
+		margin: auto;
+	}
+
+	.pb-modalreglog-submit {
+		margin-left: 5px;
+	}
+
+	.pb-modalreglog-form-reg {
+		text-align: center;
+	}
+
+	.pb-modalreglog-footer p {
+		text-align: center;
+		margin-top: 20px;
+	}
+
+	@media (min-width: 768px) .modal-sm {
+		width: 400px;
+	}
+
+	@media (min-width: 768px) .modal-dialog {
+		margin: 80px auto;
+	}
+
+	.modal-footer .btn+.btn {
+		margin-bottom: 0;
+		margin: auto;
+	}
+</style>
+
+<body class="subpage">
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo"><a href="index.html">BIGDATA3 <span>by Donny</span></a></div>
+		<a href="#menu">Menu</a>
+	</header>
+
+	<!-- Nav -->
+	<nav id="menu">
+		<ul class="links">
+			<li><a href="index.html">메인</a></li>
+			<li><a href="loginmain.html">로그인</a></li>
+			<li><a href="mypage.html">마이페이지</a></li>
+			<li><a href="store_management.html">매장관리</a></li>
+			<li><a href="bigdatatest.html">빅데이터</a></li>
+			<li><a href="noticeboard.html">게시판</a></li>
+			<li><a href="index_admin.html">Admin Only</a></li>
+		</ul>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-4 col-md-offset-4">
+
+				<div class="modal fade" id="passModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-sm" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="myModalLabel">패스워드 재설정</h4>
+							</div>
+							<div class="modal-body">
+								<form class="pb-modalreglog-form-reg">
+
+									<div class="form-group">
+										<label for="email">Email(ID) 입력</label>
+										<div class="input-group pb-modalreglog-input-group">
+											<span class="input-group-addon"><span class="glyphicon glyphicon-inbox"></span></span>
+											<input type="email" class="form-control" id="inputEmail" placeholder="Email주소(ID)입력">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="password">기존 패스워드</label>
+										<div class="input-group pb-modalreglog-input-group">
+											<span class="input-group-addon"><span class="glyphicon glyphicon-floppy-disk"></span></span>
+											<input type="password" class="form-control" id="inputPws" placeholder="현재의 패스워드입력">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="password">변경할 패스워드</label>
+										<div class="input-group pb-modalreglog-input-group">
+											<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+											<input type="password" class="form-control" id="inputNewPws" placeholder="새로운 패스워드 입력">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="confirmpassword">패스워드 재입력</label>
+										<div class="input-group pb-modalreglog-input-group">
+											<span class="input-group-addon"><span class="glyphicon glyphicon-repeat"></span></span>
+											<input type="password" class="form-control" id="inputNewConfirmPws" placeholder="패스워드 재입력">
+										</div>
+									</div>
+
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+								<button type="button" class="btn btn-primary">적용</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Main -->
+	<div id="main">
+		<section class="wrapper">
+			<div class="inner">
+				<header class="align-center">
+					<h2>My Page</h2>
+					<p>개인정보 및 각종 서비스 정보를 확인할 수 있습니다. 자세한 정보를 등록하지 않으면 서비스 이용에 제한적일 수 있습니다.</p>
+				</header>
+			</div>
+		</section>
+
+		<section class="wrapper style1">
+			<div class="inner">
+				<div class="row">
+					<div class="3u 12u$(medium)">
+						<div class="box">
+							<p align="center">
+								<strong>조민국</strong> 님 반갑습니다.
+							</p>
+							<a href="loginmain.html" class="button special">로그인 페이지 이동</a>
+							<a href="#" class="button alt" onclick="logout()">로그 아웃</a>
+						</div>
+						<div class="box">
+							<ul class="actions vertical">
+								<li><a href="#" class="button" data-toggle="modal" data-target="#passModal">패스워드재설정</a></li>
+								<li><a href="store_retouch.html" class="button">매장정보</a></li>
+								<li><a href="iot_retouch.html" class="button">기기정보</a></li>
+								<li><a href="menu_retouch.html" class="button">메뉴정보</a></li>
+								<li><a href="writed_bd.html" class="button">내가 쓴 게시글</a></li>
+								<li><a href="delete_user.html" class="button">회원탈퇴</a></li><!-- 모달창으로 구현? -->
+							</ul>
+						</div>
+					</div>
+					<div class="9u$ 12u$(medium)">
+						<div class="box">
+							<form method="post" action="#">
+								<div class="row uniform">
+
+
+									<div class="2u 12u$(xsmall)">
+										<h4>아이디</h4>
+									</div>
+									<div class="5u$ 12u$(xsmall)">
+										<input type="email" name="email" id="email" value="" placeholder="Id" />
+									</div>
+
+									<div class="2u 12u$(xsmall)">
+										<h4>성명</h4>
+									</div>
+									<div class="5u$ 12u$(xsmall)">
+										<input type="text" name="name" id="name" value="" placeholder="Name" />
+									</div>
+									<div class="2u 12u$(xsmall)">
+										<h4>개인연락처</h4>
+									</div>
+									<div class="5u$ 12u$(xsmall)">
+										<input type="text" name="tel" id="tel" value="" placeholder="휴대전화번호" />
+									</div>
+									<div class="2u 12u$(xsmall)">
+										<h4>매장명</h4>
+									</div>
+									<div class="5u$ 12u$(xsmall)">
+										<div class="select-wrapper">
+											<select name="category_storeName" id="category_storeName">
+															<option value="">- 매장선택 -</option>
+															<option value="1">VIPS강남1호점</option>
+															<option value="2">VIPS서초1호점</option>
+														</select>
+										</div>
+									</div>
+									<div class="2u 12u$(xsmall)">
+										<h4>매장넘버</h4>
+									</div>
+									<div class="5u$ 12u$(xsmall)">
+										<input type="text" name="store_no" id="store_no" value="" placeholder="등록매장넘버" />
+									</div>
+									<div class="2u 12u$(xsmall)">
+										<h4>매장연락처</h4>
+									</div>
+									<div class="5u$ 12u$(xsmall)">
+										<input type="text" name="s_tel" id="s_tel" value="" placeholder="매장전화번호" />
+									</div>
+
+									<div class="3u 12u$(xsmall)">
+										<h4>기기등록상태</h4>
+									</div>
+									<div class="3u 12u$(small)">
+										<input type="radio" id="priority-low" name="priority" checked>
+										<label for="priority-low">등록완료</label>
+									</div>
+									<div class="3u 12u$(small)">
+										<input type="radio" id="priority-normal" name="priority">
+										<label for="priority-normal">일부만 등록</label>
+									</div>
+									<div class="3u$ 12u$(small)">
+										<input type="radio" id="priority-high" name="priority">
+										<label for="priority-high">미등록</label>
+									</div>
+
+
+									<!-- Break -->
+									<div class="3u 12u$(xsmall)"></div>
+									<div class="6u$ 12u$(small)">
+										<ul class="actions">
+											<li><input type="submit" value="회원정보수정" /></li>
+											<li><input type="reset" value="취소" class="alt" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+<!-- Footer -->
+<footer id="myFooter">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3">
+				<span class="image"><img src="images/bigdata02.jpg" style="width: auto; height: auto; max-width: 170px; max-height: 160px;" alt="" /></span>
+			</div>
+			<div class="col-sm-2">
+				<h5>Get started</h5>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="loginmain.html">Sign up</a></li>
+					<li><a href="#">Downloads</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-2">
+				<h5>About us</h5>
+				<ul>
+					<li><a href="#">Company Information</a></li>
+					<li><a href="https://aws.amazon.com/ko/">Technical Cooperation</a></li>
+					<li><a href="#">Reviews</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-2">
+				<h5>Support</h5>
+				<ul>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Help desk</a></li>
+					<li><a href="noticeboard.html">Community</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-3">
+				<div class="social-networks">
+					<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+					<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+					<a href="#" class="github"><i class="fa fa-github"></i></a>
+				</div>
+				<button type="button" class="btn btn-default">Contact us</button>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copyright">
+		<p>© 2017 Copyright Bigdata3 </p>
+	</div>
+</footer>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>
+		function logout() {
+			var con = confirm("접속을 종료하시겠습니까?");
+			if(con == true) {
+				location.href="../ajax/logout.jsp" // jsp 호출 후, session.removeAttribute("username); response.sendRedirect("세션 제거후 보여줄 페이지");
+			} else{}
+		}
+	</script>
+
+</body>
+</html>

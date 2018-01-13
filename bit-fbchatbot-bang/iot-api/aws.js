@@ -48,7 +48,7 @@ var sensor_value
 var temp_value
 var humi_value
 var dust_value
-
+/*
 function getSensor_value() {
   return sensor_value;
 }
@@ -61,7 +61,7 @@ function getHumi_value() {
 function getDust_value() {
   return dust_value;
 }
-
+*/
 
 // 구독하기로 설정한 사서함에 메시지가 도착할 때 마다
 // AWS IoT 서버에 이 프로그램에 알려준다.
@@ -81,12 +81,6 @@ dev01.on('message', function(topic, payload) {
     global.temp = obj.temp;
     global.humi = obj.humi;
     global.dust = obj.dust;
-
-    sensor_value = global.sensor;
-    temp_value = global.temp;
-    humi_value = global.humi;
-    dust_value = global.dust;
-
     /*
         var temp = obj.temp
         var humi = obj.humi
@@ -97,10 +91,6 @@ dev01.on('message', function(topic, payload) {
     */
 
 console.log('받은 메시지:', obj);
-
-console.log(getTemp_value());
-console.log(humi_value);
-console.log(global.dust);
 
 console.log('-------------------------');
 });
@@ -132,12 +122,12 @@ function subscribe (message, sensor_value, callback) {
         global.temp = obj.temp;
         global.humi = obj.humi;
         global.dust = obj.dust;
-/*
+
         sensor_value = global.sensor;
         temp_value = global.temp;
         humi_value = global.humi;
         dust_value = global.dust;
-*/
+
         var objmap_dht = new Map();
             if (sensor_value == 'dht') {
                 objmap_dht.set('sensor_value', sensor_value)

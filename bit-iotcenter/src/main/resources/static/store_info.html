@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scaclable=no">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
+
+		<title>레스토랑 적용 사례 소개</title>
+		<!-- Favicon and touch icons -->
+    <link rel="icon" href="ico/home_iot.png">
+		<style>
+			#container div {
+				width:340px;
+				background:#fff;
+				border:2px solid #aaa;
+				padding:15px;
+				padding-bottom:15px;
+				margin:15px;				
+			}		
+			#container div img {
+				width:100%;
+				border-bottom:1px solid #ccc;
+				padding-bottom:15px;
+				margin-bottom:5px;
+			}
+
+			#container div h2 {
+				font-size:1.2em;
+			}
+			#container div p {
+				font-family:"맑은 고딕", 돋움;
+				color:#333;
+				margin:0;
+				padding:10px;
+			}			
+		</style>
+		<script src="assets/js/jquery-2.1.3.min.js"></script>
+		<script src="assets/js/jquery.vgrid.min.js"></script>
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">BIGDATA3 <span>by Donny</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">메인</a></li>
+					<li><a href="loginmain.html">로그인</a></li>
+					<li><a href="mypage.html">마이페이지</a></li>
+					<li><a href="store_management.html">매장관리</a></li>
+					<li><a href="bigdatatest.html">빅데이터</a></li>
+					<li><a href="noticeboard.html">게시판</a></li>
+					<li><a href="index_admin.html">Admin Only</a></li>
+				</ul>
+			</nav>
+			
+		<div id="main">
+
+				<!-- wrapper header : margin bottom을 0으로 -->
+					<section class="wrapper">
+						<div class="inner">
+							<header class="align-center">
+								<h1>서비스를 적용중인 레스토랑 소개</h1><!-- 간혹 페이지 이상시 새로고침(f5)누르면 정상화됨...-->
+								<p><i class="ace-icon fa fa-cutlery"></i> 많은 매장에서 저희의 서비스를 이용중 입니다. 각 매장의 홈페이지나 블로그로도 이동하실 수 있습니다.<br>
+								</p>
+							</header>
+						</div>
+					</section>
+		</div>
+		<div id="container">
+				<div>
+					<img src="images/geraldine-lewa-368765.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<a href="#"><h2>Restraunt LEWA - 이태원1호점</h2></a><!-- store url or blog로 연결 --> 		
+					<p><strong>스토어 코멘트 : </strong> 맛, 청결, 섬세함, 분위기 모두 자신있어요~ </p>
+				</div>
+				<div>
+					<img src="images/menu01.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<a href="#"><h2>The Sweets - 홍대1호점</h2></a>			
+					<p><strong>스토어 코멘트 : </strong>"울트라 핫케잌" 우리 가게의 강추 메뉴입니다!!  </p>
+				</div>
+				<div>
+					<img src="images/restaurants.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<a href="#"><h2>Paris restaurant - 논현1호점</h2></a>		
+					<p><strong>스토어 코멘트 : </strong> 데이트 장소로 추천해요. </p>
+				</div>
+				<div>
+					<img src="images/restaurants_chicago.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<a href="#"><h2>Chicago - 이태원1호점</h2></a>					
+					<p><strong>스토어 코멘트 : </strong>비지니스맨 및 커플 손님이 많습니다.</p>
+				</div>
+				<div>
+					<img src="images/cami-talpone-370326.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<a href="#"><h2>CIRCO'S - 이태원1호점</h2></a>					
+					<p><strong>스토어 코멘트 : </strong>이곳에서 좋은 사람들과 즐거운 시간을 갖으세요.</p>
+				</div>	
+				<div>
+					<img src="images/cristine-enero-425454.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<a href="#"><h2>SAMSAM - 이태원1호점</h2></a>					
+					<p><strong>스토어 코멘트 : </strong>오늘 저녁 이곳에서 치맥 한잔 어떠세요?^^</p>
+				</div>
+				<div>
+					<img src="images/julien-lux-332568.jpg" alt="" class="btn" onclick="clickBtn();" />
+					<a href="#"><h2>CIVERINOS - 종로2호점</h2></a>					
+					<p><strong>스토어 코멘트 : </strong>이탈리아풍의 케주얼 레스토랑 입니다.</p>
+				</div>
+				<div>
+					<img src="images/muhammad-wahyu-nur-pratama-189040.jpg" alt="" class="btn" onclick="clickBtn();" />
+				<a href="#"><h2>J.CO - 신촌2호점</h2></a>					
+					<p><strong>스토어 코멘트 : </strong>원두커피의 풍부한 향과 맛을 느낄 수 있습니다.</p>
+				</div>
+				<div>
+					<img src="images/ryan-plomp-356366.jpg" alt="" class="btn" onclick="clickBtn();" />
+				<a href="#"><h2>Hop &amp; Stork - 압구정1호점</h2></a>					
+					<p><strong>스토어 코멘트 : </strong>원조 벨기에 초코릿과 커피로 스위트한 시간을 보내세요.</p>
+				</div>
+				<div>
+					<img src="images/clifford-yeo-452260.jpg" alt="" class="btn" onclick="clickBtn();" />
+				<a href="#"><h2>Cafe.NA - 논현2호점</h2></a>					
+					<p><strong>스토어 코멘트 : </strong>스터디 카페로서의 이용도 대환영입니다~</p>
+				</div>
+				<div>
+					<img src="images/the-creative-exchange-373981.jpg" alt="" class="btn" onclick="clickBtn();" />
+				<a href="#"><h2>Marshe - 여의도1호점</h2></a>					
+					<p><strong>스토어 코멘트 : </strong>넓은 실내공간에서 여유로운 시간을 즐기세요.</p>
+				</div>
+				<div>
+					<img src="images/benjamin-hung-340383.jpg" alt="" class="btn" onclick="clickBtn();" />
+				<a href="#"><h2>MUTSUMI - 동경1호점</h2></a>					
+					<p><strong>스토어 코멘트 : </strong>전통 일식을 저렴한 가격에 경험해 보세요. 한국손님 대환영^^</p>
+				</div>
+				<div>
+					<img src="images/stanford-smith-369293.jpg" alt="" class="btn" onclick="clickBtn();" />
+				<a href="#"><h2>Smith - 런던1호점</h2></a>					
+					<p><strong>스토어 코멘트 : </strong>토트넘 홈구장인 화이트트레인 근처입니다. 축구경기전 커피 한잔 어떠세요?</p>
+				</div>	
+		</div>
+	
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="copyright">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+			</ul>
+			<p>&copy; 2017 Copyright: <a href="index.html">  BitCamp Bigdata3</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+		</div>
+	</footer>
+		<script>
+			$('#container').vgrid({
+				time:400,
+				delay:30,
+				wait:500
+			});
+		</script>
+		
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+	</body>
+</html>

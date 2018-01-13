@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-	<title>Elements - Urban by TEMPLATED</title>
+	<title>메뉴보드 Type2</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="assets/css/menu_board.css" />
@@ -10,11 +10,14 @@
 	<link rel="icon" href="ico/home_iot.png">
 </head>
 <style>
+	body {
+		overflow: hidden;
+	}
+	
 	.wrapper {
 		padding: 3em 0 2em 0;
 		position: relative;
 	}
-
 	.\31 2u,
 	.\31 2u\24 {
 		margin: 1em 0 2em 0;
@@ -22,38 +25,37 @@
 		clear: none;
 		margin-left: 0;
 	}
-
 	.nav {
 		margin: 10px;
 	}
-
 	.RollDiv {
 		margin: 0 auto;
 		height: 220px;
 		border: 1px solid white;
 		overflow: hidden;
 	}
-
 	.RollDiv>div {
 		overflow: hidden;
 		height: 220px;
 	}
-
 	.RollDiv>div>a {
 		float: left;
 		display: block;
 	}
-
 	.RollDiv>div>a>img {
 		width: 440px;
 		height: 220px;
 		margin-right: 10px;
 	}
-
 	#header>.logo {
 		left: 3em;
 	}
-
+	.wrapper.style1 h3 {
+		color: orangered;
+	}
+	.wrapper.style1 strong {
+		color: brown;
+	}
 	.hit {
 		animation-name: blink;
 		animation-duration: 1.5s;
@@ -62,7 +64,6 @@
 		/* 위 속성들을 한 줄로 표기하기 */
 		/* -webkit-animation: blink 1.5s ease infinite; */
 	}
-
 	/* 애니메이션 지점 설정하기 */
 
 	/* 익스플로러 10 이상, 최신 모던 브라우저에서 지원 */
@@ -86,7 +87,7 @@
 
 <body>
 	<header id="header">
-		<div class="logo"><a href="index.html">T.G.I Friday!(가칭) </a></div>
+		<div class="logo"><a href="index.html">BIGDATA3 </a></div>
 	</header>
 
 	<div id="main">
@@ -96,13 +97,12 @@
 				<div class="12u$">
 					<div class="RollDiv">
 						<div>
-							<a href=""><img src="images/event02.jpg" /></a>
-							<a href=""><img src="images/menu_board01.jpg" /></a>
-							<a href=""><img src="images/menu_board02.jpg" /></a>
-							<a href=""><img src="images/menu_board03.jpg" /></a>
-							<a href=""><img src="images/menu-board06.jpg" /></a>
-							<a href=""><img src="images/menu_board04.jpg" /></a>
-							<a href=""><img src="images/menu_board05.jpg" /></a>
+							<a href=""><img src="images/image-banner3.png" /></a>
+							<a href=""><img src="images/image-banner1.png" /></a>
+							<a href=""><img src="images/image-banner2.png" /></a>
+							<a href=""><img src="images/image-banner07.png" /></a>
+							<a href=""><img src="images/image-banner4.png" /></a>
+							<a href=""><img src="images/image-banner5.png" /></a>
 						</div>
 					</div>
 				</div>
@@ -116,7 +116,7 @@
 							</div>
 							<div class="5u$ 12u$(small)">
 								<h3>후르츠 와플 <span class="hit"> New!</span></h3>
-								<ul class="alt">
+								<ul class="actions">
 									<li><strong>가격 : 12000원</strong></li>
 									<li><strong>열량 : 650Kcal</strong></li>
 									<li><strong>원산지 : 프랑스</strong></li>
@@ -130,8 +130,8 @@
 								<span class="image fit"><img src="images/menu_board03.jpg" alt="" /></span>
 							</div>
 							<div class="5u$ 12u$(small)">
-								<h3>메뉴3</h3>
-								<ul class="alt">
+								<h3>해물 필라프</h3>
+								<ul class="actions">
 									<li><strong>가격 : 10000원</strong></li>
 									<li><strong>열량 : 750Kcal</strong></li>
 									<li><strong>원산지 : 한국</strong></li>
@@ -147,7 +147,7 @@
 							</div>
 							<div class="5u$ 12u$(small)">
 								<h3>뉴욕버거 세트 <span class="hit"> Hit!</span></h3>
-								<ul class="alt">
+								<ul class="actions">
 									<li><strong>가격 : 15000원</strong></li>
 									<li><strong>열량 : 980Kcal</strong></li>
 									<li><strong>원산지 : 미국</strong></li>
@@ -155,14 +155,15 @@
 							</div>
 						</div>
 
-
 						<div class="row">
 							<div class="7u 12u$(small)">
-								<span class="image fit"><img src="images/menu-board06.jpg" alt="" /></span>
+								<span class="image fit">
+								<img src="images/menu-board06.jpg" alt="" />
+								</span>
 							</div>
 							<div class="5u$ 12u$(small)">
-								<h3>메뉴6</h3>
-								<ul class="alt">
+								<h3>나폴리 피자</h3>
+								<ul class="actions">
 									<li><strong>가격 : 22000원</strong></li>
 									<li><strong>열량 : 980Kcal</strong></li>
 									<li><strong>원산지 : 이탈리아</strong></li>
