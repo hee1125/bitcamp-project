@@ -2,19 +2,20 @@
 
 <html lang="ko">
 	<head>
-		<title>Elements - Urban by TEMPLATED</title>
+		<title>Store Mgt 메인</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/submain.css" /> <!-- 배너 백그라운드 변경 -->
-		
+		<link rel="stylesheet" href="assets/css/Footer-with-button-logo.css">
 		<!-- Favicon and touch icons -->
     <link rel="icon" href="ico/home_iot.png">
 	</head>
 	
 	<body>
 		<!-- Header -->
-			<header id="header">
-				<div class="logo"><a href="index.html">Donny <span>by TEMPLATED</span></a></div>
+			<header id="header" class="alt">
+				<div class="logo"><a href="index.html">BIGDATA3 <span>by Donny</span></a></div>
 				<a href="#menu">Menu</a>
 			</header>
 
@@ -25,8 +26,7 @@
 					<li><a href="loginmain.html">로그인</a></li>
 					<li><a href="mypage.html">마이페이지</a></li>
 					<li><a href="store_management.html">매장관리</a></li>
-					<li><a href="menu_info.html">메뉴관리?</a></li>
-					<li><a href="elements.html">빅데이터</a></li>
+					<li><a href="bigdatatest.html">빅데이터</a></li>
 					<li><a href="noticeboard.html">게시판</a></li>
 					<li><a href="index_admin.html">Admin Only</a></li>
 				</ul>
@@ -56,7 +56,7 @@
 								</div>
 									<div class="col col2">
 										<h3>Digital Menu Board</h3>
-										<p>메뉴보드 윈도우에 표시할 메뉴를 등록하세요. 수정 및 삭제도 가능합니다.</p>
+										<p>메뉴보드 윈도우로서 등록할 템플릿을 선택하세요. 고객께서 선택한 타입으로 메뉴화면이 구성됩니다.</p>
 										<a href="dmb_menu.html" class="button">Menu Board Management</a>
 										<hr/>
 										<p>이벤트보드 윈도우에 표시할 페이지를 등록하세요. 수정 및 삭제도 가능합니다.</p>
@@ -88,18 +88,50 @@
 		</div>
 							
 	<!-- Footer -->
-			<footer id="footer">
-				<div class="copyright">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-					</ul>
-					<p>&copy; Untitled. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+<footer id="myFooter">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3">
+				<span class="image"><img src="images/bigdata02.jpg" style="width: auto; height: auto; max-width: 170px; max-height: 160px;" alt="" /></span>
+			</div>
+			<div class="col-sm-2">
+				<h5>Get started</h5>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="loginmain.html">Sign up</a></li>
+					<li><a href="error500.html">Downloads</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-2">
+				<h5>About us</h5>
+				<ul>
+					<li><a href="error404.html">Company Information</a></li>
+					<li><a href="https://aws.amazon.com/ko/">Technical Cooperation</a></li>
+					<li><a href="error500.html">Reviews</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-2">
+				<h5>Support</h5>
+				<ul>
+					<li><a href="error404.html">FAQ</a></li>
+					<li><a href="mailto:higashi2002kr@gmail.com?Subject=관리자에게 문의">Help desk</a></li>
+					<li><a href="noticeboard.html">Community</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-3">
+				<div class="social-networks">
+					<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+					<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+					<a href="https://github.com/Donny2002" class="github"><i class="fa fa-github"></i></a>
 				</div>
-			</footer>
-
+				<button type="button" class="btn btn-default">Contact us</button>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copyright">
+		<p>© 2017 Copyright Bigdata3 </p>
+	</div>
+</footer>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>

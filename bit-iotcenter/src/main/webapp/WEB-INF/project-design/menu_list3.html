@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>메뉴 배너</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/menu_board.css" />
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+	
+	
+	<!-- Favicon and touch icons -->
+	<link rel="icon" href="ico/home_iot.png">
+	
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.backstretch.min.js"></script>
+</head>
+<style>
+	body {
+		overflow: hidden;
+	}
+	
+	.img{
+            position: relative;
+            background-image: url(/images/menu-board06.jpg);
+            height: 100vh;
+						width: auto;
+            background-size: cover;
+        }
+        .img-cover{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index:1;
+        }
+        .img .content{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            font-size:5rem;
+            color: white;
+            z-index: 2;
+            text-align: center;
+        }
+	p {
+		margin: 0 0 1em 0;
+		font-weight: 700;
+	}
+</style>
+<body>
+	
+						<div class="row">
+							<div class="12u$">
+							<div class="img">
+        				<div class="content">
+            			<p>나폴리피자</p>
+            			<p>나 맛있을거 같지!?<i class="fa fa-smile-o" aria-hidden="true"></i></p>
+        				</div>
+        				<div class="img-cover"></div>
+    					</div>
+							</div>
+						</div>
+
+</body>	
+</html>

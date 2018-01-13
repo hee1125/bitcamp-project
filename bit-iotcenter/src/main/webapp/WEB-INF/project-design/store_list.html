@@ -2,7 +2,7 @@
 <html lang="ko">
 	<head>
 	<meta charset="utf-8" />
-	<title>Admin</title>
+	<title>Store List Admin</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 	<!-- bootstrap & fontawesome -->
@@ -26,12 +26,21 @@
 <body class="no-skin">
 	<div id="navbar" class="navbar navbar-default          ace-save-state">
 		<div class="navbar-container ace-save-state" id="navbar-container">
+			<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+					<span class="sr-only">Toggle sidebar</span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+			</button>
 			
 			<div class="navbar-header pull-left">
-				<a href="index.html" class="navbar-brand">
+				<a href="index_admin.html" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
-							Ace Admin
+							Bigdata3 Admin
 						</small>
 					</a>
 			</div>
@@ -347,12 +356,12 @@
 
 			<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 				<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-					<button class="btn btn-success">
-							<i class="ace-icon fa fa-signal"></i>
+					<button class="btn btn-success"><a href="index.html" style="color: floralwhite">
+						<i class="ace-icon fa fa-desktop"></i></a>
 						</button>
 
 					<button class="btn btn-info">
-							<i class="ace-icon fa fa-pencil"></i>
+							<i class="ace-icon fa fa-signal"></i>
 						</button>
 
 					<button class="btn btn-warning">
@@ -377,7 +386,7 @@
 
 			<ul class="nav nav-list">
 				<li class="">
-					<a href="index.html">
+					<a href="index_admin.html">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Dashboard </span>
 						</a>
@@ -387,9 +396,9 @@
 
 				<li class="">
 					<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-desktop"></i>
+							<i class="menu-icon fa fa-bar-chart-o"></i>
 							<span class="menu-text">
-								UI &amp; Elements
+								Board Mgt
 							</span>
 
 							<b class="arrow fa fa-angle-down"></b>
@@ -399,103 +408,18 @@
 
 					<ul class="submenu">
 						<li class="">
-							<a href="#" class="dropdown-toggle">
+							<a href="registmenu.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-
-									Layouts
-									<b class="arrow fa fa-angle-down"></b>
-								</a>
-
-							<b class="arrow"></b>
-
-							<ul class="submenu">
-								<li class="">
-									<a href="top-menu.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Top Menu
-										</a>
-
-									<b class="arrow"></b>
-								</li>
-
-								<li class="">
-									<a href="two-menu-1.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Two Menus 1
-										</a>
-
-									<b class="arrow"></b>
-								</li>
-
-								<li class="">
-									<a href="two-menu-2.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Two Menus 2
-										</a>
-
-									<b class="arrow"></b>
-								</li>
-
-								<li class="">
-									<a href="mobile-menu-1.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Default Mobile Menu
-										</a>
-
-									<b class="arrow"></b>
-								</li>
-
-								<li class="">
-									<a href="mobile-menu-2.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Mobile Menu 2
-										</a>
-
-									<b class="arrow"></b>
-								</li>
-
-								<li class="">
-									<a href="mobile-menu-3.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Mobile Menu 3
-										</a>
-
-									<b class="arrow"></b>
-								</li>
-							</ul>
-						</li>
-
-						<li class="">
-							<a href="typography.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Typography
+									Menu Board
 								</a>
 
 							<b class="arrow"></b>
 						</li>
 
 						<li class="">
-							<a href="elements.html">
+							<a href="registevent.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Elements
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="buttons.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Buttons &amp; Icons
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="content-slider.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Content Sliders
+									Event Board
 								</a>
 
 							<b class="arrow"></b>
@@ -510,107 +434,6 @@
 							<b class="arrow"></b>
 						</li>
 
-						<li class="">
-							<a href="jquery-ui.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									jQuery UI
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="nestable-list.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Nestable Lists
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-
-									Three Level Menu
-									<b class="arrow fa fa-angle-down"></b>
-								</a>
-
-							<b class="arrow"></b>
-
-							<ul class="submenu">
-								<li class="">
-									<a href="#">
-											<i class="menu-icon fa fa-leaf green"></i>
-											Item #1
-										</a>
-
-									<b class="arrow"></b>
-								</li>
-
-								<li class="">
-									<a href="#" class="dropdown-toggle">
-											<i class="menu-icon fa fa-pencil orange"></i>
-
-											4th level
-											<b class="arrow fa fa-angle-down"></b>
-										</a>
-
-									<b class="arrow"></b>
-
-									<ul class="submenu">
-										<li class="">
-											<a href="#">
-													<i class="menu-icon fa fa-plus purple"></i>
-													Add Product
-												</a>
-
-											<b class="arrow"></b>
-										</li>
-
-										<li class="">
-											<a href="#">
-													<i class="menu-icon fa fa-eye pink"></i>
-													View Products
-												</a>
-
-											<b class="arrow"></b>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-
-				<li class="">
-					<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-list"></i>
-							<span class="menu-text"> Tables </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-					<b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class="">
-							<a href="tables.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Simple &amp; Dynamic
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="jqgrid.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									jqGrid plugin
-								</a>
-
-							<b class="arrow"></b>
-						</li>
 					</ul>
 				</li>
 
@@ -644,15 +467,6 @@
 						</li>
 
 						<li class="">
-							<a href="form-wizard.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Wizard &amp; Validation
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
 							<a href="wysiwyg.html">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Wysiwyg &amp; Markdown
@@ -660,25 +474,7 @@
 
 							<b class="arrow"></b>
 						</li>
-
-						<li class="">
-							<a href="dropzone.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Dropzone File Upload
-								</a>
-
-							<b class="arrow"></b>
-						</li>
 					</ul>
-				</li>
-
-				<li class="">
-					<a href="widgets.html">
-							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> Widgets </span>
-						</a>
-
-					<b class="arrow"></b>
 				</li>
 
 				<li class="">
@@ -704,91 +500,6 @@
 						</a>
 
 					<b class="arrow"></b>
-				</li>
-
-				<li class="">
-					<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-tag"></i>
-							<span class="menu-text"> More Pages </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-					<b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class="">
-							<a href="profile.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									User Profile
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="inbox.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Inbox
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="pricing.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Pricing Tables
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="invoice.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Invoice
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="timeline.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Timeline
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="search.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Search Results
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="email.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Email Templates
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="login.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Login &amp; Register
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-					</ul>
 				</li>
 
 				<li class="">
@@ -835,15 +546,6 @@
 						</li>
 
 						<li class="">
-							<a href="grid.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Grid
-								</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
 							<a href="blank.html">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Blank Page
@@ -868,7 +570,6 @@
 							<i class="ace-icon fa fa-home home-icon"></i>
 							<a href="#">Home</a>
 						</li>
-
 						<li>
 							<a href="#">Stores</a>
 						</li>
@@ -943,7 +644,7 @@
 						<span class="col-xs-3">
 						<button class="btn btn-white btn-primary btn-bold">
 							<i class="ace-icon fa fa-cloud-upload hidden-480"></i>
-							<a href='form.html'>신규매장추가</a>
+							<a href='form.html'>매장추가</a>
 						</button>
 						</span>
 					</div>
@@ -973,15 +674,15 @@
 														<i class="ace-icon fa fa-user bigger-110 hidden-480"></i>
 														점주번호
 													</th>
-													<th>점주이름</th>
+													<th class="hidden-480">점주이름</th>
 
-													<th>setting</th>
+													<th class="hidden-480">setting</th>
 												</tr>
 											</thead>
 											
 											<!-- table body 시작 -->
 											<tbody id="store-tbody">
-											<c:forEach items="${list}" var="item" varStatus=""><!-- 객체 전체에 걸쳐 반복 실행? 1350라인까지 -->
+											<c:forEach items="${list}" var="item" varStatus=""><!-- 객체 전체에 걸쳐 반복 실행? /c:forEach까지 -->
 												<tr>
 													<td class="center">
 														<label class="pos-rel">
@@ -1003,7 +704,7 @@
 													<td><a href='detail.do?no=${item.no}'>${item.name}</a></td>
 													<td class="hidden-480">${item.tel}</td>
 													<td>${item.bmno}</td>
-													<td>${item.bmname}</td>
+													<td class="hidden-480">${item.bmname}</td>
 
 													<td>
 														<div class="hidden-sm hidden-xs btn-group">
@@ -1186,7 +887,7 @@
 													<td><a href='detail.do?no=${item.no}'>${item.name}</a></td>
 													<td class="hidden-480">${item.tel}</td>
 													<td>${item.bmno}</td>
-													<td>${item.bmname}</td>
+													<td class="hidden-480">${item.bmname}</td>
 
 													<td>
 														<div class="hidden-sm hidden-xs btn-group">
@@ -1352,29 +1053,6 @@
 									</div><!-- /.span -->
 								</div><!-- /.row -->
 							
-							<a href='form.html'>새지점 추가</a>
-							<table border='1'>
-								<thead>
-									<tr>
-										<th>번호</th>
-										<th>이름</th>
-										<th>전화</th>
-										<th>점주번호</th>
-										<th>점주이름</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${list}" var="item">
-										<tr>
-											<td>${item.no}</td>
-											<td><a href='detail.do?no=${item.no}'>${item.name}</a></td>
-											<td>${item.tel}</td>
-											<td>${item.bmno}</td>
-											<td>${item.bmname}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
 							<!-- PAGE CONTENT ENDS -->
 							
 						</div> <!-- /.col -->
@@ -1387,8 +1065,9 @@
 			<div class="footer-inner">
 				<div class="footer-content">
 					<span class="bigger-120">
-							<span class="blue bolder">Ace</span> Application &copy; 2013-2014
-					</span>
+							<span class="blue bolder">Bigdata3</span>
+							Administrator &copy; 2017
+						</span>
 
 					&nbsp; &nbsp;
 					<span class="action-buttons">
@@ -1491,10 +1170,10 @@
 					$(".simple-table").data("rowTag", rowTag); //키값 rowTag로 테이블의 기본 row 값의 Html태그 저장
 				});
 			/* ********************************************************
- 				* 체크박스 현재행 삭제 기능
+ 				* 체크박스 현재행 삭제 기능 => 현재 에러남...
  			******************************************************** */ 
 						function rowDelete(obj) {
-						$("input[type=checkbox] :checked").each(function() {
+						$("tbody td input[type=checkbox] :checked").each(function() {
     					$(this).parent().parent().remove()
 							});
 						}
