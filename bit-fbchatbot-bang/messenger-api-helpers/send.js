@@ -1,4 +1,5 @@
 const api = require('./api')
+const castArray = require("lodash/castArray")
 
 const typingOn = (recipientId) => {
   const messageData = {
@@ -148,6 +149,16 @@ const sendGenericMessage = (recipientId) => {
   api.callMessagesAPI(messageData);
 };
 
+const getStarted = {
+  setting_type: 'call_to_actions',
+  thread_state: 'new_thread',
+  call_to_actions: [
+    {
+      payload: 'GET_STARTED'
+    }
+  ],
+
+}
 
 module.exports = {
 
@@ -155,7 +166,8 @@ module.exports = {
   sendGenericMessage,
   sendImageMessage,
   typingOn,
-  sendWelcomeMessage
+  sendWelcomeMessage,
+  getStarted
 
 
 };
