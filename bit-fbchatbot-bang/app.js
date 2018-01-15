@@ -43,6 +43,9 @@ app.use('/user', require('./routes/user')); //?
 app.set('view engine', 'jade');
 */
 
+const ThreadSetup = require('./messenger-api-helpers/thread-setup')
+ThreadSetup.setGetStarted();
+
 // 인증서 데이터를 로딩
 // => 이 객체는 node HTTPS 서버를 실행할 때 사용한다.
 var options = {
