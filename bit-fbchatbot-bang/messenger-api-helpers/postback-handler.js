@@ -342,6 +342,14 @@ addPostback("/menu", (recipientId) => {
   api.callMessagesAPI(messageData);
 })
 
+addPostback('GET_STARTED', (recipientId) => {
+    sendAPI.sendWelcomeMessage(recipientId);
+    setTimeout(function() {
+       var handler = messageHandler.getHandler("도움말")
+      handler(recipientId)
+    }, 1000);
+
+})
 
 module.exports = {
   getHandler

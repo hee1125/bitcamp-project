@@ -8,24 +8,25 @@ const awsIoT = require('../iot-api/aws')
 const messageHandler = {
 };
 
+//message를 받았을 때 그 메시지를 처리할 함수를 보관하는 빈 객체.
+const messageHandler = {
+};
+
+// message를 처리할 함수를 등록한다
 const addMessage = (message, handler) => {
   messageHandler[message] = handler;
 }
-
 // 등록된 메시지 핸들러를 찾아서 리턴한다
 const getHandler = (message) => {
   for (var key in messageHandler) { // 반복문을 돌면서 key(=message) 값을 처리할 메시지가 있나 확인
     if (message.indexOf(key) != -1) { // -1이 아니라면 true
-
-      //  if (message.indexOf(key) && message.indexOf(key) != -1) {
-      //   return messageHandler[key]; // key값이 있는 메시지 나옴.
-      //}
 
       return messageHandler[key]; // key값이 있는 메시지 나옴.
     }
   }
   return null;
 };
+
 /*
 addMessage('help', (recipientId) => {
   var messageData = {
