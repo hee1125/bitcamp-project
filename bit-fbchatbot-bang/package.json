@@ -4,12 +4,12 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "aws-iot-device-sdk": "^2.2.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
+    "lodash": "^4.17.4",
     "request": "^2.83.0",
-    "xml2js": "^0.4.19",
-    "aws-iot-device-sdk": "^2.2.0"
-
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {},
   "scripts": {
