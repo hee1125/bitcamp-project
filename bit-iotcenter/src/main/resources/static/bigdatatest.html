@@ -21,13 +21,13 @@
 	<style>
 		.infobox{
 			width: 352px;
-			height: 120px;
+			height: 114px;
 		}
 			.infobox>.infobox-data {
-    		font-size: 18px;
+    		font-size: 17px;
     		line-height: 48px;
     		min-width: 180px;
-    		padding-left: 82px;
+    		padding-left: 80px;
 		}
 			.infobox>.infobox-data>.infobox-text {
     		font-size: 20px;
@@ -35,7 +35,20 @@
 			.infobox>.badge {
     		font-size: 13px;
 		}
+		
+		.modal-dialog {
+			position: relative
+			width:600px;
+			margin:45px auto;
+		}
+		
+		@media screen and (max-width: 480px) {
 
+			button {
+				padding: 0;
+				width: auto;
+			}
+		}
 		.image {
 		border: 0;
 		display: inline-block;
@@ -91,7 +104,7 @@
 									<div class="col-sm-7 infobox-container">
 										<div class="infobox infobox-orange2">
 											<div class="infobox-progress">
-												<div class="easy-pie-chart percentage" data-percent="31" data-size="104" style="font-size: 24px;">
+												<div class="easy-pie-chart percentage" data-percent="31" data-size="100" style="font-size: 22px;">
 													<span class="percent">31</span>%
 												</div>
 											</div>
@@ -105,7 +118,7 @@
 
 										<div class="infobox infobox-green">
 											<div class="infobox-progress">
-												<div class="easy-pie-chart percentage" data-percent="31" data-size="104" style="font-size: 24px;">
+												<div class="easy-pie-chart percentage" data-percent="31" data-size="100" style="font-size: 22px;">
 													<span class="percent">31</span>%
 												</div>
 											</div>
@@ -119,7 +132,7 @@
 
 										<div class="infobox infobox-blue2">
 											<div class="infobox-progress">
-												<div class="easy-pie-chart percentage" data-percent="38" data-size="104" style="font-size: 24px;">
+												<div class="easy-pie-chart percentage" data-percent="38" data-size="100" style="font-size: 22px;">
 													<span class="percent">38</span>%
 												</div>
 											</div>
@@ -133,11 +146,11 @@
 
 										<div class="infobox infobox-orange2">
 											<div class="infobox-chart">
-												<span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"></span>
+												<span class="sparkline" data-values="97.55, 100.17, 100.55, 95.61, 100.04, 96.59, 99.47, 100.68, 99.70, 87.29, 86.68, 100.67"></span>
 											</div>
 
 											<div class="infobox-data">
-												<span class="infobox-data-number">6,251</span>
+												<span class="infobox-data-number">평균:97.08</span>
 												<div class="infobox-content">월별 매출</div>
 											</div>
 
@@ -149,12 +162,11 @@
 
 										<div class="infobox infobox-green">
 											<div class="infobox-chart">
-												<span class="sparkline" data-values="196,128,202,177,154,94,100,170,224">
-												</span>
+												<span class="sparkline" data-values="96.16, 99.73, 99.29, 97.95, 100.93, 96.80, 98.90, 98.65, 102.13, 85.94, 85.84, 99.87"></span>
 											</div>
 
 											<div class="infobox-data">
-												<span class="infobox-data-number">6,251</span>
+												<span class="infobox-data-number">평균:96.82</span>
 												<div class="infobox-content">월별 매출</div>
 											</div>
 
@@ -166,11 +178,11 @@
 
 										<div class="infobox infobox-blue2">
 											<div class="infobox-chart">
-												<span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"></span>
+												<span class="sparkline" data-values="131.52, 132.47, 133.68, 128.97, 133.93, 91.82, 103.29, 111.02, 130.43, 79.67, 92.75, 132.83"></span>
 											</div>
 
 											<div class="infobox-data">
-												<span class="infobox-data-number">6,251</span>
+												<span class="infobox-data-number">평균:116.87</span>
 												<div class="infobox-content">월별 매출</div>
 											</div>
 
@@ -182,18 +194,16 @@
 
 										<div class="space-6"></div>
 
-
-										<div class="infobox infobox-blue infobox infobox-dark">
+										<a href="#my-modal" class="infobox infobox-blue infobox infobox-dark" data-toggle="modal">
 											<div class="infobox-chart">
-												<span class="sparkline" data-values="97.02, 96.75, 116.63"></span>
+												<span class="sparkline" data-values="97.08, 96.82, 116.87"></span>
 											</div>
 
 											<div class="infobox-data">
-												<div class="infobox-content">총 매출</div>
-												<div class="infobox-content">$32,000</div>
+												<div class="infobox-content">매장비교 상세</div>
+												<div class="infobox-content">총 평균:103.59</div>
 											</div>
-										</div>
-
+										</a>
 
 									</div>
 
@@ -256,10 +266,10 @@
 													<div class="clearfix">
 														<div class="grid3">
 															<span class="grey">
-																<i class="ace-icon fa fa-cutlery fa-2x red"></i>
+																<i class="ace-icon fa fa-cutlery fa-2x red2"></i>
 																&nbsp; 삼성점
 															</span>
-															<h4 class="bigger pull-right">97.025</h4>
+															<h4 class="bigger pull-right">97.08</h4>
 														</div>
 
 														<div class="grid3">
@@ -267,7 +277,7 @@
 																<i class="ace-icon fa fa-cutlery fa-2x green"></i>
 																&nbsp; 서초점
 															</span>
-															<h4 class="bigger pull-right">96.754</h4>
+															<h4 class="bigger pull-right">96.82</h4>
 														</div>
 
 														<div class="grid3">
@@ -275,7 +285,7 @@
 																<i class="ace-icon fa fa-cutlery fa-2x blue"></i>
 																&nbsp; 잠실점
 															</span>
-															<h4 class="bigger pull-right">116.637</h4>
+															<h4 class="bigger pull-right">116.87</h4>
 														</div>
 													</div>
 												</div><!-- /.widget-main -->
@@ -346,7 +356,51 @@
 						</div><!-- /.row -->
 			</div>
 		</div>
-	</div>	
+	</div>
+		
+				<!-- Modal -->
+				<div class="container">
+  				<div id="my-modal" class="modal fade" tabindex="-1">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h3 class="smaller lighter blue no-margin">소유 매장의 매출 상세 비교</h3>
+											</div>
+
+											<div class="modal-body">
+												<img class="image fit" id="output-temp" alt="store sales image" src="images/%EA%B0%80%EA%B2%8C%EB%B3%84%EB%A7%A4%EC%B6%9C%EB%B9%84%EA%B5%901.png" />
+											</div>
+
+											<div class="modal-footer">
+												<button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
+													<i class="ace-icon fa fa-times"></i>
+													Close
+												</button>
+											</div>
+										</div><!-- /.modal-content -->
+									</div><!-- /.modal-dialog -->
+								</div>
+
+								<div id="aside-inside-modal" class="modal" data-placement="bottom" data-background="true" data-backdrop="false" tabindex="-1">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-body">
+												<div class="row">
+													<div class="col-xs-12 white">
+														<h4 class="lighter no-margin">매장 매출 총합</h4>
+														<p align="center">귀하의 매장 매출 총합은 <span id="total sales">310.77</span> 입니다.</p>
+														<br />
+													</div>
+												</div>
+											</div>
+										</div><!-- /.modal-content -->
+
+										<button class="btn btn-default btn-app btn-xs ace-settings-btn aside-trigger" data-target="#aside-inside-modal" data-toggle="modal" type="button">
+											<i data-icon2="fa-arrow-down" data-icon1="fa-arrow-up" class="ace-icon fa fa-arrow-up bigger-110 icon-only"></i>
+										</button>
+									</div><!-- /.modal-dialog -->
+								</div>
+					</div>	
 						
 <!-- Footer -->
 <footer id="footer">
@@ -418,11 +472,11 @@
 				
 			  $.resize.throttleWindow = false;
 			
-			  var placeholder = $('#piechart-placeholder').css({'width':'90%' , 'min-height':'300px'});
+			  var placeholder = $('#piechart-placeholder').css({'width':'90%' , 'min-height':'340px'});
 			  var data = [
 				{ label: "서초점",  data: 31.1, color: "#68BC31"},
 				{ label: "잠실점",  data: 37.6, color: "#2091CF"},
-				{ label: "삼성점",  data: 31.3, color: "#E4564F"}
+				{ label: "삼성점",  data: 31.3, color: "#F79263"}
 			  ]
 			  function drawPieChart(placeholder, data, position) {
 			 	  $.plot(placeholder, data, {
@@ -535,6 +589,24 @@
 					}
 				});
 				*/
+			})
+	</script>
+	<script type="text/javascript">
+			jQuery(function($) {
+				$('.modal.aside').ace_aside();
+				
+				$('#aside-inside-modal').addClass('aside').ace_aside({container: '#my-modal > .modal-dialog'});
+				
+				//$('#top-menu').modal('show')
+				
+				$(document).one('ajaxloadstart.page', function(e) {
+					//in ajax mode, remove before leaving page
+					$('.modal.aside').remove();
+					$(window).off('.aside')
+				});
+				
+				//make content sliders resizable using jQuery UI (you should include jquery ui files)
+				//$('#right-menu > .modal-dialog').resizable({handles: "w", grid: [ 20, 0 ], minWidth: 200, maxWidth: 600});
 			})
 	</script>
 	<script>
