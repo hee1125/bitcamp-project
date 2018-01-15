@@ -1,6 +1,6 @@
 const request = require('request')
-const castArray = require("lodash/castArray")
-const isEmpty = require("lodash/isEmpty")
+//const castArray = require("lodash/castArray")
+//const isEmpty = require("lodash/isEmpty")
 
 const callAPI = (endPoint, messageDataArray, queryParams = {}, retries = 5) => {
   // Error if developer forgot to specify an endpoint to send our request to
