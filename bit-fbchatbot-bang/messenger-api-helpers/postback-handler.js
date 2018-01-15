@@ -193,7 +193,7 @@ addPostback("/store", (recipientId) => {
   api.callMessagesAPI(messageData);
 })
 addPostback("/store/temperature", (recipientId) => {
-  sendAPI.sendTextMessage(recipientId, '현재온도:' + global.temp);
+  sendAPI.sendTextMessage(recipientId, '현재온도:' + global.temp + '°C');
 
 })
 
@@ -230,7 +230,7 @@ addPostback("/store/humidifier", (recipientId) => {
       }
     }
   };
-  sendAPI.sendTextMessage(recipientId, '현재 실내 습도 : ' + global.humi);
+  sendAPI.sendTextMessage(recipientId, '현재 실내 습도 : ' + global.humi + '%');
   api.callMessagesAPI(messageData);
 })
 
@@ -286,7 +286,7 @@ addPostback("/store/ventilator", (recipientId) => {
       }
     }
   };
-  sendAPI.sendTextMessage(recipientId, '현재 미세먼지농도 : ' + global.dust);
+  sendAPI.sendTextMessage(recipientId, '현재 미세먼지농도 : ' + global.dust + '[ug/m3]');
   api.callMessagesAPI(messageData);
 })
 
