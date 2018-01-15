@@ -3,7 +3,7 @@ const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi');
 const awsIoT = require('../iot-api/aws')
 
-
+ 
 //message를 받았을 때 그 메시지를 처리할 함수를 보관하는 빈 객체.
 const messageHandler = {
 };
